@@ -24,8 +24,8 @@ export const clearSessionErrors = () => ({
 });
 
 export const signup = (user) =>
-  startSession(user, 'api/users/register');
-export const login = (user) => startSession(user, 'api/users/login');
+  startSession(user, '/api/users/register');
+export const login = (user) => startSession(user, '/api/users/login');
 
 const startSession = (userInfo, route) => async (dispatch) => {
   try {
@@ -55,19 +55,6 @@ export const getCurrentUser = () => async (dispatch) => {
   return dispatch(receiveCurrentUser(user));
 };
 
-const nullErrors = null;
-export const sessionErrorsReducer = (state = nullErrors, action) => {
-  switch (action.type) {
-    case RECEIVE_SESSION_ERRORS:
-      return action.errors;
-    case RECEIVE_CURRENT_USER:
-    case CLEAR_SESSION_ERRORS:
-      return nullErrors;
-    default:
-      return state;
-  }
-};
-
 const initialState = { user: undefined };
 
 const sessionReducer = (state = initialState, action) => {
@@ -80,5 +67,21 @@ const sessionReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const nullErrors = null;
+
+export const sessionErrorsReducer = (state = nullErrors, action) => {
+  switch (action.type) {
+    case RECEIVE_SESSION_ERRORS:
+      return action.errors;
+    case RECEIVE_CURRENT_USER:
+    case CLEAR_SESSION_ERRORS:
+      return nullErrors;
+    default:
+      return state;
+  }
+};
+
+
 
 export default sessionReducer;

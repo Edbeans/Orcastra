@@ -1,0 +1,37 @@
+.login-modal-background{ 
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.login-modal-button {
+    border-style: none; 
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #EFEFEF;
+    cursor: pointer
+}
+
+.login-modal-button:hover {
+    background-color: #b6b6b6
+}
+
+.login-modal-button:active {
+    transform: scale(95%);
+}
+
+
+
+
+
+.login-form {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}

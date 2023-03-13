@@ -7,31 +7,31 @@ export default function LoginForm(props) {
     const showLoginModal = props.showLoginModal
     const setShowLoginModal = props.setShowLoginModal
     const setShowSignUpModal = props.setShowSignUpModal
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     useEffect(() => {
-    return () => {
-      dispatch(clearSessionErrors());
-    };
-  }, [dispatch]);
+        return () => {
+            dispatch(clearSessionErrors());
+        };
+    }, [dispatch]);
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(login({username, password}))
+        dispatch(login({ email, password }))
     }
 
     return (
         <div className='login-modal-background'>
             <div className="login-modal">
-                <form onSubmit={handleSubmit}>
+                <form className="login-form" onSubmit={handleSubmit}>
                     <h2>Log in</h2>
                     <div>
-                        <label/> Username or Email
+                        <label /> Username or Email
                     </div>
                     <div>
-                        <input type="text" onChange={(e) => setUsername(e.target.value)} />
+                        <input type="text" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div>
                         <label>Password</label>
@@ -40,9 +40,19 @@ export default function LoginForm(props) {
                         <input type="password" onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div>
-                        <button>Log in</button>
+                        <button onClick={handleSubmit}>Log in</button>
                     </div>
                 </form>
+                <button
+                    type='submit'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(
+                            login({ email: 'demo@gmail.com', password: 'password' })
+                        );
+                    }}>
+                    Login as Demo User
+                </button>
             </div>
         </div>
     )
