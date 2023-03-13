@@ -1,6 +1,13 @@
+import { AuthRoute } from "./components/Routes/Routes";
+import { Switch } from "react-router-dom";
+import LoginSignUpPage from './components/Auth/LoginSignUpPage'
 function App() {
   return (
-    <h1>Hello from App</h1>
+    <div>
+      <Switch>
+        <AuthRoute exact path='/' component={LoginSignUpPage} />
+      </Switch>
+    </div>
   );
 }
 
