@@ -8,8 +8,8 @@ export default function LoginSignUpPage() {
     const [showSignUpModal, setShowSignUpModal] = useState(false)
 
     return (
-        <div>
-            <div><h1>ORCASTRA</h1></div>
+        <div className="loginsignuppage-wrapper">
+            <div className="login-signup-header-wrapper"><h1>ORCASTRA</h1></div>
             <div>
                 <LoginModal
                     showLoginModal={showLoginModal}

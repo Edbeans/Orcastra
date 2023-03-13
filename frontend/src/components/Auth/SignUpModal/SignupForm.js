@@ -1,18 +1,33 @@
 import './SignUpModal.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { signup, clearSessionErrors } from '../../../store/session';
 
 export default function SignUpForm(props) {
     const showSignUpModal = props.showSignUpModal
     const setShowLoginModal = props.setShowLoginModal
     const setShowSignUpModal = props.setShowSignUpModal
+    const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+    return () => {
+      dispatch(clearSessionErrors());
+    };
+  }, [dispatch]);
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const user = {
+            email,
+            username,
+            password
+        }
+        dispatch(signup(user))
     }
 
     return (
@@ -20,10 +35,16 @@ export default function SignUpForm(props) {
             <div className="login-modal">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label /> Username or Email
+                        <label /> Username
                     </div>
                     <div>
                         <input type="text" onChange={(e) => setUsername(e.target.value)} />
+                    </div>
+                    <div>
+                        <label /> Email
+                    </div>
+                    <div>
+                        <input type="text" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div>
                         <label>Password</label>
