@@ -33,7 +33,8 @@ export default function SignUpForm(props) {
     return (
         <div className='login-modal-background'>
             <div className="login-modal">
-                <form onSubmit={handleSubmit}>
+                <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
+                <form className="signup-form" onSubmit={handleSubmit}>
                     <div>
                         <label /> Username
                     </div>

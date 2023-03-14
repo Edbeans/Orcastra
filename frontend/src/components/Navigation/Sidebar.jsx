@@ -5,9 +5,9 @@ import { navData } from "../../lib/navdata"
 import MenuIcon from '@mui/icons-material/Menu';
 import LoginModal from "../Auth/LoginModal";
 import SignUpModal from "../Auth/SignUpModal";
-// import React from 'react';
+import React from 'react';
 
-// export const ModalContext = React.createContext();
+export const ModalContext = React.createContext();
 
 
 export default function Sidebar() {
@@ -39,14 +39,20 @@ export default function Sidebar() {
 
                 {/* <button className="login-modal-button" onClick={() => setShowLoginModal(true)}>Log in</button> */}
                 <div className='sideitem-authfunctions-container'>
-                    <div className='sideitem' onClick={() => setShowLoginModal(true)}> 
-                    <LoginModal 
+                    {/* <div className='sideitem' onClick={() => setShowLoginModal(true)}>  */}
+                    {/* <LoginModal 
                         showLoginModal={showLoginModal}
                         open={open}
                         setShowLoginModal={setShowLoginModal}
                         setShowSignUpModal={setShowSignUpModal}
-                    /> <span className={open ? "linkText" : "linkTextClosed"}>Login</span>
-                    </div>
+                        /> */}
+
+                    <ModalContext.Provider value={{open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal, SignUpModal}}>
+                        <SignUpModal/>
+                        <LoginModal/>
+                    </ModalContext.Provider>
+
+                    {/* </div> */}
                 </div>
             </div>
         </div>

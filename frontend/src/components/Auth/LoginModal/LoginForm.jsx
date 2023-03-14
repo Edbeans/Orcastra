@@ -1,9 +1,13 @@
 import './LoginModal.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { login, clearSessionErrors } from '../../../store/session';
 import { useDispatch } from 'react-redux';
+import { ModalContext } from '../../Navigation/Sidebar';
+
 export default function LoginForm(props) {
     const dispatch = useDispatch()
+
+    // const {showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal} = useContext(ModalContext)
     const showLoginModal = props.showLoginModal
     const setShowLoginModal = props.setShowLoginModal
     const setShowSignUpModal = props.setShowSignUpModal
@@ -16,10 +20,16 @@ export default function LoginForm(props) {
         };
     }, [dispatch]);
 
-    const handleOutsideClick = () => {
-        setShowLoginModal(false)
-    }
+    // const handleOutsideClick = () => {
+    //     setShowLoginModal(false)
+    // }
 
+    const toggleForm = () => {
+        setShowLoginModal(false)
+        console.log('login', showLoginModal)
+        setShowSignUpModal(true)
+        // console.log('signup', showSignUpModal)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,6 +39,7 @@ export default function LoginForm(props) {
     return (
         <div className='login-modal-background'>
             <div className="login-modal">
+                <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 style={{ fontSize: '36px', textAlign: 'center', paddingBottom: '15px' }}>Welcome to Orcastra</h2>
                     <div className="login-input-text-wrapper">
@@ -57,6 +68,8 @@ export default function LoginForm(props) {
                     Login as Demo User
                 </button>
             </div>
+
+            <div onClick={toggleForm}>Don't have an account yet? Sign up</div>
         </div>
     )
 }

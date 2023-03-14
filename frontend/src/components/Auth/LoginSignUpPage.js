@@ -22,7 +22,7 @@ export default function LoginSignUpPage() {
                 data-aos-duration="1700"
                 >ORCASTRA</h1></div>
             
-            <div className='loginsignuppage-button' data-aos="fade-down"
+            {/* <div className='loginsignuppage-button' data-aos="fade-down"
                 data-aos-duration="1500">
                 <LoginModal
                     showLoginModal={showLoginModal}
@@ -36,7 +36,7 @@ export default function LoginSignUpPage() {
                     showSignUpModal={showSignUpModal}
                     setShowSignUpModal={setShowSignUpModal}
                     setShowLoginModal={setShowLoginModal}/>
-            </div>
+            </div> */}
         </div>
     )
 }
