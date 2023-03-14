@@ -70,8 +70,8 @@ const ideas = [];
 
 const demoIdea = new Idea({
   owner: demo._id,
+  title: 'Test Idea 1',
   body: 'dkjafskdjflakdjlkjakldfjkasfjkdGJFHDGASDLFJHASGDJHFGSDAHJGFJHKSDAGFJHSDGFKJASGJFKJDSGAFDSJGFJASDGFJKDSHAJKDFHKAJSHDKJSFHJKFHGDSKJGHJKgfhkdsghfdkjghaskhsfdjghlfsdghkjghfsdhglfkfhdskfgbsjdgkjfsdhghfdksghkdfgjhsdkjghkjdfshgkjsdfhgkdsfhgkjsdfhglsdhfljgdh',
-  hashedPassword: bcrypt.hashSync('password', 10),
 });
 
 ideas.push(demoIdea);

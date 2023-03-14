@@ -90,6 +90,7 @@ router.patch(
         error.errors = { message: 'No idea found with that id' };
         return next(error);
       }
+
       if (idea.owner.toString() !== req.user._id.toString()) {
         const error = new Error('Unauthorized');
         error.statusCode = 401;
@@ -99,11 +100,10 @@ router.patch(
         };
         return next(error);
       }
-      idea.owner = req.user._id;
-      idea.title = req.body.title;
-      idea.body = req.body.body;
-
-      await idea.save();
+      (idea.owner = req.user._id),
+        (idea.title = req.body.title),
+        (idea.body = req.body.body),
+        await idea.save();
 
       idea = await Idea.findById(req.params.id).populate(
         'owner',
