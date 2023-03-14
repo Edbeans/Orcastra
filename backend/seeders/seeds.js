@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
+const Idea = require('../models/Idea');
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
 const NUM_SEED_USERS = 10;
+const NUM_SEED_IDEAS = 20;
 
 // SEED USERS
 const users = [];
@@ -59,6 +61,21 @@ for (let i = 0; i < NUM_SEED_USERS; i++) {
   );
 }
 
+const demo = users[0];
+const edward = users[1];
+const daniel = users[2];
+const omar = users[3];
+// SEED IDEAS
+const ideas = [];
+
+const demoIdea = new Idea({
+  owner: demo._id,
+  body: 'dkjafskdjflakdjlkjakldfjkasfjkdGJFHDGASDLFJHASGDJHFGSDAHJGFJHKSDAGFJHSDGFKJASGJFKJDSGAFDSJGFJASDGFJKDSHAJKDFHKAJSHDKJSFHJKFHGDSKJGHJKgfhkdsghfdkjghaskhsfdjghlfsdghkjghfsdhglfkfhdskfgbsjdgkjfsdhghfdksghkdfgjhsdkjghkjdfshgkjsdfhgkdsfhgkjsdfhglsdhfljgdh',
+  hashedPassword: bcrypt.hashSync('password', 10),
+});
+
+ideas.push(demoIdea);
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
@@ -73,7 +90,9 @@ const insertSeeds = () => {
   console.log('Resetting db and seeding users...');
   User.collection
     .drop()
+    .then(() => Idea.collection.drop())
     .then(() => User.insertMany(users))
+    .then(() => Idea.insertMany(ideas))
     .then(() => {
       console.log('done!');
       mongoose.disconnect();
