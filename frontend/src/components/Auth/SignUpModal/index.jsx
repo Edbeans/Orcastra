@@ -1,16 +1,20 @@
 import { Modal } from '../../../context/modal'
 import './SignUpModal.css'
 import SignUpForm from './SignupForm'
+import { useContext } from 'react'
+import { ModalContext } from '../../Navigation/Sidebar'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-export default function SignUpModal(props) {
-    const showSignUpModal = props.showSignUpModal
-    const setShowSignUpModal = props.setShowSignUpModal
-    const setShowLoginModal = props.setShowLoginModal
 
+export default function SignUpModal() {
+
+    const { open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(ModalContext)
     return (
         <div>
-            <div>
-                <button className="login-modal-button" onClick={() => setShowSignUpModal(true)}>Sign Up</button>
+                <div className="sideitem" onClick={() => setShowSignUpModal(true)}><AddCircleIcon/>
+                <span className={open ? "linkText" : "linkTextClosed"}>Sign up</span>
+                </div>
+
                 {showSignUpModal && (
                     <Modal onClose={() => setShowSignUpModal(false)}>
                         <SignUpForm
@@ -19,7 +23,6 @@ export default function SignUpModal(props) {
                             setShowSignUpModal={setShowSignUpModal} />
                     </Modal>
                 )}
-            </div>
         </div>
     )
 }
