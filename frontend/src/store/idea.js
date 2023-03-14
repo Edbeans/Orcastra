@@ -38,11 +38,11 @@ const clearIdeaErrors = () => ({
 })
 
 export const getIdeas = (state) => {
-    state.ideas ? Object.values(state.ideas) : []
+    return state.ideas ? Object.values(state.ideas) : []
 }
 
-export const getIdea = (ideaId) => {
-    state.ideas ? state.ideas[ideaId] : null
+export const getIdea = (ideaId) => (state) => {
+    return state.ideas ? state.ideas[ideaId] : null
 }
 
 export const fetchIdeas = () => async dispatch => {
@@ -86,13 +86,16 @@ export const fetchUserIdeas = (userId) => async dispatch => {
 
 export const createIdea = (idea) => async dispatch => {
     try {
+        // debugger
         const res = await jwtFetch('/api/ideas/', {
             method: 'POST',
             body: JSON.stringify(idea)
         })
-        const idea = res.json()
-        dispatch(receiveIdea(idea))
-    } catch(err) {
+        let newIdea = await res.json()
+        console.log(idea)
+        dispatch(receiveIdea(newIdea))
+        return newIdea
+    } catch (err) {
         const resBody = await err.json()
         if (resBody.statusCode === 400) {
             return dispatch(receiveIdeaErrors(resBody.errors))
@@ -133,9 +136,11 @@ const ideasReducer = (state={}, action) => {
         case RECEIVE_IDEAS:
             return action.ideas
         case RECEIVE_IDEA:
-            const idea = action.idea
-            newState[idea.id] = action.idea
-            return newState
+            // const idea = action.idea
+            // console.log('idea', idea)
+            // newState[idea.id] = idea
+            // return newState
+            return {...newState, [action.idea._id]: action.idea}
         case RECEIVE_USER_IDEAS: 
             return action.ideas
         case REMOVE_IDEA: 

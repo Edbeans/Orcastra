@@ -18,7 +18,7 @@ const singleFileUpload = async ({ file, public = false }) => {
     return public ? result.Location : result.Key;
 };
 
-const multipleFilesUpload = async ({ files, public = false }) => {
+const multipleFilesUpload = async ({ files=[], public = false }) => {
     return await Promise.all(
         files.map((file) => {
             return singleFileUpload({file, public});
