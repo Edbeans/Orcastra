@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { AuthRoute, ProtectedRoute } from "./components/Routes/Routes";
-import { Switch } from "react-router-dom";
+import { NavLink, Switch } from "react-router-dom";
 import LoginSignUpPage from './components/Auth/LoginSignUpPage'
 import { getCurrentUser } from './store/session';
 import FeedPage from './components/Feed/FeedPage';
+import Sidebar from './components/Navigation/Sidebar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,6 +18,7 @@ function App() {
   return (
     loaded && (
       <>
+      <Sidebar/>
         <Switch>
           <ProtectedRoute exact path='/' component={FeedPage} />
           <AuthRoute exact path='/' component={LoginSignUpPage} />
