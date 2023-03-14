@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
   try {
     const ideas = await Idea.find().populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
     return res.json(ideas);
   } catch (error) {
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const idea = await Idea.findOne({ _id: req.params.id }).populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
 
     return res.json(idea);
@@ -48,7 +48,7 @@ router.get('/user/:userId', async (req, res, next) => {
   try {
     const ideas = await Idea.find({ owner: user._id }).populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
     return res.json(ideas);
   } catch (error) {
@@ -107,7 +107,7 @@ router.patch(
 
       idea = await Idea.findById(req.params.id).populate(
         'owner',
-        '_id, username'
+        '_id, username profileImageUrl'
       );
 
       return res.json(idea);
