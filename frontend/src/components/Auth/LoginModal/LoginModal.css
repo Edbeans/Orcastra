@@ -1,8 +1,8 @@
 .login-modal-button {
     border-style: none; 
-    width: 80px;
+    width: 250px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 16px;
     background-color: #EFEFEF;
     cursor: pointer
 }

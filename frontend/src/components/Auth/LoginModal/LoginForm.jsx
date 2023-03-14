@@ -16,6 +16,10 @@ export default function LoginForm(props) {
         };
     }, [dispatch]);
 
+    const handleOutsideClick = () => {
+        setShowLoginModal(false)
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
