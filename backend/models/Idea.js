@@ -16,6 +16,10 @@ const ideaSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    imageUrls: {
+      type: [String],
+      required: false 
+    },
   },
   {
     timestamps: true,
