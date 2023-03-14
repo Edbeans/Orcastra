@@ -13,13 +13,13 @@ export default function LoginModal(props) {
 
     return (
         <div>
-            <div onClick={() => setShowLoginModal(true)}><LoginIcon/></div>
+            <div onClick={() => setShowLoginModal(true)}><LoginIcon /></div>
             {showLoginModal && (
                 <Modal onClose={() => setShowLoginModal(false)}>
                     <LoginForm
                         showLoginModal={showLoginModal}
                         setShowLoginModal={setShowLoginModal}
-                        setShowSignUpModal={setShowSignUpModal}/>
+                        setShowSignUpModal={setShowSignUpModal} />
                 </Modal>
             )}
         </div>

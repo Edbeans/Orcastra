@@ -1,10 +1,19 @@
+
+.sidenav-container {
+    position: fixed;
+}
+
 .sidenav {
     width: 250px;
     transition: width 0.2s ease-in-out;
     height: 100vh;
     background-color: rgb(10, 25, 41);
     padding-top: 28px;
-    position: absolute;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidenavClosed {
@@ -12,8 +21,19 @@
     width: 60px;
     height: 100vh;
     background-color: rgb(10, 25, 41);
-    position: absolute;
+    position: sticky;
+    top: 0px;
 }
+
+/* .sidenav ::-webkit-scrollbar:vertical,
+.sidenavClosed ::-webkit-scrollbar:vertical {
+    display: none;
+} */
+
+/* .sideitem-container {
+    display: flex;
+    flex-direction: column;
+} */
 
 .sideitem {
     display: flex;
@@ -35,16 +55,22 @@
 
 .linkText {
     padding-left: 16px;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 .linkTextClosed {
     padding-left: 16px;
-    visibility: hidden;
+    opacity: 0;
 }
 
 .sideitem:hover {
     background-color: #244f7d1c;
 
+}
+
+.sideitem-authfunctions-container {
+    padding-bottom: 30px
 }
 
 .menu-button {
@@ -68,4 +94,5 @@
     border: none;
     cursor: pointer;
     padding-left: 20px;
+    /* padding-top: 28px; */
 }

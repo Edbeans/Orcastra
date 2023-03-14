@@ -5,10 +5,16 @@ import { useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 
+// import React from 'react';
+
+// // context for modal
+// export const ModalContext = React.createContext();
+
 export default function LoginSignUpPage() {
-    const [showLoginModal, setShowLoginModal] = useState(false)
-    const [showSignUpModal, setShowSignUpModal] = useState(false)
+    // const [showLoginModal, setShowLoginModal] = useState(false)
+    // const [showSignUpModal, setShowSignUpModal] = useState(false)
     AOS.init();
+
 
     return (
         <div className="loginsignuppage-wrapper">
