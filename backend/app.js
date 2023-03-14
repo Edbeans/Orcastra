@@ -7,9 +7,9 @@ const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./models/Idea');
 require('./config/passport');
 const passport = require('passport');
-
 
 const app = express();
 
@@ -32,10 +32,12 @@ app.use(
 );
 // IMPORT FILE PATHS
 const usersRouter = require('./routes/api/users');
+const ideasRouter = require('./routes/api/ideas');
 const csrfRouter = require('./routes/api/csrf');
 
 // ADD EXPRESS ROUTERS
 app.use('/api/users', usersRouter);
+app.use('/api/ideas', ideasRouter);
 app.use('/api/csrf', csrfRouter);
 
 // CATCH ALL UNMATCHED ROUTES AND FORMAT ERRORS/404
