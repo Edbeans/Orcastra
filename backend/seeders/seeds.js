@@ -50,8 +50,6 @@ users.push(
 );
 
 for (let i = 0; i < NUM_SEED_USERS; i++) {
-  const firstName = faker.name.firstName();
-  const lastName = faker.name.lastName();
   users.push(
     new User({
       username: faker.name.firstName(),
@@ -72,7 +70,7 @@ mongoose
   });
 
 const insertSeeds = () => {
-  console.log('Resetting db and seeding users and tweets...');
+  console.log('Resetting db and seeding users...');
   User.collection
     .drop()
     .then(() => User.insertMany(users))

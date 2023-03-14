@@ -10,9 +10,10 @@ require('./models/User');
 require('./config/passport');
 const passport = require('passport');
 
-if (!isProduction) app.use(cors());
 
 const app = express();
+
+if (!isProduction) app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

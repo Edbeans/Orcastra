@@ -1,0 +1,30 @@
+.loginsignuppage-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-signup-header-wrapper {
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+    font-weight: 600;
+    color: white;
+    opacity: 0; 
+    animation: fadeIn 5s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards; 
+}
+
+.loginsignuppage-button {
+    padding: 10px;
+    animation: fadeIn 5s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+}
+
+body {
+    background-color: #22272F;
+}
