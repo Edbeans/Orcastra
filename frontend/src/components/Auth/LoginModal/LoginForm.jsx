@@ -26,24 +26,23 @@ export default function LoginForm(props) {
         <div className='login-modal-background'>
             <div className="login-modal">
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <h2>Log in</h2>
-                    <div>
-                        <label /> Username or Email
-                    </div>
-                    <div>
-                        <input type="text" onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                    </div>
-                    <div>
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <div>
-                        <button onClick={handleSubmit}>Log in</button>
+                    <h2 style={{ fontSize: '36px', textAlign: 'center', paddingBottom: '15px' }}>Welcome to Orcastra</h2>
+                    <div className="login-input-text-wrapper">
+                        <div>
+                            <label> Username or Email </label>
+                            <input type="text" onChange={(e) => setEmail(e.target.value)} />
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" onChange={(e) => setPassword(e.target.value)} />
+                        </div>
+                        <div>
+                            <button onClick={handleSubmit}>Log in</button>
+                        </div>
                     </div>
                 </form>
                 <button
+                    style={{marginTop:'20px'}}
                     type='submit'
                     onClick={(e) => {
                         e.preventDefault();
