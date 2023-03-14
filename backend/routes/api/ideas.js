@@ -5,6 +5,7 @@ const User = mongoose.model('User');
 const Idea = mongoose.model('Idea');
 const { requireUser } = require('../../config/passport');
 const validateIdeasInput = require('../../validations/ideas');
+const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.get('/', async (req, res, next) => {
   try {
@@ -58,19 +59,22 @@ router.get('/user/:userId', async (req, res, next) => {
 
 router.post(
   '/',
+  multipleMulterUpload("images"),
   requireUser,
   validateIdeasInput,
   async (req, res, next) => {
+    const imageUrls = await multipleFilesUpload({ files: req.files, public: true });
     try {
       const newIdea = new Idea({
         owner: req.user._id,
         title: req.body.title,
         body: req.body.body,
+        imageUrls
       });
 
-      let idea = await newIdea.save();
+      let idea = await newIdea.save(); 
       idea = await idea;
-      return res.json(idea);
+      return res.json(idea); 
     } catch (error) {
       next(error);
     }
