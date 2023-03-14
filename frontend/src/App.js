@@ -7,6 +7,8 @@ import { getCurrentUser } from './store/session';
 import FeedPage from './components/Feed/FeedPage';
 import Sidebar from './components/Navigation/Sidebar';
 
+import CreateIdeaPage from './components/CreateIdeaPage';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
