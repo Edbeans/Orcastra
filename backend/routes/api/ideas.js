@@ -5,12 +5,13 @@ const User = mongoose.model('User');
 const Idea = mongoose.model('Idea');
 const { requireUser } = require('../../config/passport');
 const validateIdeasInput = require('../../validations/ideas');
+const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.get('/', async (req, res, next) => {
   try {
     const ideas = await Idea.find().populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
     return res.json(ideas);
   } catch (error) {
@@ -22,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const idea = await Idea.findOne({ _id: req.params.id }).populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
 
     return res.json(idea);
@@ -48,7 +49,7 @@ router.get('/user/:userId', async (req, res, next) => {
   try {
     const ideas = await Idea.find({ owner: user._id }).populate(
       'owner',
-      '_id, username'
+      '_id, username profileImageUrl'
     );
     return res.json(ideas);
   } catch (error) {
@@ -58,19 +59,22 @@ router.get('/user/:userId', async (req, res, next) => {
 
 router.post(
   '/',
+  multipleMulterUpload("images"),
   requireUser,
   validateIdeasInput,
   async (req, res, next) => {
+    const imageUrls = await multipleFilesUpload({ files: req.files, public: true });
     try {
       const newIdea = new Idea({
         owner: req.user._id,
         title: req.body.title,
         body: req.body.body,
+        imageUrls
       });
 
-      let idea = await newIdea.save();
+      let idea = await newIdea.save(); 
       idea = await idea;
-      return res.json(idea);
+      return res.json(idea); 
     } catch (error) {
       next(error);
     }
@@ -107,7 +111,7 @@ router.patch(
 
       idea = await Idea.findById(req.params.id).populate(
         'owner',
-        '_id, username'
+        '_id, username profileImageUrl'
       );
 
       return res.json(idea);

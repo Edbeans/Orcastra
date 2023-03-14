@@ -8,6 +8,9 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
+const { singleFileUpload, singleMulterUpload } = require('../../awsS3');
+
+const DEFAULT_PROFILE_IMAGE_URL = 's3://ey-aws-mern-orcastra/public/';
 
 router.get('/', function (req, res, next) {
   res.json({
@@ -17,6 +20,7 @@ router.get('/', function (req, res, next) {
 
 router.post(
   '/register',
+  singleMulterUpload("image"),
   validateRegisterInput,
   async (req, res, next) => {
     const standardizedUsername = req.body.username.toLowerCase();
@@ -45,9 +49,13 @@ router.post(
       return next(err);
     }
 
+    const profileImageUrl = req.file ?
+      await singleFileUpload({ file: req.file, public: true }) : 
+        DEFAULT_PROFILE_IMAGE_URL;
     const newUser = new User({
       username: standardizedUsername,
-      email: standardizedEmail,
+      profileImageUrl, 
+      email: standardizedEmail
     });
 
     bcrypt.genSalt(10, (err, salt) => {
@@ -70,7 +78,7 @@ router.post(
   }
 );
 
-router.post('/login', validateLoginInput, async (req, res, next) => {
+router.post('/login', singleMulterUpload(""), validateLoginInput, async (req, res, next) => {
   passport.authenticate('local', async function (err, user) {
     if (err) return next(err);
     if (!user) {
@@ -92,7 +100,8 @@ router.get('/current', restoreUser, (req, res) => {
   res.json({
     _id: req.user._id,
     username: req.user.username,
-    email: req.user.email,
+    profileImageUrl: req.user.profileImageUrl,
+    email: req.user.email
   });
 });
 
