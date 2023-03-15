@@ -1,33 +1,35 @@
-.login-modal-button {
+/* .login-modal-button {
     border-style: none; 
     width: 250px;
     height: 40px;
     border-radius: 16px;
     background-color: #EFEFEF;
     cursor: pointer
-}
+} */
 
-.login-modal-background{ 
-    width: 500px;
+.modal-background{ 
+    width: 400px;
     height: 600px;
     background-color: white;
     border-radius: 15px;
-    display: flex;
-    align-content: center;
-    justify-content: center;;
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    color: rgb(30 60 90);
 }
 
 .modal-close-button {
     background-color: #fff;
-    color: #2b381f;
+    color: rgb(30 60 90);
     transition: all 200ms ease-in-out 0s;
     font-size: 28px;
     height: 50px;
     width: 50px;
     border-radius: 9999px;
     border: none;
+    margin: 20px;
     fill: currentcolor; 
+    position: absolute;
+    right: 0px;
 }
 
 .modal-close-button:hover {
@@ -36,45 +38,40 @@
     cursor: pointer;
 }
 
-.login-modal {
+.login-signup-modal {
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
-.login-form {
-    height: 250px;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-}
-
-.login-input-text-wrapper {
-    height: 100%;
+.input-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
 }
 
-.login-form-input-group {
+.input-container>* {
+    margin: 10px;
+}
+
+.form-input-group {
     position: relative;
 }
 
-.login-inputs:focus~.login-input-labels {
+.form-inputs:focus~.form-input-labels {
     background: white;
     padding: 2px;
     left: 12px;
     top: -12px;
     font-size: 14px;
     opacity: 1;
-    color: #012411;
+    color: rgb(30 60 90);
     /* transition: color 0.3s ease; */
 }
 
-.login-inputs:not(:focus):valid~.login-input-labels {
+.form-inputs:not(:focus):valid~.form-input-labels {
     background: white;
     padding: 2px;
     left: 12px;
@@ -86,10 +83,10 @@
 }
 
 
-.login-inputs {
+.form-inputs {
     font-family: Manrope, Arial, sans-serif;
     font-size: 16px;
-    width: 320px;
+    width: 300px;
     height: 35px;
     border-radius: 8px;
     border: 1px solid #d4d4d4;
@@ -98,18 +95,18 @@
     transition: border 0.3s ease;
 }
 
-.login-inputs:focus {
-    border: 1px solid #0c441e;
-    box-shadow: 0 0 0 1px #0c441e;
+.form-inputs:focus {
+    border: 1px solid rgb(30 60 90);
+    box-shadow: 0 0 0 1px rgb(30 60 90);
     outline: none;
 }
 
-.login-inputs:hover {
-    border: 1px solid #0c441e;
+.form-inputs:hover {
+    border: 1px solid rgb(30 60 90);
     outline: none;
 }
 
-.login-input-labels {
+.form-input-labels {
     position: absolute;
     pointer-events: none;
     left: 10px;
@@ -122,14 +119,26 @@
     color: #888d85;
 }
 
-.login-modal-button:hover {
-    background-color: #b6b6b6
+.default-button-1 {
+    background-color: rgb(30 60 90);
+    color: #fff;
+    padding: 10px 100px;
+    border-radius: 9999px;
+    border: none;
+    font-family: Manrope, Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    width: 320px;
 }
 
-.login-modal-button:active {
-    transform: scale(95%);
+.default-button-1:hover {
+    background-color: rgb(20, 40, 60);
 }
 
-
-
-
+.login-to-signup-link {
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-position: under;
+}

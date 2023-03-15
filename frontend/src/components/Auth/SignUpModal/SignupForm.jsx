@@ -14,11 +14,15 @@ export default function SignUpForm(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-    return () => {
-      dispatch(clearSessionErrors());
-    };
-  }, [dispatch]);
+        return () => {
+            dispatch(clearSessionErrors());
+        };
+    }, [dispatch]);
 
+    const toggleForm = () => {
+        setShowLoginModal(true)
+        setShowSignUpModal(false)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,39 +35,78 @@ export default function SignUpForm(props) {
     }
 
     return (
-        <div className='login-modal-background'>
-            <div className="login-modal">
-                <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
-                <form className="signup-form" onSubmit={handleSubmit}>
-                    <div>
-                        <label /> Username
-                    </div>
-                    <div>
-                        <input type="text" onChange={(e) => setUsername(e.target.value)} />
-                    </div>
-                    <div>
-                        <label /> Email
-                    </div>
-                    <div>
-                        <input type="text" onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                    </div>
-                    <div>
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <div>
-                        <label>Confirm Password</label>
-                    </div>
-                    <div>
-                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
-                    </div>
-                    <div>
-                        <button>Sign Up</button>
+
+        <div className='modal-background'>
+            <button className="modal-close-button" onClick={() => setShowSignUpModal(false)}>&#10005;</button>
+            <div className="login-signup-modal">
+                <form className="login-signup-form" onSubmit={handleSubmit}>
+                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Find your orca today</h2>
+                    <div className="input-container">
+
+                        <div className='form-input-group'>
+                            <input className="form-inputs" type="text" onChange={(e) => setUsername(e.target.value)} required />
+                            <span className="form-input-labels">Username</span>
+                        </div>
+
+                        <div className='form-input-group'>
+                            <input className="form-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
+                            <span className="form-input-labels">Email</span>
+                        </div>
+
+                        <div className='form-input-group'>
+                            <input className="form-inputs" type="password" onChange={(e) => setPassword(e.target.value)} required />
+                            <span className="form-input-labels">Password</span>
+                        </div>
+
+                        <button className='default-button-1'
+                            style={{ padding: "10px 50px", marginTop: "220px" }}
+                            onClick={handleSubmit}>Sign Up</button>
+
                     </div>
                 </form>
+
+                <div>Already have an account?
+                    <span> </span>
+                    <span className="signup-to-login-link" onClick={toggleForm}>Log in here</span>
+                </div>
+
             </div>
+
         </div>
+
+        // <div className='login-modal-background'>
+        //     <div className="login-modal">
+        //         <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
+        //         <form className="signup-form" onSubmit={handleSubmit}>
+        //             <div>
+        //                 <label /> Username
+        //             </div>
+        //             <div>
+        //                 <input type="text" onChange={(e) => setUsername(e.target.value)} />
+        //             </div>
+        //             <div>
+        //                 <label /> Email
+        //             </div>
+        //             <div>
+        //                 <input type="text" onChange={(e) => setEmail(e.target.value)} />
+        //             </div>
+        //             <div>
+        //                 <label>Password</label>
+        //             </div>
+        //             <div>
+        //                 <input type="password" onChange={(e) => setPassword(e.target.value)} />
+        //             </div>
+        //             <div>
+        //                 <label>Confirm Password</label>
+        //             </div>
+        //             <div>
+        //                 <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
+        //             </div>
+        //             <div>
+        //                 <button>Sign Up</button>
+        //             </div>
+        //         </form>
+        //     </div>
+        // </div>
     )
 }

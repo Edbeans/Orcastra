@@ -1,0 +1,6 @@
+.signup-to-login-link {
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-position: under;
+}
