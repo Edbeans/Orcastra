@@ -20,7 +20,6 @@
 .cip-card {
     display: flex;
     flex-direction: column;
-
     background-color: white;
     width: 1200px;
     height: 1200px;

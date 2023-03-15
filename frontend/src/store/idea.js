@@ -84,15 +84,18 @@ export const fetchUserIdeas = (userId) => async dispatch => {
     }
 }
 
-export const createIdea = (idea) => async dispatch => {
+export const createIdea = (title, body, images) => async dispatch => {
     try {
-        // debugger
+        const formData = new FormData(); 
+        formData.append("title", title);
+        formData.append("body", body); 
+        Array.from(images).forEach(image => formData.append("images", image));
+
         const res = await jwtFetch('/api/ideas/', {
             method: 'POST',
-            body: JSON.stringify(idea)
+            body: formData
         })
         let newIdea = await res.json()
-        console.log(idea)
         dispatch(receiveIdea(newIdea))
         return newIdea
     } catch (err) {
