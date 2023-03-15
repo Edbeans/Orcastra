@@ -4,10 +4,12 @@ import { useState } from "react";
 import "./CreateIdeaPage.css";
 
 export default function CreateIdeaPage() {
-    const dispatch = useDispatch()
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
-    const [errors, setErrors] = useState([])
+    const dispatch = useDispatch();
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    // const [images, setImages] = useState([]);
+    // const [imageUrls, setImageUrls] = useState([]); 
+    const [errors, setErrors] = useState([]);
 
     function handleCipSubmit(e, errors) {
         e.preventDefault()
@@ -15,7 +17,8 @@ export default function CreateIdeaPage() {
         // formData.append("title", title)
         // formData.append("body", body)
         // dispatch(createIdea(formData))
-        const newIdea = {title, body}
+        // const newIdea = {title, body, images}
+        const newIdea = {title, body} 
         console.log('attempting submit')
         if (errors && Object.values(errors).length === 0) {
             console.log('attempting dispatch')
@@ -48,6 +51,11 @@ export default function CreateIdeaPage() {
                         <textarea className="cip-card-inputs" id="cip-input-description" onChange={(e) => setBody(e.target.value)}/>
                         <span className="cip-card-labels" >Description</span>
                     </div>
+                    {/* FOR IMAGES  */}
+                    {/* <div className="cip-card-image">
+                        <input className="cip-card-inputs" type="file" accept=".jpg, .jpeg, .png" multiple onChange={updateFiles}></input>
+                        <span className="cip-card-labels">Images</span>
+                    </div> */}
                     <button className='submit-idea-btn'>Submit Idea</button>
                 </form>
             </div>
