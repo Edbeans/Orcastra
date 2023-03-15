@@ -1,19 +1,53 @@
 .isp-container {
-    padding: 80px;
+    padding: 80px 50px 0px 50px;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1fr);
+    grid-template-rows: 2fr minmax(auto, auto);
+    /* grid-column-gap: 50px; */
 }
 
-.isp-title {
-    font-size: 100px;
-}
-
-.isp-description {
-    width: 800px;
-}
 
 .isp-media-container {
     background-image: url("/assets/edbeanis.jpeg");
     background-size: cover;
     background-position: center;
     height: 600px;
-    width: 800px;
+    width: 900px;
+    margin: 100px 25px 0px 0px;
 }
+
+.isp-info-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    border-left: 1px solid #ccc;
+}
+
+.isp-title {
+    font-size: 100px;
+    /* position: absolute;
+    right: 0px; */
+}
+
+.isp-description {
+    width: 500px;
+}
+
+.isp-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+}
+
+.isp-comments-container {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.isp-create-comment-form {
+    width: 1000px;
+}
+
