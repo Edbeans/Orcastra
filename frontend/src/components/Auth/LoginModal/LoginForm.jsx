@@ -38,19 +38,23 @@ export default function LoginForm(props) {
 
     return (
         <div className='login-modal-background'>
+            <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
             <div className="login-modal">
-                <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 style={{ fontSize: '36px', textAlign: 'center', paddingBottom: '15px' }}>Welcome to Orcastra</h2>
                     <div className="login-input-text-wrapper">
-                        <div>
-                            <label> Username or Email </label>
-                            <input type="text" onChange={(e) => setEmail(e.target.value)} />
+
+                        <div className='login-form-input-group'>
+                            <input className="login-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
+                            <span className="login-input-labels">Username or Email</span>
                         </div>
-                        <div>
-                            <label>Password</label>
-                            <input type="password" onChange={(e) => setPassword(e.target.value)} />
+
+
+                        <div className='login-form-input-group'>
+                            <input className="login-inputs" type="password" onChange={(e) => setPassword(e.target.value)} required />
+                            <span className="login-input-labels">Password</span>
                         </div>
+
                         <div>
                             <button onClick={handleSubmit}>Log in</button>
                         </div>
@@ -67,9 +71,9 @@ export default function LoginForm(props) {
                     }}>
                     Login as Demo User
                 </button>
+            <div onClick={toggleForm}>Don't have an account yet? Sign up</div>
             </div>
 
-            <div onClick={toggleForm}>Don't have an account yet? Sign up</div>
         </div>
     )
 }

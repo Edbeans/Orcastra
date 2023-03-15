@@ -8,15 +8,32 @@
 }
 
 .login-modal-background{ 
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 600px;
     background-color: white;
     border-radius: 15px;
     display: flex;
     align-content: center;
     justify-content: center;;
     font-family: Arial, Helvetica, sans-serif;
+}
 
+.modal-close-button {
+    background-color: #fff;
+    color: #2b381f;
+    transition: all 200ms ease-in-out 0s;
+    font-size: 28px;
+    height: 50px;
+    width: 50px;
+    border-radius: 9999px;
+    border: none;
+    fill: currentcolor; 
+}
+
+.modal-close-button:hover {
+    transform: rotate(-90deg);
+    background-color: #c9c9c9;
+    cursor: pointer;
 }
 
 .login-modal {
@@ -24,6 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .login-form {
@@ -39,6 +57,69 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.login-form-input-group {
+    position: relative;
+}
+
+.login-inputs:focus~.login-input-labels {
+    background: white;
+    padding: 2px;
+    left: 12px;
+    top: -12px;
+    font-size: 14px;
+    opacity: 1;
+    color: #012411;
+    /* transition: color 0.3s ease; */
+}
+
+.login-inputs:not(:focus):valid~.login-input-labels {
+    background: white;
+    padding: 2px;
+    left: 12px;
+    top: -12px;
+    font-size: 14px;
+    opacity: 1;
+    color: #888d85;
+    /* transition: color 0.3s ease; */
+}
+
+
+.login-inputs {
+    font-family: Manrope, Arial, sans-serif;
+    font-size: 16px;
+    width: 320px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px transparent;
+    padding-left: 15px;
+    transition: border 0.3s ease;
+}
+
+.login-inputs:focus {
+    border: 1px solid #0c441e;
+    box-shadow: 0 0 0 1px #0c441e;
+    outline: none;
+}
+
+.login-inputs:hover {
+    border: 1px solid #0c441e;
+    outline: none;
+}
+
+.login-input-labels {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 12px;
+    transition: 0.2s ease all;
+    font-family: Manrope,
+        Arial,
+        sans-serif !important;
+    font-size: 16px;
+    color: #888d85;
 }
 
 .login-modal-button:hover {
