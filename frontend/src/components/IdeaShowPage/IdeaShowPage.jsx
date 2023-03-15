@@ -2,8 +2,9 @@ import { fetchIdea, getIdea } from "../../store/idea"
 import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
-// import { createComment } from ...;
+import { createComment } from '../../store/comment'
 import "./IdeaShowPage.css"
+import EditModalButton from "../IdeaEditModal"
 
 export default function IdeaShowPage() {
     const dispatch = useDispatch()
@@ -11,11 +12,13 @@ export default function IdeaShowPage() {
     const { ideaId } = useParams()
     const idea = useSelector(getIdea(ideaId))
 
+
+
     function handleCommentSubmit(e, errors) {
         e.preventDefault()
         const newComment = { comment }
         if (errors && Object.values(errors).length === 0) {
-            return dispatch(createComment(newIdea))
+            return dispatch(createComment(newComment))
         }
     }
 
@@ -32,7 +35,8 @@ export default function IdeaShowPage() {
                     <div className="isp-image"></div>
                 </div>
 
-
+                <EditModalButton
+                    idea={idea}/>
                 <div className="isp-info-container">
                     <div className="isp-title">{idea.title}</div>
                     <div className="isp-description">{idea.body}</div>
@@ -44,7 +48,7 @@ export default function IdeaShowPage() {
                 </div>
 
                 <div className="isp-comments-container">
-                    <form className="isp-create-comment-form" onSubmit={(e) => { handleCommentSubmit(e, errors)}} >
+                    <form className="isp-create-comment-form" onSubmit={(e) => { handleCommentSubmit(e)}} >
                         <div className='form-input-group'>
                             <textarea className="form-inputs" onChange={(e) => setComment(e.target.value)} required />
                             <span className="form-input-labels">Write your comment here</span>
