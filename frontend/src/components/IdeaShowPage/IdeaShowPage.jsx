@@ -2,6 +2,7 @@ import { fetchIdea, getIdea } from "../../store/idea"
 import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
+import "./IdeaShowPage.css"
 
 export default function IdeaShowPage(){ 
     const dispatch = useDispatch()
@@ -15,13 +16,17 @@ export default function IdeaShowPage(){
         return null 
     } else {
     return ( 
-        <div>
-        <div style={{fontSize:'100px'}}>{idea.title}</div>
+        <div className="isp-container">
+        
+            <div className="isp-header">
+                <div className="isp-title">{idea.title}</div>
+                {/* <div className="isp-description">{idea.body}</div> */}
+            </div>
 
-        <div>Hello</div>
-
-
-        <div>{idea.description}</div>
+            <div className="isp-media-container">
+                <div className="isp-image"></div>
+            </div>
+        
         </div>
     )}
 }

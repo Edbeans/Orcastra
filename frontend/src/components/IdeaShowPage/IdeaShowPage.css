@@ -1,0 +1,19 @@
+.isp-container {
+    padding: 80px;
+}
+
+.isp-title {
+    font-size: 100px;
+}
+
+.isp-description {
+    width: 800px;
+}
+
+.isp-media-container {
+    background-image: url("/assets/edbeanis.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    width: 800px;
+}
