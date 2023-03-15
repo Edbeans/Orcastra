@@ -11,11 +11,13 @@ export default function IdeaShowPage(){
     useEffect(() => {
         dispatch(fetchIdea(ideaId))
     }, [dispatch, ideaId])
-
+    if (!idea) {
+        return null 
+    } else {
     return ( 
         <div>
-        <div>{idea.title}</div>
+        <div style={{fontSize:'4000'}}>{idea.title}</div>
         <div>{idea.description}</div>
         </div>
-    )
+    )}
 }
