@@ -39,15 +39,16 @@ export default function CreateIdeaPage() {
 
             <div className="cip-card-container">
                 <form className="cip-card" onSubmit={(e) => handleCipSubmit(e, errors)}>
+
                     <div className="cip-card-title">
-                        <label to="cip-title">Title</label>
-                        <input type="text" id="cip-title" onChange={(e) => setTitle(e.target.value)}></input>
+                        <input className="cip-card-inputs" id="cip-input-title" type="text" onChange={(e) => setTitle(e.target.value)}></input>
+                        <span className="cip-card-labels" >Title</span>
                     </div>
                     <div className="cip-card-description">
-                        <label>Description</label>
-                        <input type='text' onChange={(e) => setBody(e.target.value)}/>
+                        <textarea className="cip-card-inputs" id="cip-input-description" onChange={(e) => setBody(e.target.value)}/>
+                        <span className="cip-card-labels" >Description</span>
                     </div>
-                    <button>Submit Idea</button>
+                    <button className='submit-idea-btn'>Submit Idea</button>
                 </form>
             </div>
 
