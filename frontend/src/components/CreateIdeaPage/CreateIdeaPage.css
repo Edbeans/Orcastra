@@ -1,6 +1,20 @@
+
+.cip-container {
+    background-color: rgb(230, 230, 230)
+}
+
 .cip-card-container {
     display: flex;
     justify-content: center;
+}
+
+.cip-header {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500; 
+    letter-spacing: 0.001em; 
+    font-size: 35px;
+    color: rgb(10, 25, 41);
+    padding: 100px 0px 100px 220px;
 }
 
 .cip-card {
@@ -9,7 +23,97 @@
 
     background-color: white;
     width: 1200px;
-    /* height: 2000px; */
+    height: 1200px;
     border-radius: 30px;
     box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+}
+
+.cip-card > * {
+    align-self: center;
+    position: relative;
+    margin: 20px;
+}
+
+.cip-card-inputs {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: rgb(10, 25, 41);
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px transparent;
+    padding: 15px 0px 0px 15px;
+    transition: border 0.3s ease;
+    width: 560px;
+    height: 200px;
+}
+
+#cip-input-title {
+    height: 60px;
+    padding: 0px 0px 0px 15px;
+}
+
+.cip-card-inputs:focus {
+    border: 1px solid rgb(10, 25, 41);
+    box-shadow: 0 0 0 1px rgb(10, 25, 41);
+    outline: none;
+}
+
+.cip-card-inputs:hover {
+    border: 1px solid rgb(10, 25, 41);
+    outline: none;
+}
+
+.cip-card-labels {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 12px;
+    transition: 0.2s ease all;
+    font-family: Manrope,
+        Arial,
+        sans-serif !important;
+    font-size: 16px;
+    color: #888d85;
+}
+
+.cip-card-inputs:focus~.cip-card-labels {
+    background: white;
+    padding: 2px;
+    left: 12px;
+    top: -12px;
+    font-size: 14px;
+    opacity: 1;
+    color: #007078;
+    /* transition: color 0.3s ease; */
+}
+
+.cip-card-inputs:not(:focus):valid~.cip-card-labels {
+    background: white;
+    padding: 2px;
+    left: 12px;
+
+    font-size: 14px;
+    opacity: 1;
+    color: #888d85;
+    /* transition: color 0.3s ease; */
+}
+
+.submit-idea-btn {
+    width: 150px; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500; 
+    background-color: rgb(10, 25, 41);
+    border-radius: 16px;
+    border: 0.2px solid lightgray; 
+    color: white;
+    cursor: pointer; 
+    height: 35px;
+    margin-right: 10px;
+    text-align: center; 
+    transition: .5s; 
+}
+
+.submit-idea-btn:hover {
+    background-color: rgb(2, 64, 106);
+    color: white; 
 }

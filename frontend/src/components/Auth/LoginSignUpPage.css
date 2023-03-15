@@ -11,7 +11,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 20px;
     font-weight: 600;
-    color: white;
+    color: rgb(10, 25, 41);
     opacity: 0; 
     animation: fadeIn 5s;
     animation-delay: 0s;
@@ -26,5 +26,5 @@
 }
 
 body {
-    background-color: #22272F;
+    background-color: white;
 }

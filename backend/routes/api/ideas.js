@@ -5,13 +5,16 @@ const User = mongoose.model('User');
 const Idea = mongoose.model('Idea');
 const { requireUser } = require('../../config/passport');
 const validateIdeasInput = require('../../validations/ideas');
-const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
+const {
+  multipleFilesUpload,
+  multipleMulterUpload,
+} = require('../../awsS3');
 
 router.get('/', async (req, res, next) => {
   try {
     const ideas = await Idea.find().populate(
       'owner',
-      '_id, username profileImageUrl'
+      '_id, username, profileImageUrl'
     );
     return res.json(ideas);
   } catch (error) {
@@ -38,7 +41,7 @@ router.get('/:id', async (req, res, next) => {
 router.get('/user/:userId', async (req, res, next) => {
   let user;
   try {
-    const user = User.findById(req.params.userId);
+    user = User.findById(req.params.userId);
   } catch (error) {
     const err = new Error('User not found');
     err.statusCode = 404;
@@ -59,22 +62,25 @@ router.get('/user/:userId', async (req, res, next) => {
 
 router.post(
   '/',
-  multipleMulterUpload("images"),
+  multipleMulterUpload('images'),
   requireUser,
   validateIdeasInput,
   async (req, res, next) => {
-    const imageUrls = await multipleFilesUpload({ files: req.files, public: true });
+    const imageUrls = await multipleFilesUpload({
+      files: req.files,
+      public: true,
+    });
     try {
       const newIdea = new Idea({
         owner: req.user._id,
         title: req.body.title,
         body: req.body.body,
-        imageUrls
+        imageUrls,
       });
 
-      let idea = await newIdea.save(); 
+      let idea = await newIdea.save();
       idea = await idea;
-      return res.json(idea); 
+      return res.json(idea);
     } catch (error) {
       next(error);
     }
