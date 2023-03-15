@@ -8,6 +8,7 @@ const { isProduction } = require('./config/keys');
 
 require('./models/User');
 require('./models/Idea');
+require('./models/Comment');
 require('./config/passport');
 const passport = require('passport');
 
