@@ -18,7 +18,7 @@ export default function UserIdeas() {
     }, [dispatch])
 
     const filteredIdeas = ideas.filter((idea) => idea.owner._id === userId )
-    console.log('filteredids', ideas)
+    console.log('filteredids', filteredIdeas)
 
     if (!ideas){
         return null

@@ -16,7 +16,7 @@ export default function IdeaShowPage(){
     } else {
     return ( 
         <div>
-        <div style={{fontSize:'4000'}}>{idea.title}</div>
+        <div style={{fontSize:'100px'}}>{idea.title}</div>
         <div>{idea.description}</div>
         </div>
     )}

@@ -13,7 +13,7 @@ import UserIdeas from './components/UserIdeas/UserIdeas';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-
+  const [open, setOpen] = useState(false)
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
@@ -21,7 +21,9 @@ function App() {
   return (
     loaded && (
       <>
-      <Sidebar/>
+      <Sidebar
+        open={open} setOpen={setOpen}/>
+        <div className={open?"padding-containerOpen":"padding-containerClosed"}>
         <Switch>
           <ProtectedRoute exact path='/' component={FeedPage} />
           <Route exact path='/ideas/new' component={CreateIdeaPage}/>
@@ -31,6 +33,7 @@ function App() {
           <AuthRoute exact path='/login' component={LoginSignUpPage} />
           <AuthRoute exact path='/signup' component={LoginSignUpPage} />
         </Switch>
+        </div>
       </>
     )
   );

@@ -21,10 +21,10 @@ import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
 export const ModalContext = React.createContext();
 
 
-export default function Sidebar() {
+export default function Sidebar({open, setOpen}) {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
     const [showLoginModal, setShowLoginModal] = useState(false)
     const [showSignUpModal, setShowSignUpModal] = useState(false)
 

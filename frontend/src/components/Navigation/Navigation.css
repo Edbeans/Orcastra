@@ -1,6 +1,6 @@
 
 .sidenav-container {
-    position: absolute;
+    position: fixed;
 }
 
 .sidenav {
@@ -23,6 +23,7 @@
     background-color: rgb(10, 25, 41);
     position: sticky;
     top: 0px;
+
 }
 
 /* .sidenav ::-webkit-scrollbar:vertical,
