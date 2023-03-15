@@ -35,8 +35,6 @@ export default function IdeaShowPage() {
                     <div className="isp-image"></div>
                 </div>
 
-                <EditModalButton
-                    idea={idea}/>
                 <div className="isp-info-container">
                     <div className="isp-title">{idea.title}</div>
                     <div className="isp-description">{idea.body}</div>
@@ -45,6 +43,9 @@ export default function IdeaShowPage() {
                         <button>Save</button>
                         <button>Contact</button>
                     </div>
+
+                <EditModalButton
+                    idea={idea}/>
                 </div>
 
                 <div className="isp-comments-container">
