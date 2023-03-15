@@ -166,15 +166,13 @@ ideas.push(
   seederz
 );
 
-// ideas.forEach((idea) => {
-//   users.forEach((user) => {
-//     if (idea.owner === user._id) {
-//       user.ideas.push(idea);
-//     }
-//   });
-// });
-
-// ^^^ returns undefined
+ideas.forEach((idea) => {
+  users.forEach((user) => {
+    if (idea.owner === user._id) {
+      user.ideas.push(idea);
+    }
+  });
+});
 
 // SEED COMMENTS
 const comments = [];
