@@ -67,3 +67,7 @@ table {
 	transition: padding-left 0.3s ease; 
 	padding-left: 60px;
 }
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

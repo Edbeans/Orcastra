@@ -1,0 +1,21 @@
+.index-item-wrapper {
+    text-decoration: none;
+}
+
+.index-item-link {
+    text-decoration: none;
+}
+
+.placeholder-box { 
+    height: 200px;
+    width: 300px;
+    background-color: gray;
+    border-radius: 20px;
+}
+
+.index-item-title {
+    color: #111111;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 5px;
+}

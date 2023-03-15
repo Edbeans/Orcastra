@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react';
 import { fetchIdeas, getIdeas } from '../../store/idea';
 import IdeaIndexItem from './IdeaIndexItem';
+import './Feed.css'
 
 export default function FeedPage(){
     const dispatch = useDispatch()
@@ -15,9 +16,10 @@ export default function FeedPage(){
     }, [dispatch])
 
     return (
-        <div>
-            <h1>Hello from feed</h1>
+        <div className='feed-page-wrapper'>
+        <div className='feed-wrapper'>
             {ideas.map((idea)=> <IdeaIndexItem idea={idea}/>)}
+        </div>
         </div>
     )
 }
