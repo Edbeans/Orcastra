@@ -1,0 +1,14 @@
+.feed-page-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.feed-wrapper {
+    padding-top: 50px;
+    width: 85%;
+    display: grid;
+    grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
+    grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+    justify-items: center;
+    grid-gap: 1.5em;
+}
+
