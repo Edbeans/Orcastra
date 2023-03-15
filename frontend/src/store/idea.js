@@ -142,7 +142,7 @@ const ideasReducer = (state={}, action) => {
             // return newState
             return {...newState, [action.idea._id]: action.idea}
         case RECEIVE_USER_IDEAS: 
-            return action.ideas
+            return {...newState, ...action.ideas}
         case REMOVE_IDEA: 
             delete newState[action.ideaId]
             return newState

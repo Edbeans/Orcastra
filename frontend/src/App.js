@@ -8,6 +8,7 @@ import FeedPage from './components/Feed/FeedPage';
 import Sidebar from './components/Navigation/Sidebar';
 import CreateIdeaPage from './components/CreateIdeaPage';
 import IdeaShowPage from './components/IdeaShowPage/IdeaShowPage';
+import UserIdeas from './components/UserIdeas/UserIdeas';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
           <ProtectedRoute exact path='/' component={FeedPage} />
           <Route exact path='/ideas/new' component={CreateIdeaPage}/>
           <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
+          <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
           <AuthRoute exact path='/' component={LoginSignUpPage} />
           <AuthRoute exact path='/login' component={LoginSignUpPage} />
           <AuthRoute exact path='/signup' component={LoginSignUpPage} />
