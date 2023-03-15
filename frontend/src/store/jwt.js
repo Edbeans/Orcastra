@@ -10,6 +10,7 @@ const getCookie = (cookieName) => {
 async function jwtFetch(url, options = {}) {
   options.method = options.method || 'GET';
   options.headers = options.headers || {};
+  options.headers['CSRF-Token'] = getCookie('CSRF-TOKEN');
   const jwtToken = localStorage.getItem('jwtToken');
   if (jwtToken)
     options.headers['Authorization'] = 'Bearer ' + jwtToken;
@@ -20,7 +21,6 @@ async function jwtFetch(url, options = {}) {
   
   if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
     options.headers["Content-Type"] = "application/json"; 
-    options.headers['CSRF-Token'] = getCookie('CSRF-TOKEN');
   }
 
   const res = await fetch(url, options);
