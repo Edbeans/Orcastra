@@ -117,6 +117,18 @@ const scrubDaddy = new Idea({
   body: 'Introducing the new and improved Scrub Daddy - the revolutionary cleaning tool that makes tough cleaning jobs a breeze! Our innovative design features FlexTexture® foam that adjusts to your water temperature, providing a gentle yet effective scrubbing experience. With its smiley face shape and versatile features, the Scrub Daddy can clean dishes, countertops, and even tough outdoor surfaces. Our commitment to quality and customer satisfaction ensures that you get the best value for your investment. Join the millions of satisfied customers and upgrade your cleaning game with the new Scrub Daddy!',
 });
 
+const bofA = new Idea({
+  owner: users[8]._id,
+  title: 'BofA',
+  body: 'We are excited to present our user-friendly banking app that provides secure, convenient, and efficient banking services on-the-go! With our app, you can check your account balances, transfer funds, pay bills, and even deposit checks with just a few taps on your phone. Our cutting-edge security features ensure that your transactions are safe and secure. With our customizable app, you can tailor the interface to meet your unique preferences, and our expert team provides continuous support and maintenance to ensure that you have the best banking experience. Partner with us and take your banking to the next level with our innovative app!',
+});
+
+const seederz = new Idea({
+  owner: users[9]._id,
+  title: 'Mentorships r us',
+  body: 'We are excited to present our innovative seeding platform that connects startups with investors, accelerators, and mentors! Our platform offers a streamlined process for startups to showcase their ideas, get feedback from experts, and secure funding to launch their ventures. With our advanced matching algorithms, we match startups with the most suitable investors and accelerators based on their preferences and requirements. Our commitment to quality and transparency ensures that all parties have a seamless and trustworthy experience. Our experienced team of entrepreneurs, investors, and mentors provide guidance and support to startups at every stage of their journey. Join our growing community and turn your ideas into successful businesses with our innovative seeding platform!',
+});
+
 ideas.push(
   chatter,
   intelWishes,
@@ -125,7 +137,9 @@ ideas.push(
   swa,
   azureWho,
   demoIdea,
-  scrubDaddy
+  scrubDaddy,
+  bofA,
+  seederz
 );
 
 mongoose
