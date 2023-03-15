@@ -1,36 +1,55 @@
 import { useDispatch } from "react-redux";
 import { createIdea } from "../../store/idea";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./CreateIdeaPage.css";
 
 export default function CreateIdeaPage() {
     const dispatch = useDispatch();
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-    // const [images, setImages] = useState([]);
-    // const [imageUrls, setImageUrls] = useState([]); 
+    // const idea = { title: "", body: "", imageUrl: [] };
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [images, setImages] = useState([]);
+    const [imageUrls, setImageUrls] = useState([]); 
     const [errors, setErrors] = useState([]);
+    const fileRef = useRef(null); 
 
-    function handleCipSubmit(e, errors) {
+    const handleCipSubmit = async (e, errors) => {
         e.preventDefault()
-        // const formData = FormData.new
-        // formData.append("title", title)
-        // formData.append("body", body)
-        // dispatch(createIdea(formData))
-        // const newIdea = {title, body, images}
-        const newIdea = {title, body} 
+
         console.log('attempting submit')
         if (errors && Object.values(errors).length === 0) {
             console.log('attempting dispatch')
-            return dispatch(createIdea(newIdea))
-            }
+
+            return dispatch(createIdea(title, body, images));
         }
+        setTitle('');
+        setBody(''); 
+        setImages([]);
+        setImageUrls([]); 
+    }
+
+    function handleFiles({ currentTarget }) {
+        const files = currentTarget.files;  
+        setImages(files);
+        if (files.length !== 0) {
+            let filesLoaded = 0;
+            const urls = []; 
+            Array.from(files).forEach((file, index) => {
+                const fileReader = new FileReader(); 
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => {
+                    urls[index] = fileReader.result;
+                    if (++filesLoaded === files.length) setImageUrls(urls); 
+                }
+            });
+        }
+        else setImageUrls([]); 
+    }
 
 
 
     return (
         <div className="cip-container">
-            Test
             <div className="cip-header-container">
                 <div className="cip-header">
                     Your billion-dollar venture starts here.
@@ -42,7 +61,6 @@ export default function CreateIdeaPage() {
 
             <div className="cip-card-container">
                 <form className="cip-card" onSubmit={(e) => handleCipSubmit(e, errors)}>
-
                     <div className="cip-card-title">
                         <input className="cip-card-inputs" id="cip-input-title" type="text" onChange={(e) => setTitle(e.target.value)}></input>
                         <span className="cip-card-labels" >Title</span>
@@ -52,10 +70,10 @@ export default function CreateIdeaPage() {
                         <span className="cip-card-labels" >Description</span>
                     </div>
                     {/* FOR IMAGES  */}
-                    {/* <div className="cip-card-image">
-                        <input className="cip-card-inputs" type="file" accept=".jpg, .jpeg, .png" multiple onChange={updateFiles}></input>
-                        <span className="cip-card-labels">Images</span>
-                    </div> */}
+                    <div className="cip-card-image">
+                        <input className="cip-card-inputs" type="file" ref={fileRef} accept=".jpg, .jpeg, .png" onChange={handleFiles} multiple />
+                    </div>
+
                     <button className='submit-idea-btn'>Submit Idea</button>
                 </form>
             </div>
