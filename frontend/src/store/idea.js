@@ -103,6 +103,25 @@ export const createIdea = (idea) => async dispatch => {
     }
 }
 
+//need to test this
+export const updateIdea = (idea) => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/ideas/${idea._id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(idea)
+        })
+        let newIdea = await res.json()
+        dispatch(receiveIdea(newIdea))
+        return newIdea
+    } catch (err) {
+        const resBody = await err.json()
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveIdeaErrors(resBody.errors))
+        }
+    }
+}
+
+
 export const deleteIdea = (ideaId) => async dispatch => {
     try {
         const res = await jwtFetch(`api/idea/${ideaId}`,{
