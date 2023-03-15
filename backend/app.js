@@ -34,11 +34,13 @@ app.use(
 // IMPORT FILE PATHS
 const usersRouter = require('./routes/api/users');
 const ideasRouter = require('./routes/api/ideas');
+const commentsRouter = require('./routes/api/comments');
 const csrfRouter = require('./routes/api/csrf');
 
 // ADD EXPRESS ROUTERS
 app.use('/api/users', usersRouter);
 app.use('/api/ideas', ideasRouter);
+app.use('/api/comments', commentsRouter);
 app.use('/api/csrf', csrfRouter);
 
 // CATCH ALL UNMATCHED ROUTES AND FORMAT ERRORS/404

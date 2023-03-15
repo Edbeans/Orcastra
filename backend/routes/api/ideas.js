@@ -12,10 +12,10 @@ const {
 
 router.get('/', async (req, res, next) => {
   try {
-    const ideas = await Idea.find().populate(
-      'owner',
-      '_id, username, profileImageUrl'
-    );
+    const ideas = await Idea.find()
+      .sort({ createdAt: -1 })
+      .populate('owner', '_id, username, profileImageUrl')
+      .populate('comments');
     return res.json(ideas);
   } catch (error) {
     res.json([]);
@@ -24,10 +24,10 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const idea = await Idea.findOne({ _id: req.params.id }).populate(
-      'owner',
-      '_id, username profileImageUrl'
-    );
+    const idea = await Idea.findOne({ _id: req.params.id })
+      .sort({ createdAt: -1 })
+      .populate('owner', '_id, username profileImageUrl')
+      .populate('comments');
 
     return res.json(idea);
   } catch (err) {
@@ -50,10 +50,10 @@ router.get('/user/:userId', async (req, res, next) => {
   }
 
   try {
-    const ideas = await Idea.find({ owner: user._id }).populate(
-      'owner',
-      '_id, username profileImageUrl'
-    );
+    const ideas = await Idea.find({ owner: user._id })
+      .sort({ createdAt: -1 })
+      .populate('owner', '_id, username profileImageUrl')
+      .populate('comments');
     return res.json(ideas);
   } catch (error) {
     return res.json([]);
@@ -115,10 +115,9 @@ router.patch(
         (idea.body = req.body.body),
         await idea.save();
 
-      idea = await Idea.findById(req.params.id).populate(
-        'owner',
-        '_id, username profileImageUrl'
-      );
+      idea = await Idea.findById(req.params.id)
+        .populate('owner', '_id, username profileImageUrl')
+        .populate('comments');
 
       return res.json(idea);
     } catch (err) {

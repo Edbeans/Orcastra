@@ -7,11 +7,10 @@ const Idea = mongoose.model('Idea');
 const { requireUser } = require('../../config/passport');
 const validateCommentInput = require('../../validations/ideas');
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   try {
     const comments = await Comment.find()
       .populate('author', '_id, username')
-      .populate('author')
       .sort({ createdAt: -1 });
     return res.json(comments);
   } catch (error) {
@@ -46,7 +45,7 @@ router.post(
   }
 );
 
-router.delete(':id', requireUser, async (req, res, next) => {
+router.delete('/:id', requireUser, async (req, res, next) => {
   try {
     const comment = await Comment.findById(req.params.id);
     if (!comment) {
