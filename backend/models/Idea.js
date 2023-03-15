@@ -16,9 +16,15 @@ const ideaSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+      },
+    ],
     imageUrls: {
       type: [String],
-      required: false 
+      required: false,
     },
   },
   {
