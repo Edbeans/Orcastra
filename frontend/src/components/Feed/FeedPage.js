@@ -10,7 +10,7 @@ export default function FeedPage(){
     const dispatch = useDispatch()
     const ideas = useSelector(getIdeas)
     const history = useHistory()
-    console.log(ideas)
+    
     useEffect(()=>{
         dispatch(fetchIdeas())
     }, [dispatch])

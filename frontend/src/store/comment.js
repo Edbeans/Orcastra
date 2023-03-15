@@ -86,7 +86,6 @@ export const fetchUserComments = (userId) => async dispatch => {
 
 export const createComment = (comment) => async dispatch => {
     try {
-        // debugger
         const res = await jwtFetch('/api/comments/', {
             method: 'POST',
             body: JSON.stringify(comment)
@@ -104,7 +103,6 @@ export const createComment = (comment) => async dispatch => {
 
 export const updateComment = (comment) => async dispatch => {
     try {
-        // debugger
         const res = await jwtFetch(`api/comments/${comment._id}`, {
             method: 'PATCH',
             body: JSON.stringify(comment)

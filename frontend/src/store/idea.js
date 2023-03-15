@@ -158,10 +158,6 @@ const ideasReducer = (state={}, action) => {
         case RECEIVE_IDEAS:
             return action.ideas
         case RECEIVE_IDEA:
-            // const idea = action.idea
-            // console.log('idea', idea)
-            // newState[idea.id] = idea
-            // return newState
             return {...newState, [action.idea._id]: action.idea}
         case RECEIVE_USER_IDEAS: 
             return {...newState, ...action.ideas}

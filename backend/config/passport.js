@@ -33,7 +33,6 @@ passport.use(
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = secretOrKey;
-console.log(secretOrKey) //returning undefined
 
 passport.use(
   new JwtStrategy(options, async (jwtPayload, done) => {
