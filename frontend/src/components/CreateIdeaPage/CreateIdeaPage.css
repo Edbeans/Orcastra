@@ -1,6 +1,6 @@
 
 .cip-container {
-    background-color: rgb(230, 230, 230)
+    background-color: rgb(232, 232, 232)
 }
 
 .cip-card-container {
@@ -13,7 +13,7 @@
     font-weight: 500; 
     letter-spacing: 0.001em; 
     font-size: 35px;
-    color: rgb(10, 25, 41);
+    color: rgb(30 60 90);
     padding: 100px 0px 100px 220px;
 }
 
@@ -36,7 +36,7 @@
 .cip-card-inputs {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    color: rgb(10, 25, 41);
+    color: rgb(30 60 90);
     border-radius: 8px;
     border: 1px solid #d4d4d4;
     box-shadow: 0 0 0 1px transparent;
@@ -52,13 +52,13 @@
 }
 
 .cip-card-inputs:focus {
-    border: 1px solid rgb(10, 25, 41);
-    box-shadow: 0 0 0 1px rgb(10, 25, 41);
+    border: 1px solid rgb(30 60 90);
+    box-shadow: 0 0 0 1px rgb(30 60 90);
     outline: none;
 }
 
 .cip-card-inputs:hover {
-    border: 1px solid rgb(10, 25, 41);
+    border: 1px solid rgb(30 60 90);
     outline: none;
 }
 
@@ -82,7 +82,7 @@
     top: -12px;
     font-size: 14px;
     opacity: 1;
-    color: #007078;
+    color: rgb(30 60 90);
     /* transition: color 0.3s ease; */
 }
 
@@ -90,7 +90,7 @@
     background: white;
     padding: 2px;
     left: 12px;
-
+    top: -12px;
     font-size: 14px;
     opacity: 1;
     color: #888d85;
@@ -101,7 +101,7 @@
     width: 150px; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500; 
-    background-color: rgb(10, 25, 41);
+    background-color: rgb(30 60 90);
     border-radius: 16px;
     border: 0.2px solid lightgray; 
     color: white;
@@ -113,6 +113,6 @@
 }
 
 .submit-idea-btn:hover {
-    background-color: rgb(2, 64, 106);
+    background-color: rgb(20, 40, 60);
     color: white; 
 }

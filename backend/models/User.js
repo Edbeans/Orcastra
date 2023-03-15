@@ -19,6 +19,18 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
+    ideas: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Idea',
+      },
+    ],
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+      },
+    ],
   },
   {
     timestamps: true,

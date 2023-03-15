@@ -8,7 +8,10 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
-const { singleFileUpload, singleMulterUpload } = require('../../awsS3');
+const {
+  singleFileUpload,
+  singleMulterUpload,
+} = require('../../awsS3');
 
 const DEFAULT_PROFILE_IMAGE_URL = 's3://ey-aws-mern-orcastra/public/';
 
@@ -20,7 +23,7 @@ router.get('/', function (req, res, next) {
 
 router.post(
   '/register',
-  singleMulterUpload("image"),
+  singleMulterUpload('image'),
   validateRegisterInput,
   async (req, res, next) => {
     const standardizedUsername = req.body.username.toLowerCase();
@@ -49,13 +52,13 @@ router.post(
       return next(err);
     }
 
-    const profileImageUrl = req.file ?
-      await singleFileUpload({ file: req.file, public: true }) : 
-        DEFAULT_PROFILE_IMAGE_URL;
+    const profileImageUrl = req.file
+      ? await singleFileUpload({ file: req.file, public: true })
+      : DEFAULT_PROFILE_IMAGE_URL;
     const newUser = new User({
       username: standardizedUsername,
-      profileImageUrl, 
-      email: standardizedEmail
+      profileImageUrl,
+      email: standardizedEmail,
     });
 
     bcrypt.genSalt(10, (err, salt) => {
@@ -78,18 +81,23 @@ router.post(
   }
 );
 
-router.post('/login', singleMulterUpload(""), validateLoginInput, async (req, res, next) => {
-  passport.authenticate('local', async function (err, user) {
-    if (err) return next(err);
-    if (!user) {
-      const err = new Error('Invalid credentials');
-      err.statusCode = 400;
-      err.errors = { email: 'Invalid credentials' };
-      return next(err);
-    }
-    return res.json(await loginUser(user));
-  })(req, res, next);
-});
+router.post(
+  '/login',
+  singleMulterUpload(''),
+  validateLoginInput,
+  async (req, res, next) => {
+    passport.authenticate('local', async function (err, user) {
+      if (err) return next(err);
+      if (!user) {
+        const err = new Error('Invalid credentials');
+        err.statusCode = 400;
+        err.errors = { email: 'Invalid credentials' };
+        return next(err);
+      }
+      return res.json(await loginUser(user));
+    })(req, res, next);
+  }
+);
 
 router.get('/current', restoreUser, (req, res) => {
   if (!isProduction) {
@@ -101,8 +109,26 @@ router.get('/current', restoreUser, (req, res) => {
     _id: req.user._id,
     username: req.user.username,
     profileImageUrl: req.user.profileImageUrl,
-    email: req.user.email
+    email: req.user.email,
   });
+});
+
+router.get('/:id', async (req, res, next) => {
+  let user;
+  try {
+    user = await User.findById(req.params.id).populate('comments');
+    // .populate({
+    //   path: 'ideas',
+    //   populate: [{ path: 'comments' }],
+    // })
+    // .sort({ createdAt: -1 });
+    return res.json(user);
+  } catch (error) {
+    const err = new Error('No user with that id found');
+    err.statusCode = 422;
+    err.errors = { message: 'No user with that id found' };
+    return next(err);
+  }
 });
 
 module.exports = router;
