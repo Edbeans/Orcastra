@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
 export default function IdeaIndexItem({idea}) {
     return (
         <div>
-            {idea.title}
-            {idea.description}
+            <Link to={`/idea/${idea._id}`}>
+            {idea.title}</Link>
+            {idea.body}
         </div>
     )
 }
