@@ -1,6 +1,6 @@
 
 .sidenav-container {
-    position: fixed;
+    position: absolute;
 }
 
 .sidenav {
@@ -70,7 +70,7 @@
 }
 
 .sideitem-authfunctions-container {
-    padding-bottom: 30px
+    padding-bottom: 30px;
 }
 
 .menu-button {

@@ -38,7 +38,6 @@ export default function Sidebar() {
                 </div>
 
                 <div className='sideitem-authfunctions-container'>
-
                     <ModalContext.Provider value={{open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal, SignUpModal}}>
                         <SignUpModal/>
                         <LoginModal/>
