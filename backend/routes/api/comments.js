@@ -53,25 +53,8 @@ router.post(
 
 router.delete('/:id', requireUser, async (req, res, next) => {
   try {
-    const comment = await Comment.findById(req.params.id);
-    if (!comment) {
-      const err = new Error('Unable to find comment');
-      err.statusCode = 404;
-      err.errors = { message: 'Unable to find comment with that id' };
-      return next(err);
-    }
-
-    if (comment.author.toString() !== req.user._id.toString()) {
-      const err = new Error('Unauthorized');
-      err.statusCode = 404;
-      err.errors = {
-        message:
-          'Only the creator of this comment is authorized to delete it',
-      };
-      return next(err);
-    }
-
-    await comment.remove();
+    let id = req.params.id;
+    let comment = await Comment.findOneAndDelete({ _id: id });
     await Idea.updateOne(
       { _id: comment.idea },
       { $pull: { comments: comment._id } }
@@ -80,12 +63,12 @@ router.delete('/:id', requireUser, async (req, res, next) => {
       { _id: comment.author },
       { $pull: { comments: comment._id } }
     );
-    return res.json(comment);
-  } catch (error) {
-    const err = new Error('Comment could not be deleted');
-    err.statusCode = 422;
-    err.errors = { message: 'Comment could not be deleted' };
-    return next(error);
+    return res.json({ message: 'Comment deleted!' });
+  } catch (err) {
+    const error = new Error('Comment could not be deleted');
+    error.statusCode = 422;
+    error.errors = { message: 'Comment could not be deleted' };
+    return next(err);
   }
 });
 
