@@ -36,6 +36,12 @@
 
 .cip-card-title {
     position: relative;
+    margin-top: 100px; 
+}
+
+.cip-card-inputs::placeholder {
+    font-size: 16px; 
+    color: rgb(182, 179, 179);
 }
 
 .cip-card-description {
@@ -104,6 +110,78 @@
 #cip-input-title {
     height: 60px;
     padding: 0px 0px 0px 15px;
+}
+
+.cip-card-image-container {
+    background-color: #FBFBFA;
+    width: 580px; 
+    height: 200px; 
+    border: 0.1rem solid rgba(0, 0, 0, 0);
+    border-color: #d4d4d4;
+    border-style: dashed; 
+    border-radius: 8px; 
+    margin: 0;    
+    cursor: pointer; 
+}
+
+.cip-card-image-container:hover {
+    border: 1px dashed rgb(30 60 90);
+    transition: border 0.5s ease;
+}
+
+.choose-file-btn {
+    cursor: pointer; 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    top: 0rem; 
+    left: 0rem; 
+    opacity: 0; 
+}
+
+.image-upload-content {
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
+    cursor: pointer;
+    height: 100%;
+    width: 100%; 
+}
+
+.round-img-border {
+    display: block; 
+    background-color: #FFFFFF;
+    border-radius: 100% !important;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+    width: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center; 
+    margin-bottom: 1.8rem; 
+}
+
+.insert-img-icon {
+    vertical-align: middle; 
+}
+
+.image-upload-description {
+    display: block; 
+    text-align: center;
+    border: 0;
+    margin: 0;
+    padding-bottom: 1rem;  
+}
+
+.img-upload-instruct {
+    color: #282828;
+    font-size: 1rem;
+    line-height: 1.8rem;
+}
+
+.img-file-type {
+    color: #656969;
+    font-size: 0.8rem; 
 }
 
 .submit-idea-btn {
