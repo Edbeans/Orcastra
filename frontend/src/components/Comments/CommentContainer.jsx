@@ -15,8 +15,6 @@ export default function CommentContainer({idea}) {
         text: ''
     }
 
-    
-
     if (!sessionUser) {
         return (
             <div className="isp-comments-display">
