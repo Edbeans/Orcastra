@@ -117,4 +117,26 @@ router.get('users/:userId', async (req, res) => {
   }
 });
 
+router.get('/ideas/:ideaId', async (req, res) => {
+  let idea;
+  try {
+    idea = await Idea.findById(req.params.ideaId);
+  } catch (error) {
+    const err = new Error('No idea with that id found');
+    err.statusCode = 404;
+    err.errors = { message: 'No idea with that id found' };
+    return next(error);
+  }
+
+  try {
+    const ideaComments = await Comment.find({ idea: idea._id })
+      .sort({ createdAt: -1 })
+      .populate('author', '_id, username');
+    // console.log(ideaComments);
+    return res.json(ideaComments);
+  } catch (error) {
+    return res.json([]);
+  }
+});
+
 module.exports = router;
