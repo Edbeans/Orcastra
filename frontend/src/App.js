@@ -25,42 +25,17 @@ function App() {
   return (
     loaded && (
       <>
-        <Sidebar open={open} setOpen={setOpen} />
-        <div
-          className={
-            open ? 'padding-containerOpen' : 'padding-containerClosed'
-          }
-        >
+      <Sidebar
+        open={open} setOpen={setOpen}/>
+        <div className={open?"padding-containerOpen":"padding-containerClosed"}>
           <Switch>
-            <ProtectedRoute exact path='/' component={FeedPage} />
-            <Route
-              exact
-              path='/ideas/new'
-              component={CreateIdeaPage}
-            />
-            <Route
-              exact
-              path='/idea/:ideaId'
-              component={IdeaShowPage}
-            />
-            <Route
-              exact
-              path='/users/:userId/ideas'
-              component={UserIdeas}
-            />
+            <Route exact path='/' component={FeedPage} />
+            <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage}/>
+            <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
+            <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
             <AuthRoute exact path='/' component={LoginSignUpPage} />
-            <AuthRoute
-              exact
-              path='/login'
-              component={LoginSignUpPage}
-            />
-            <AuthRoute
-              exact
-              path='/signup'
-              component={LoginSignUpPage}
-            />
-            <Route exact path='/error' component={ErrorPage} />
-            <Redirect to='/error' />
+            <AuthRoute exact path='/login' component={LoginSignUpPage} />
+            <AuthRoute exact path='/signup' component={LoginSignUpPage} />
           </Switch>
         </div>
       </>

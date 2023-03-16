@@ -34,7 +34,7 @@ export default function LoginForm(props) {
             <button className="modal-close-button" onClick={() => setShowLoginModal(false)}>&#10005;</button>
             <div className="login-signup-modal">
                 <form className="login-signup-form" onSubmit={handleSubmit}>
-                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Welcome back</h2>
+                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Welcome back.</h2>
                     <div className="input-container">
 
                         <div className='form-input-group'>
@@ -48,7 +48,7 @@ export default function LoginForm(props) {
                         </div>
 
                         <button className='default-button-1' 
-                        style={{ padding: "10px 50px", marginTop: "230px" }} 
+                        style={{ padding: "10px 50px", marginTop: "35px" }} 
                         onClick={handleSubmit}>Log in</button>
 
                     </div>
@@ -65,7 +65,7 @@ export default function LoginForm(props) {
                     }}>
                     Login as Demo User
                 </button>
-                <div>Don't have an account yet? 
+                <div className="lts-container">Don't have an account yet? 
                     <span> </span> 
                     <span className="login-to-signup-link" onClick={toggleForm}>Sign up here</span>
                 </div>
