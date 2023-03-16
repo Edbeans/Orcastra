@@ -133,7 +133,7 @@ export const updateIdea = (idea) => async dispatch => {
 
 export const deleteIdea = (ideaId) => async dispatch => {
     try {
-        const res = await jwtFetch(`api/idea/${ideaId}`,{
+        const res = await jwtFetch(`/api/ideas/${ideaId}`,{
             method: 'DELETE'
         })
         dispatch(removeIdea(ideaId))

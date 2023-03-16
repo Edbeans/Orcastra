@@ -5,9 +5,11 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import "./CreateIdeaPage.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { useHistory } from "react-router";
 
 export default function CreateIdeaPage() {
     const dispatch = useDispatch();
+    const history = useHistory()
     // const idea = { title: "", body: "", imageUrl: [] };
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
@@ -19,7 +21,7 @@ export default function CreateIdeaPage() {
     const handleCipSubmit = async (e, errors) => {
         e.preventDefault()
         if (errors && Object.values(errors).length === 0) {
-            return dispatch(createIdea(title, body, images));
+            return dispatch(createIdea(title, body, images)).then((res) => history.push(`/idea/${res._id}`));
         }
         setTitle('');
         setBody(''); 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { timeConversion } from "../../modules/helperFunctions"
 
 import './Comments.css'
-export default function CommentIndexItem({ comment }) {
+export default function CommentIndexItem({ key, comment }) {
     const dispatch = useDispatch()
 
     return (
@@ -15,7 +15,7 @@ export default function CommentIndexItem({ comment }) {
                 <div className='comment-item-date'>{timeConversion(comment.createdAt)}</div>
                 </div>
                 <div>
-                    <button onClick={() => dispatch(deleteComment)}>delete comment</button>
+                    <button onClick={()=>dispatch(deleteComment(comment._id))}>delete comment</button>
                 </div>
             </div>
         </div>

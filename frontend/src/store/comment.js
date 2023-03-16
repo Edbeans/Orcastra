@@ -157,7 +157,7 @@ export const updateComment = (comment) => async (dispatch) => {
 
 export const deleteComment = (commentId) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`api/comment/${commentId}`, {
+    const res = await jwtFetch(`/api/comments/${commentId}`, {
       method: 'DELETE',
     });
     dispatch(removeComment(commentId));
