@@ -11,8 +11,8 @@
     background-image: url("/assets/edbeanis.jpeg");
     background-size: cover;
     background-position: center;
-    height: 600px;
-    width: 900px;
+    height: 450px;
+    width: 675px;
     margin: 100px 25px 0px 0px;
 }
 
@@ -35,7 +35,7 @@
 
 .isp-actions {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: auto;
 }
 
@@ -47,52 +47,9 @@
     flex-direction: column;
 }
 
-.isp-create-comment-form {
-    position: relative;
-    width: 800px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-}
-
-#create-comment-textbox {
-    width: 800px;
-    height: 150px;
-}
-
-#create-comment-submit-button {
-    padding: 10px 20px;
-    width: 120px;
-    align-self: flex-end;
-}
-
-.isp-comments-display {
-    font-size: 20px;
-    height: 200px;
-    width: 817px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.comment-item {
-    display: flex;
-    justify-content: space-around;
+.comment-wrapper {
+    display: flex; 
+    flex-direction: row;
     align-items: center;
-    height: 40px;
-    border-bottom: 1px solid #ccc;;
+    width: 100%;
 }
-
-.comment-item-user-info {
-    width: 20px;
-}
-
-.comment-item-text {
-    font-size: 16px;
-    width: 400px;
-}
-
-.comment-item-date {
-    font-size: 16px;
-    color: #888d85;
-}
-

@@ -2,6 +2,7 @@ import CommentIndexItem from "./CommentIndexItem"
 import { useDispatch, useSelector } from "react-redux"
 import { createComment } from "../../store/comment"
 import { useState } from "react"
+import './Comments.css'
 
 export default function CommentContainer({idea}) {
     const dispatch = useDispatch()

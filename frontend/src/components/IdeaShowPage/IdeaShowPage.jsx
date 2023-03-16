@@ -5,7 +5,6 @@ import { useState, useEffect } from "react"
 import { createComment } from '../../store/comment'
 import "./IdeaShowPage.css"
 import EditModalButton from "../IdeaEditModal"
-import { timeConversion } from "../../modules/helperFunctions"
 import { margin, width } from "@mui/system"
 import CommentContainer from "../Comments/CommentContainer"
 
@@ -13,7 +12,6 @@ export default function IdeaShowPage() {
     const dispatch = useDispatch();
     // const [comment, setComment] = useState('');
     const { ideaId } = useParams();
-  
     const idea = useSelector(getIdea(ideaId))
 
 
