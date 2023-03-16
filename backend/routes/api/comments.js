@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.post(
   '/ideas/:ideaId',
   requireUser,
-  validateCommentInput,
+  // validateCommentInput,
   async (req, res, next) => {
     try {
       const newComment = new Comment({
@@ -33,14 +33,15 @@ router.post(
       let comment = await newComment.save();
       await Idea.updateOne(
         { _id: comment.ideaId },
-        { $push: { comments: comment } }
+        { $push: { comments: comment._id } }
       );
       comment = await comment.populate(
         'author',
         '_id, username, profileImageUrl'
       );
+      return (res.json(comment));
     } catch (error) {
-      return next(err);
+      next(err);
     }
   }
 );

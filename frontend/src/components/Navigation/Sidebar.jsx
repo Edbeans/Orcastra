@@ -94,7 +94,7 @@ export default function Sidebar({open, setOpen}) {
                 </div>
                 </div>
 
-                <div className='sideitem-authfunctions-container'>
+                <div className={open?'sideitem-authfunctions-containerOpen':""}>
                 { !sessionUser ? 
                     <ModalContext.Provider value={{open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal, SignUpModal}}>
                         <SignUpModal/>

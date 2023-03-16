@@ -1,4 +1,5 @@
 import jwtFetch from './jwt';
+import { RECEIVE_COMMENT, REMOVE_COMMENT, RECEIVE_IDEA_COMMENTS } from './comment';
 
 export const RECEIVE_IDEAS = 'ideas/RECEIVE_IDEAS'
 export const RECEIVE_IDEA = 'ideas/RECEIVE_IDEA'
@@ -43,6 +44,11 @@ export const getIdeas = (state) => {
 
 export const getIdea = (ideaId) => (state) => {
     return state.ideas ? state.ideas[ideaId] : null
+}
+
+export const getCommentsForIdeas = (state, ideaId) => {
+    const idea = state?.ideas[ideaId]
+    return ideaId.comments ? Object.values(idea.comments) : []
 }
 
 export const fetchIdeas = () => async dispatch => {
@@ -142,7 +148,7 @@ export const deleteIdea = (ideaId) => async dispatch => {
 const nullErrors = null;
 
 export const ideaErrorsReducer = (state = nullErrors, action) => {
-    switch (action.typee) {
+    switch (action.type) {
         case RECEIVE_IDEA_ERRORS:
             return action.errors;
         case CLEAR_IDEA_ERRORS:
@@ -159,8 +165,18 @@ const ideasReducer = (state={}, action) => {
             return action.ideas
         case RECEIVE_IDEA:
             return {...newState, [action.idea._id]: action.idea}
-        case RECEIVE_USER_IDEAS: 
-            return {...newState, ...action.ideas}
+        case RECEIVE_USER_IDEAS:
+            return { ...newState, ...action.ideas }
+        case RECEIVE_COMMENT:
+            const { comment } = action
+            const ideaId = comment.idea
+            const newIdea = {
+                ...newState[ideaId],
+                comments: [...newState[ideaId].comments, comment]
+            }
+
+            return {...newState, [ideaId]: newIdea}
+
         case REMOVE_IDEA: 
             delete newState[action.ideaId]
             return newState
@@ -168,5 +184,5 @@ const ideasReducer = (state={}, action) => {
             return state;
     }
 }
-
+//ideas[action.comment.idea ]
 export default ideasReducer

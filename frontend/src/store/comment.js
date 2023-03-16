@@ -4,6 +4,7 @@ export const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS'
 export const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT'
 export const RECEIVE_USER_COMMENTS = 'comments/RECEIVE_USER_COMMENTS'
 export const REMOVE_COMMENT = 'comments/REMOVE_COMMENT'
+export const RECEIVE_IDEA_COMMENTS = 'comments/RECEIVE_IDEA_COMMENTS';
 
 export const CLEAR_COMMENT_ERRORS = 'comments/CLEAR_COMMENT_ERRORS'
 export const RECEIVE_COMMENT_ERRORS = 'comments/RECEIVE_COMMENT_ERRORS'
@@ -22,6 +23,12 @@ const receiveUserComments = (comments) => ({
     type: RECEIVE_USER_COMMENTS,
     comments
 })
+
+const receiveIdeaComments = (ideaId, comments) => ({
+  type: RECEIVE_IDEA_COMMENTS,
+  ideaId,
+  comments,
+});
 
 const removeComment = (commentId) => ({
     type: REMOVE_COMMENT,
@@ -47,7 +54,7 @@ export const getComment = (commentId) => (state) => {
 
 export const fetchComments = () => async dispatch => {
     try {
-        const res = await jwtFetch('/api/comments/')
+        const res = await jwtFetch('/api/comments')
         const comments = await res.json()
         dispatch(receiveComments(comments))
     } catch(err) {
@@ -84,22 +91,51 @@ export const fetchUserComments = (userId) => async dispatch => {
     }
 }
 
-export const createComment = (comment) => async dispatch => {
+export const fetchIdeaComments = (ideaId) => async (dispatch) => {
+  const res = await fetch(`/api/comments/ideas/${ideaId}`);
+  if (res.ok) {
+    const comments = await res.json();
+    dispatch(receiveIdeaComments(ideaId, comments));
+  }
+};
+
+// export const createComment = (comment) => async dispatch => {
+//     try {
+//         const res = await jwtFetch(`/api/comments/ideas/${comment.idea}`, {
+//             method: 'POST',
+//             body: JSON.stringify(comment)
+//         })
+//         console.log('PASSING RES', newComment)
+//         let newComment = await res.json()
+//         dispatch(receiveComment(newComment))
+//         return newComment
+//     } catch (err) {
+//         const resBody = await err.json()
+//         if (resBody.statusCode === 400) {
+//             return dispatch(receiveCommentErrors(resBody.errors))
+//         }
+//     }
+// }
+
+export const createComment =
+  (comment, idea) => async (dispatch) => {
+    console.log(idea._id)
     try {
-        const res = await jwtFetch('/api/comments/', {
-            method: 'POST',
-            body: JSON.stringify(comment)
-        })
-        let newComment = await res.json()
-        dispatch(receiveComment(newComment))
-        return newComment
+      const res = await jwtFetch(`/api/comments/ideas/${idea._id}`, {
+        method: 'POST',
+        body: JSON.stringify(comment),
+      });
+      let newComment = await res.json();
+      dispatch(receiveComment(newComment));
+      fetchIdeaComments(idea._id);
+      console.log('dispatching...')
     } catch (err) {
-        const resBody = await err.json()
-        if (resBody.statusCode === 400) {
-            return dispatch(receiveCommentErrors(resBody.errors))
-        }
+      const resBody = await err.json();
+      if (resBody.statusCode === 400) {
+        return dispatch(receiveCommentErrors(resBody.errors));
+      }
     }
-}
+  };
 
 export const updateComment = (comment) => async dispatch => {
     try {
@@ -135,7 +171,7 @@ export const deleteComment = (commentId) => async dispatch => {
 const nullErrors = null;
 
 export const commentErrorsReducer = (state = nullErrors, action) => {
-    switch (action.typee) {
+    switch (action.type) {
         case RECEIVE_COMMENT_ERRORS:
             return action.errors;
         case CLEAR_COMMENT_ERRORS:
@@ -149,7 +185,7 @@ const commentsReducer = (state={}, action) => {
     let newState = {...state}
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            return action.comments
+            return {...state, ...action.comments}
         case RECEIVE_COMMENT:
             return {...newState, [action.comment._id]: action.comment}
         case RECEIVE_USER_COMMENTS: 

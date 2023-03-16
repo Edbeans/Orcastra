@@ -8,7 +8,7 @@
     transition: width 0.2s ease-in-out;
     height: 100vh;
     background-color: rgb(10, 25, 41);
-    padding-top: 28px;
+    padding-top: 27px;
     position: sticky;
     top: 0px;
     display: flex;
@@ -23,7 +23,9 @@
     background-color: rgb(10, 25, 41);
     position: sticky;
     top: 0px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* .sidenav ::-webkit-scrollbar:vertical,
@@ -38,6 +40,7 @@
 
 .sideitem {
     display: flex;
+    height: 30px;
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
@@ -47,6 +50,7 @@
 
 .sideitemClosed {
     display: flex;
+    height: 30px;
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
@@ -70,7 +74,7 @@
 
 }
 
-.sideitem-authfunctions-container {
+.sideitem-authfunctions-containerOpen {
     padding-bottom: 30px;
 }
 
