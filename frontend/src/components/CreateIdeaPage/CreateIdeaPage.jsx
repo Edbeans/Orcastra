@@ -84,6 +84,7 @@ export default function CreateIdeaPage() {
                         />
                         <span className="cip-card-labels" >Description</span>
                     </div>
+                    
                     {/* FOR IMAGES  */}
                     <div className="cip-card-image-container">
                         <input 
