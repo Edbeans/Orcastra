@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import { createIdea } from "../../store/idea";
 import { useState, useRef } from "react";
 import "./CreateIdeaPage.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 export default function CreateIdeaPage() {
     const dispatch = useDispatch();
@@ -15,11 +17,7 @@ export default function CreateIdeaPage() {
 
     const handleCipSubmit = async (e, errors) => {
         e.preventDefault()
-
-        console.log('attempting submit')
         if (errors && Object.values(errors).length === 0) {
-            console.log('attempting dispatch')
-
             return dispatch(createIdea(title, body, images));
         }
         setTitle('');
@@ -59,7 +57,7 @@ export default function CreateIdeaPage() {
                 </div> */}
             </div>
 
-            <div className="cip-card-container">
+            <div className="cip-card-container" data-aos="fade-up" data-aos-duration="1000" >
                 <form className="cip-card" onSubmit={(e) => handleCipSubmit(e, errors)}>
                     <div className="cip-card-title">
                         <input className="cip-card-inputs" id="cip-input-title" type="text" onChange={(e) => setTitle(e.target.value)}></input>

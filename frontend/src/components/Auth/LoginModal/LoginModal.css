@@ -113,9 +113,7 @@
     left: 10px;
     top: 12px;
     transition: 0.2s ease all;
-    font-family: Manrope,
-        Arial,
-        sans-serif !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #888d85;
 }
@@ -125,7 +123,11 @@
     color: rgb(30 60 90);
     border-radius: 9999px;
     /* border: 1px solid, black; */
-    font-family: Manrope, Arial, sans-serif;
+    border: 1px solid #d4d4d4;
+    font-family: "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease all;
