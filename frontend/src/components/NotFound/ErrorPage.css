@@ -18,3 +18,24 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.error-links {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.error-links li {
+  padding: 10px 0;
+}
+
+.error-links a {
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #000;
+}
+
+.error-links a:hover {
+  color: #0077a6;
+}
