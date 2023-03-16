@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "../../store/session";
 
-// import HomeIcon from '@mui/icons-material/Home';
+import HomeIcon from '@mui/icons-material/Home';
 // import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 // import SettingsIcon from '@mui/icons-material/Settings';
 // import BarChartIcon from '@mui/icons-material/BarChart';
@@ -40,12 +40,6 @@ export default function Sidebar({open, setOpen}) {
             link: "/feed"
         },
         {
-            id: 1,
-            icon: <BarChartIcon />,
-            text: "Investments",
-            link: "/"
-        },
-        {
             id: 2,
 
             icon: <CreateIcon />,
@@ -53,13 +47,13 @@ export default function Sidebar({open, setOpen}) {
             link: "/ideas/new"
         },
         {
-            id: 2,
+            id: 3,
             icon: <SetMealIcon />,
             text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
         },
         {
-            id: 3,
+            id: 4,
             icon: <InfoOutlinedIcon />,
             text: "About",
             link: "/"
@@ -70,7 +64,13 @@ export default function Sidebar({open, setOpen}) {
             icon: <HomeIcon />,
             text: "Ideas Feed",
             link: "/feed"
-        }
+        },
+            {
+                id: 4,
+                icon: <InfoOutlinedIcon />,
+                text: "About",
+                link: "/"
+            }
     ]
 
     function toggleOpen() {
