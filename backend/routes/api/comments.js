@@ -35,11 +35,16 @@ router.post(
         { _id: comment.ideaId },
         { $push: { comments: comment._id } }
       );
+
+      await User.updateOne(
+        { _id: comment.author },
+        { $push: { comments: comment._id } }
+      );
       comment = await comment.populate(
         'author',
         '_id, username, profileImageUrl'
       );
-      return (res.json(comment));
+      return res.json(comment);
     } catch (error) {
       next(err);
     }
@@ -67,7 +72,10 @@ router.delete('/:id', requireUser, async (req, res, next) => {
     }
 
     await comment.remove();
-    await Idea.updateOne({ $pull: { comments: comment._id } });
+    await Idea.updateOne(
+      { _id: comment.idea },
+      { $pull: { comments: comment._id } }
+    );
     await User.updateOne(
       { _id: comment.author },
       { $pull: { comments: comment._id } }
