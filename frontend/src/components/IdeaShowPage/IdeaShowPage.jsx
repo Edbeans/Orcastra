@@ -10,26 +10,35 @@ import { margin, width } from "@mui/system"
 
 export default function IdeaShowPage() {
     const dispatch = useDispatch();
-    const [comment, setComment] = useState('');
-    // const [comment, setComment] = useState({empty comment object, with current user id});
-
+    // const [comment, setComment] = useState('');
     const { ideaId } = useParams();
+
+    const sessionUser = useSelector(state => state.session.user)
+    const author = sessionUser._id
+    const [commentText, setCommentText] = useState('');
+    let comment = { 
+        author: '',
+        idea: '',
+        text: ''
+    }
+
     const idea = useSelector(getIdea(ideaId))
 
     function handleCommentSubmit(e, errors) {
         e.preventDefault()
-        const newComment = { comment }
-
+        // const newComment = {...comment, author, idea: ideaId, text: commentText}
+        const newComment = {...comment, author, idea: ideaId, text: commentText}
+        console.log(newComment, ideaId)
         // comment this out to test reducer
-        if (errors && Object.values(errors).length === 0) {
-            console.log("testy")
-            return dispatch(createComment(newComment))
-        }
+        // if (errors && Object.values(errors).length === 0) {
+            return dispatch(createComment(newComment, idea))
+        // }
     }
 
     useEffect(() => {
         dispatch(fetchIdea(ideaId))
     }, [dispatch, ideaId])
+
     if (!idea) {
         return null
     } else {
@@ -56,7 +65,7 @@ export default function IdeaShowPage() {
                 <div className="isp-comments-container">
                     <form className="isp-create-comment-form" onSubmit={(e) => { handleCommentSubmit(e)}} >
                         <div className='form-input-group' >
-                            <textarea className="form-inputs" id="create-comment-textbox" onChange={(e) => setComment(e.target.value)} required />
+                            <textarea className="form-inputs" id="create-comment-textbox" onChange={(e) => setCommentText(e.target.value)} required />
                             <span className="form-input-labels">Write your comments here</span>
                         </div>
                         <button className='default-button-1'
