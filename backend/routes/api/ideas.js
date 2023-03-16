@@ -146,29 +146,18 @@ router.patch(
 
 router.delete('/:id', requireUser, async (req, res, next) => {
   try {
-    const idea = await Idea.findOneAndDelete({
-      _id: req.params.id,
-    });
-    if (!idea) {
-      const error = new Error('Idea not found');
-      error.statusCode = 404;
-      error.errors = { message: 'No idea with that id found' };
-      return next(error);
-    }
-    if (idea.owner.toString() !== req.user._id.toString()) {
-      const error = new Error('Unauthorized');
-      error.statusCode = 401;
-      error.errors = {
-        message:
-          'Only the owner of this idea is authorized to delete it.',
-      };
-      return next(error);
-    }
-
-    await idea.remove();
-    return res.json(idea);
+    let id = req.params.id;
+    let idea = await Idea.findOneAndDelete({ _id: id });
+    await User.updateOne(
+      { _id: idea.owner._id },
+      { $pull: { ideas: idea._id } }
+    );
+    return res.json({ message: 'Idea deleted!' });
   } catch (err) {
-    next(err);
+    const error = new Error('Idea could not be deleted');
+    error.statusCode = 422;
+    error.errors = { message: 'Idea could not be deleted' };
+    return next(err);
   }
 });
 
