@@ -57,7 +57,7 @@ const SplashPage = () => {
                             Orcastra
                         </div>
                         <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
-                            connecting investors of today with creators of tomorrow
+                            Connecting investors of today with creators of tomorrow
                         </div>
                     </div>
                 </div>

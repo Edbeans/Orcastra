@@ -10,12 +10,17 @@ import { useSelector, useDispatch } from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "../../store/session";
 
-import HomeIcon from '@mui/icons-material/Home';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import HomeIcon from '@mui/icons-material/Home';
+// import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+// import SettingsIcon from '@mui/icons-material/Settings';
+// import BarChartIcon from '@mui/icons-material/BarChart';
+// import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateIcon from '@mui/icons-material/Create';
-import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
+import SetMealIcon from '@mui/icons-material/SetMeal';
+import WavesIcon from '@mui/icons-material/Waves';
+// import MessageIcon from '@mui/icons-material/Message';
+
 
 
 export const ModalContext = React.createContext();
@@ -31,40 +36,34 @@ export default function Sidebar({open, setOpen}) {
     const navData = sessionUser ? [
         {
             id: 0,
-            icon: <HomeIcon />,
-            text: "Feed",
-            link: "/"
+            icon: <WavesIcon />,
+            text: "Ideas Feed",
+            link: "/feed"
         },
         {
             id: 1,
-            icon: <BarChartIcon />,
-            text: "investments",
-            link: "/"
-        },
-        {
-            id: 2,
             icon: <CreateIcon />,
-            text: "Create an idea",
+            text: "Create",
             link: "/ideas/new"
         },
         {
-            id: 3,
-            icon: <ViewCarouselIcon />,
-            text: "Your ideas",
+            id: 2,
+            icon: <SetMealIcon />,
+            text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
         },
         {
-            id: 4,
-            icon: <SettingsIcon />,
-            text: "Settings",
+            id: 3,
+            icon: <InfoOutlinedIcon />,
+            text: "About",
             link: "/"
         }
     ] : [
         {
             id: 0,
-            icon: <HomeIcon />,
-            text: "Feed",
-            link: "/"
+            icon: <WavesIcon />,
+            text: "Ideas Feed",
+            link: "/feed"
         }
     ]
 
