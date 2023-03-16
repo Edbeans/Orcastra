@@ -8,12 +8,61 @@
 
 
 .isp-media-container {
-    background-image: url("/src/assets/edbeanis.jpeg");
+    /* background-image: url("/assets/edbeanis.jpeg"); */
     background-size: cover;
     background-position: center;
-    height: 450px;
+    height: 500px;
     width: 675px;
     margin: 100px 25px 0px 0px;
+}
+
+.media {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.media-buton-wrapper {
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+}
+
+.media .left-media {
+    flex: 7.5%;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.46);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: .5rem;
+}
+.media .center-media {
+    flex: 85%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+.media .right-media {
+    flex: 7.5%;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.46);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: .5rem;
 }
 
 .isp-info-container {
@@ -48,7 +97,7 @@
 }
 
 .comment-wrapper {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     align-items: center;
     height: 40px;
@@ -68,5 +117,73 @@
     font-size: 16px;
     color: #888d85;
     width: 100%;
+}
 
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.idea-show-button {
+    background-color: white;
+    color: rgb(30 60 90);
+    border-radius: 9999px;
+    border: 1px solid #d4d4d4;
+    font-family: "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    width: 105px;
+    height: 45px;
+}
+
+.idea-show-button:hover {
+    background-color: rgb(29, 63, 96);
+    color: white;
 }

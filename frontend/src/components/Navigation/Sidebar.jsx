@@ -18,7 +18,6 @@ import { logout } from "../../store/session";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateIcon from '@mui/icons-material/Create';
 import SetMealIcon from '@mui/icons-material/SetMeal';
-import WavesIcon from '@mui/icons-material/Waves';
 // import MessageIcon from '@mui/icons-material/Message';
 
 
@@ -36,12 +35,19 @@ export default function Sidebar({open, setOpen}) {
     const navData = sessionUser ? [
         {
             id: 0,
-            icon: <WavesIcon />,
+            icon: <HomeIcon />,
             text: "Ideas Feed",
             link: "/feed"
         },
         {
             id: 1,
+            icon: <BarChartIcon />,
+            text: "Investments",
+            link: "/"
+        },
+        {
+            id: 2,
+
             icon: <CreateIcon />,
             text: "Create",
             link: "/ideas/new"
@@ -61,7 +67,7 @@ export default function Sidebar({open, setOpen}) {
     ] : [
         {
             id: 0,
-            icon: <WavesIcon />,
+            icon: <HomeIcon />,
             text: "Ideas Feed",
             link: "/feed"
         }
