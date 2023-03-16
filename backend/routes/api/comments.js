@@ -35,6 +35,11 @@ router.post(
         { _id: comment.ideaId },
         { $push: { comments: comment._id } }
       );
+
+      await User.updateOne(
+        { _id: comment.author },
+        { $push: { comments: comment._id } }
+      );
       comment = await comment.populate(
         'author',
         '_id, username, profileImageUrl'
