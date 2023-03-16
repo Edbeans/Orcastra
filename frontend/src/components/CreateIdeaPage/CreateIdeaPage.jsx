@@ -50,15 +50,15 @@ export default function CreateIdeaPage() {
     return (
         <div className="cip-container">
             <div className="cip-header-container">
-                <div className="cip-header">
+                <div className="cip-header" data-aos="fade-down" data-aos-duration="2000">
                     Your billion-dollar venture starts here.
                 </div>
-                {/* <div className="cip-instructions">
+                <div className="cip-instructions" data-aos="fade-right" data-aos-duration="2000">
                     Great products were meant to be shared. Fill out the form below with your product information
-                </div> */}
+                </div>
             </div>
 
-            <div className="cip-card-container" data-aos="fade-up" data-aos-duration="1000" >
+            <div className="cip-card-container" data-aos="fade-up" data-aos-duration="2000" >
                 <form className="cip-card" onSubmit={(e) => handleCipSubmit(e, errors)}>
                     <div className="cip-card-title">
                         <input 
@@ -66,7 +66,7 @@ export default function CreateIdeaPage() {
                             id="cip-input-title" 
                             type="text" 
                             onChange={(e) => setTitle(e.target.value)} 
-                            placeholder="Type your unique title here"
+                            placeholder="Your unique title here"
                         />
                         <span className="cip-card-labels" >Title</span>
                     </div>
@@ -80,7 +80,7 @@ export default function CreateIdeaPage() {
                             className="cip-card-inputs" 
                             id="cip-input-description" 
                             onChange={(e) => setBody(e.target.value)}
-                            placeholder="Description of your idea"
+                            placeholder="Tell us what your product is all about"
                         />
                         <span className="cip-card-labels" >Description</span>
                     </div>
@@ -105,7 +105,9 @@ export default function CreateIdeaPage() {
                             </div>
                         </div>
                     </div>
-
+                    <div>
+                        {imageUrls.map(image => <img height="80" src={image}/>)}
+                    </div>
                     <button className='submit-idea-btn'>Submit Idea</button>
                 </form>
             </div>
