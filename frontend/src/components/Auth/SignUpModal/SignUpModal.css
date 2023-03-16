@@ -1,6 +1,15 @@
+.sutl-container {
+    padding-top: 10px; 
+}
+
 .signup-to-login-link {
     cursor: pointer;
     font-weight: 600;
-    text-decoration: underline;
-    text-underline-position: under;
+    text-decoration: none;
+    /* text-underline-position: under; */
+    transition: 0.5s; 
+}
+
+.signup-to-login-link:hover {
+    color: rgb(87, 130, 174);
 }

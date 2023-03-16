@@ -40,7 +40,7 @@ export default function SignUpForm(props) {
             <button className="modal-close-button" onClick={() => setShowSignUpModal(false)}>&#10005;</button>
             <div className="login-signup-modal">
                 <form className="login-signup-form" onSubmit={handleSubmit}>
-                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Find your orca today</h2>
+                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Find your orca today.</h2>
                     <div className="input-container">
 
                         <div className='form-input-group'>
@@ -59,13 +59,13 @@ export default function SignUpForm(props) {
                         </div>
 
                         <button className='default-button-1'
-                            style={{ padding: "10px 50px", marginTop: "220px" }}
+                            style={{ padding: "10px 50px", marginTop: "30px" }}
                             onClick={handleSubmit}>Sign Up</button>
 
                     </div>
                 </form>
 
-                <div>Already have an account?
+                <div className="sutl-container">Already have an account?
                     <span> </span>
                     <span className="signup-to-login-link" onClick={toggleForm}>Log in here</span>
                 </div>

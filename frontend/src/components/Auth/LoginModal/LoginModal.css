@@ -50,6 +50,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 80px;
 }
 
 .input-container>* {
@@ -120,11 +121,10 @@
 }
 
 .default-button-1 {
-    background-color: rgb(30 60 90);
-    color: #fff;
-    padding: 10px 100px;
+    background-color: white;
+    color: rgb(30 60 90);
     border-radius: 9999px;
-    border: none;
+    /* border: 1px solid, black; */
     font-family: Manrope, Arial, sans-serif;
     font-size: 16px;
     cursor: pointer;
@@ -133,12 +133,22 @@
 }
 
 .default-button-1:hover {
-    background-color: rgb(20, 40, 60);
+    background-color: rgb(29, 63, 96);
+    color: white; 
+}
+
+.lts-container {
+    padding-top: 10px; 
 }
 
 .login-to-signup-link {
     cursor: pointer;
     font-weight: 600;
-    text-decoration: underline;
-    text-underline-position: under;
+    text-decoration: none;
+    /* text-underline-position: none;  */
+    transition: 0.5s; 
+}
+
+.login-to-signup-link:hover {
+    color: rgb(87, 130, 174);
 }

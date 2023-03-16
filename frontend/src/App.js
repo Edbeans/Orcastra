@@ -25,8 +25,8 @@ function App() {
         open={open} setOpen={setOpen}/>
         <div className={open?"padding-containerOpen":"padding-containerClosed"}>
         <Switch>
-          <ProtectedRoute exact path='/' component={FeedPage} />
-          <Route exact path='/ideas/new' component={CreateIdeaPage}/>
+          <Route exact path='/' component={FeedPage} />
+          <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage}/>
           <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
           <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
           <AuthRoute exact path='/' component={LoginSignUpPage} />

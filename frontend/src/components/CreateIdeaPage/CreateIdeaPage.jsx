@@ -65,13 +65,18 @@ export default function CreateIdeaPage() {
                         <input className="cip-card-inputs" id="cip-input-title" type="text" onChange={(e) => setTitle(e.target.value)}></input>
                         <span className="cip-card-labels" >Title</span>
                     </div>
+                    {/* <div className="cip-card-title">
+                        <input className="form-inputs" id="cip-input-title" type="text" onChange={(e) => setTitle(e.target.value)}></input>
+                        <span className="form-input-labels" >Title</span>
+                    </div> */}
+
                     <div className="cip-card-description">
                         <textarea className="cip-card-inputs" id="cip-input-description" onChange={(e) => setBody(e.target.value)}/>
                         <span className="cip-card-labels" >Description</span>
                     </div>
                     {/* FOR IMAGES  */}
                     <div className="cip-card-image">
-                        <input className="cip-card-inputs" type="file" ref={fileRef} accept=".jpg, .jpeg, .png" onChange={handleFiles} multiple />
+                        <input type="file" ref={fileRef} accept=".jpg, .jpeg, .png" onChange={handleFiles} multiple />
                     </div>
 
                     <button className='submit-idea-btn'>Submit Idea</button>
