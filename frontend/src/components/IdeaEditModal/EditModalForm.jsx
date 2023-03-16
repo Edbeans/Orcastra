@@ -16,17 +16,18 @@ export default function EditModalForm({ idea }) {
     
     return (
         <div className="edit-idea-modal-wrapper">
-            <form onSubmit={handleSubmit}>
+        {/* data-aos="fade-up" data-aos-duration="2000" */}
+            <form className="edit-card" onSubmit={handleSubmit}>
                 <div>
-                    <label>Edit title</label>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                    <span>Edit title</span>
                 </div>
                 <div>
-                    <label>Edit description</label>
                     <input type="text" value={body} onChange={(e) => setBody(e.target.value)} style={{height:'100px', width: '300px'}}/>
+                    <span>Edit description</span>
                 </div>
 
-                <button>Edit Idea</button>
+                <button className="submit-idea-btn">Edit Idea</button>
             </form>
         </div>
     )

@@ -29,13 +29,13 @@ function App() {
         open={open} setOpen={setOpen}/>
         <div className={open?"padding-containerOpen":"padding-containerClosed"}>
           <Switch>
-            <Route exact path='/' component={FeedPage} />
+            <Route exact path='/feed' component={FeedPage} />
             <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage}/>
             <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
             <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
-            <AuthRoute exact path='/' component={LoginSignUpPage} />
-            <AuthRoute exact path='/login' component={LoginSignUpPage} />
-            <AuthRoute exact path='/signup' component={LoginSignUpPage} />
+            <Route exact path='/' component={LoginSignUpPage} />
+            {/* <AuthRoute exact path='/login' component={LoginSignUpPage} />
+            <AuthRoute exact path='/signup' component={LoginSignUpPage} /> */}
           </Switch>
         </div>
       </>

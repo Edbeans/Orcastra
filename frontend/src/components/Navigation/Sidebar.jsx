@@ -33,12 +33,12 @@ export default function Sidebar({open, setOpen}) {
             id: 0,
             icon: <HomeIcon />,
             text: "Feed",
-            link: "/"
+            link: "/feed"
         },
         {
             id: 1,
             icon: <BarChartIcon />,
-            text: "investments",
+            text: "Investments",
             link: "/"
         },
         {
