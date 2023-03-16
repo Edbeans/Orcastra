@@ -5,7 +5,7 @@ import {
   ProtectedRoute,
 } from './components/Routes/Routes';
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
-import LoginSignUpPage from './components/Auth/LoginSignUpPage';
+import Splash from './components/Splash/Splash';
 import { getCurrentUser } from './store/session';
 import FeedPage from './components/Feed/FeedPage';
 import Sidebar from './components/Navigation/Sidebar';
@@ -33,9 +33,9 @@ function App() {
             <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage}/>
             <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
             <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
-            <Route exact path='/' component={LoginSignUpPage} />
-            {/* <AuthRoute exact path='/login' component={LoginSignUpPage} />
-            <AuthRoute exact path='/signup' component={LoginSignUpPage} /> */}
+            <AuthRoute exact path='/' component={Splash} />
+            <AuthRoute exact path='/login' component={Splash} />
+            <AuthRoute exact path='/signup' component={Splash} />
           </Switch>
         </div>
       </>

@@ -52,7 +52,7 @@ export default function IdeaShowPage() {
     }, [dispatch, ideaId]);
 
     function handleDelete() {
-        dispatch(deleteIdea(ideaId)).then(history.push('/'))
+        dispatch(deleteIdea(ideaId)).then(history.push('/feed'))
     }
 
 
