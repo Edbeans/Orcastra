@@ -8,7 +8,7 @@
 
 
 .isp-media-container {
-    background-image: url("/assets/edbeanis.jpeg");
+    background-image: url("/src/assets/edbeanis.jpeg");
     background-size: cover;
     background-position: center;
     height: 450px;
@@ -51,5 +51,22 @@
     display: flex; 
     flex-direction: row;
     align-items: center;
+    height: 40px;
+    border-bottom: 1px solid #ccc;;
+}
+
+.comment-item-user-info {
+    width: 20px;
+}
+
+.comment-item-text {
+    font-size: 16px;
+    width: 400px;
+}
+
+.comment-item-date {
+    font-size: 16px;
+    color: #888d85;
     width: 100%;
+
 }
