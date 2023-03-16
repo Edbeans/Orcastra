@@ -85,8 +85,10 @@ export const fetchUserComments = (userId) => async dispatch => {
 }
 
 export const createComment = (comment) => async dispatch => {
+    // fix this
+    console.log(comment.idea)
     try {
-        const res = await jwtFetch('/api/comments/', {
+        const res = await jwtFetch(`/api/comments/ideas/${comment.idea}`, {
             method: 'POST',
             body: JSON.stringify(comment)
         })
