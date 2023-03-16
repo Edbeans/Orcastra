@@ -14,8 +14,17 @@ router.get('/', async (req, res, next) => {
   try {
     const ideas = await Idea.find()
       .sort({ createdAt: -1 })
-      .populate('owner', '_id, username, profileImageUrl')
-      .populate('comments');
+      .populate({
+        path: 'owner',
+        select: 'username profileImageUrl',
+      })
+      .populate({
+        path: 'comments',
+        populate: {
+          path: 'author',
+          select: '_id _id username profileImageUrl',
+        },
+      });
     return res.json(ideas);
   } catch (error) {
     res.json([]);
@@ -26,8 +35,17 @@ router.get('/:id', async (req, res, next) => {
   try {
     const idea = await Idea.findOne({ _id: req.params.id })
       .sort({ createdAt: -1 })
-      .populate('owner', '_id, username profileImageUrl')
-      .populate('comments');
+      .populate({
+        path: 'owner',
+        select: 'username profileImageUrl',
+      })
+      .populate({
+        path: 'comments',
+        populate: {
+          path: 'author',
+          select: '_id _id username profileImageUrl',
+        },
+      });
 
     return res.json(idea);
   } catch (err) {
