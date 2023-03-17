@@ -9,7 +9,7 @@ export default function UserIdeaIndexItem({ idea }) {
                     <div className="uiii-item-body">
                         <img className='uiii-img' src={idea.imageUrls[0]}></img>     
                         <div className="idea-text-box">
-                            <h1 className="index-item-title">{idea.title}</h1>
+                            <h1 className="index-idea-title">{idea.title}</h1>
                             <h2 className="index-item-body">{idea.body}</h2>
                         </div>
                     </div>    
