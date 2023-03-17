@@ -1,75 +1,3 @@
-/* 
-.usershow-container {
-    padding: 50px 50px 50px 50px;
-}
-
-.usershow-content {
-    flex-direction: column;
-    height: auto;
-    border-radius: 30px;
-    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
-    position: relative;
-}
-
-.usershow-ideas {
-    background-color: white
-}
-
-.usi-header {
-    display: block; 
-
-}
-
-.usi-header-text {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px; 
-}
-
-.usershow-info-header {
-    display: grid;
-    grid-template-columns: min-content 1fr 1fr;
-    border-bottom: 10px solid #010101;
-}
-
-.usershow-info-header>* {
-    padding: 20px;
-}
-
-.usershow-profile-img{
-    height: 280px;
-    width: 280px;
-    border-radius: 9999px;
-    background-image: url(https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png);
-    background-size: cover;
-    background-position: center;
-    margin: 30px 30px 30px 60px;
-}
-
-
-.usershow-username {
-    padding: 50px 0px 50px 0px;
-    font-size: 38px;
-    font-weight: 500px;
-}
-
-.usershow-email {
-    font-size: 24px;
-    font-weight: 500px;
-    
-}
-
-.usershow-stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 20px;
-}
-
-.usershow-ideas {
-    height: 500px;
-    margin-bottom: 100px;
-} */
-
 .usp {
     background-color: rgb(255, 255, 255); 
     display: block; 
@@ -136,31 +64,31 @@
     padding-left: clamp(24px, 24px + 100vw - 1080px, 40px);
 }
 
-.author-bio-container {
+.user-bio-container {
     position: relative; 
     height: 100%; 
     display: inline-block;
     width: 100% 
 }
 
-.author-bio-inside-container {
+.user-bio-inside-container {
     top: 57px; 
     position: sticky; 
     display: block; 
 }
 
-.author-bio-content {
+.user-bio-content {
     display: flex; 
     flex-direction: column; 
     min-height: calc(100vh - 57px); 
 }
 
-.abc-1 {
+.ubc-1 {
     display: block; 
     flex: 1 0 auto; 
 }
 
-.abc-2 {
+.ubc-2 {
     display: block; 
     padding-bottom: 0px; 
     border-bottom: none; 

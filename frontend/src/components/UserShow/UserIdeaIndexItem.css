@@ -17,7 +17,7 @@
 .idea-text-box {
     display: inline-block; 
     width: 25rem; 
-    margin-left: 1rem; 
+    margin-left: 1.5rem; 
 }
 .index-item-title {
     font-weight: 600;
@@ -27,8 +27,18 @@
 }
 
 .index-item-body {
-    font-weight: 400; 
-    font-size: 12px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 15px; 
+    letter-spacing: 0.008em; 
+    line-height: 28px; 
+    word-break: break-word; 
+    color: rgb(167, 167, 168);
+    text-decoration: none; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
 .uiii-img { 
