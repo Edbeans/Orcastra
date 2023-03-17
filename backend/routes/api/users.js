@@ -13,7 +13,7 @@ const {
   singleMulterUpload,
 } = require('../../awsS3');
 
-const DEFAULT_PROFILE_IMAGE_URL = 's3://ey-aws-mern-orcastra/public/';
+const DEFAULT_PROFILE_IMAGE_URL = 'https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png';
 
 router.get('/', function (req, res, next) {
   res.json({
