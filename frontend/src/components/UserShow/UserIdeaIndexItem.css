@@ -1,0 +1,39 @@
+.uiii-container {
+    margin-top: 2rem; 
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+.user-item-wrapper {
+    text-decoration: none;
+}
+
+.index-item-link {
+    text-decoration: none;
+}
+
+.uiii-item-body {
+    margin-bottom: 1rem; 
+}
+
+.idea-text-box {
+    display: inline-block; 
+    width: 25rem; 
+    margin-left: 1rem; 
+}
+.index-item-title {
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+    margin-bottom: 2rem; 
+}
+
+.index-item-body {
+    font-weight: 400; 
+    font-size: 12px; 
+}
+
+.uiii-img { 
+    height: 200px;
+    width: 300px;
+    background-color: gray;
+    border-radius: 20px;
+}

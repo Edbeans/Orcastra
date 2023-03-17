@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { fetchIdeas, getIdeas } from '../../store/idea';
 import IdeaIndexItem from './IdeaIndexItem';
 import './Feed.css'
+import Aos from 'aos';
 
 export default function FeedPage() {
     const dispatch = useDispatch()

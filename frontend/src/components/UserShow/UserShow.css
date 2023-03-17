@@ -1,6 +1,6 @@
-
+/* 
 .usershow-container {
-    padding: 50px 50px 0px 50px;
+    padding: 50px 50px 50px 50px;
 }
 
 .usershow-content {
@@ -12,8 +12,17 @@
 }
 
 .usershow-ideas {
-    /* width: 40%; */
-    background-color: brown;
+    background-color: white
+}
+
+.usi-header {
+    display: block; 
+
+}
+
+.usi-header-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px; 
 }
 
 .usershow-info-header {
@@ -46,7 +55,7 @@
 .usershow-email {
     font-size: 24px;
     font-weight: 500px;
-    /* border-bottom: 1px solid black; */
+    
 }
 
 .usershow-stats {
@@ -59,4 +68,128 @@
 .usershow-ideas {
     height: 500px;
     margin-bottom: 100px;
+} */
+
+.usp {
+    background-color: rgb(255, 255, 255); 
+    display: block; 
+}
+
+.usp-main {
+    display: block; 
+    max-width: 1336px; 
+    margin: auto; 
+}
+
+/* MAIN BODY RIGHT SIDE  */
+.usp-main-container {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly; 
+}
+
+.main-class {
+    display: block; 
+    max-width: 728px; 
+    min-width: 728px;
+    flex: 1 1 auto;  
+}
+
+.usp-right-container {
+    display: flex; 
+    min-height: 100vh; 
+    flex-direction: column; 
+}
+
+.user-header-container {
+    display: block; 
+    padding-top: 5%; 
+    padding-bottom: 2%; 
+    box-shadow: inset 0 -1px 0 rgb(196, 196, 196);
+}
+
+.user-name {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 42px; 
+    font-weight: 500; 
+    color: rgb(42, 42, 42);
+    letter-spacing: 0; 
+    line-height: 52px; 
+    max-height: none; 
+}
+
+.uiii-container {
+    margin-top: 2rem; 
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+/* MAIN BODY LEFT SIDE  */
+.sp-left-container {
+    display: block; 
+    box-sizing: border-box; 
+    min-height: 100vh;
+    min-width: 368px; 
+    max-width: 368px;  
+    padding-right: 24px; 
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(196, 196, 196);
+    padding-left: clamp(24px, 24px + 100vw - 1080px, 40px);
+}
+
+.author-bio-container {
+    position: relative; 
+    height: 100%; 
+    display: inline-block;
+    width: 100% 
+}
+
+.author-bio-inside-container {
+    top: 57px; 
+    position: sticky; 
+    display: block; 
+}
+
+.author-bio-content {
+    display: flex; 
+    flex-direction: column; 
+    min-height: calc(100vh - 57px); 
+}
+
+.abc-1 {
+    display: block; 
+    flex: 1 0 auto; 
+}
+
+.abc-2 {
+    display: block; 
+    padding-bottom: 0px; 
+    border-bottom: none; 
+    margin-top: 40px; 
+}
+
+.usershow-profile-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 9999px;
+    background-image: url(https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5rem; 
+}
+
+.profile-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px; 
+    font-weight: bolder; 
+    letter-spacing: 0; 
+    color: rgb(37, 37, 37);
+    line-height: 20px; 
+}
+
+.usershow-stats {
+    margin-top: 1rem; 
+}
+
+.usershow-num-comments {
+    margin-top: 1rem; 
 }
