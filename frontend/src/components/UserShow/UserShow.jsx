@@ -24,14 +24,23 @@ export default function UserIdeas() {
 
                     <div className="usershow-info-header">
                         <div className="usershow-profile-img">
-                            Image
+                            Image Goes here
                         </div>
-                        <div className="usershow-username">
-                            {user.username}
+                        <div className="usershor-username-container">
+                            <div className="usershow-username">
+                                {user.username}
+                            </div>
+                            <div className="usershow-email">
+                                {user.email}
+                            </div>
                         </div>
-                        <div className="usershow-email">
-                            {user.email}
+
+                        <div className="usershow-stats">
+                            <div className="usershow-num-ideas">{`Ideas: ${filteredIdeas.length}`}</div>
+                            <div className="usershow-num-comments">{`Comments Received: ${filteredIdeas.length}`}</div>
                         </div>
+
+                    
                     </div>
 
                     <div className="usershow-ideas">
