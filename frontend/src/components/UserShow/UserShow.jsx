@@ -19,14 +19,13 @@ export default function UserIdeas() {
     
     return (
         <>
-            <div className="usershow-container">
+            <div className="usershow-container" data-aos="fade-up" data-aos-duration="1000">
                 <div className="usershow-content">
 
                     <div className="usershow-info-header">
                         <div className="usershow-profile-img">
-                            Image Goes here
                         </div>
-                        <div className="usershor-username-container">
+                        <div className="usershow-username-container">
                             <div className="usershow-username">
                                 {user.username}
                             </div>
@@ -45,6 +44,7 @@ export default function UserIdeas() {
 
                     <div className="usershow-ideas">
                         Ideas here
+                        {console.log(filteredIdeas)}
                     </div>
 
 

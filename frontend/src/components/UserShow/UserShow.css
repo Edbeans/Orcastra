@@ -18,8 +18,8 @@
 
 .usershow-info-header {
     display: grid;
-    grid-template-columns: min-content min-content min-content;
-    border-bottom: 2px solid black;
+    grid-template-columns: min-content 1fr 1fr;
+    border-bottom: 10px solid #010101;
 }
 
 .usershow-info-header>* {
@@ -27,32 +27,33 @@
 }
 
 .usershow-profile-img{
-    height: 300px;
-    width: 300px;
+    height: 280px;
+    width: 280px;
     border-radius: 9999px;
-    background-image: url("https: //ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png");
+    background-image: url(https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png);
     background-size: cover;
     background-position: center;
-    margin: 20px 20px 20px 80px;
+    margin: 30px 30px 30px 60px;
 }
 
+
 .usershow-username {
-    padding-top: 50px;
-    font-size: 34px;
+    padding: 50px 0px 50px 0px;
+    font-size: 38px;
     font-weight: 500px;
 }
 
 .usershow-email {
     font-size: 24px;
     font-weight: 500px;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .usershow-stats {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color: fff;
+    font-size: 20px;
 }
 
 .usershow-ideas {
