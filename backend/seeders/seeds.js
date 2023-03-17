@@ -171,6 +171,31 @@ const seederz = new Idea({
   comments: [],
 });
 
+const glowGrip = new Idea({
+  owner: demo._id,
+  title: 'Glow Grip',
+  body: "GlowGrip is the ultimate solution to your nighttime safety needs. It’s a high-performance grip tape that glows in the dark, providing superior visibility and ensuring your safety in low light conditions. Whether you’re jogging, biking, or walking your dog, GlowGrip helps you stay visible to others on the road. Made from high-quality, durable materials, GlowGrip is easy to apply and can be used on any surface, including metal, wood, plastic, and concrete. Its unique adhesive formula ensures a strong, long-lasting grip, even in wet or slippery conditions. GlowGrip is available in a variety of colors and sizes to fit your specific needs. Its unique, long-lasting glow technology means it doesn’t require any external power source and can be recharged simply by exposing it to light. Stay safe and be seen with GlowGrip - the ultimate solution for nighttime safety!",
+  imageUrls: [],
+  comments: [],
+});
+
+const sustainBox = new Idea({
+  owner: demo._id,
+  title: 'SustainiBox+',
+  body: "SustainiBox is the eco-friendly solution for your packaging needs. This innovative product is made from sustainable, biodegradable materials that help reduce waste and protect the environment. Whether you’re shipping products or storing items, SustainiBox offers a durable and reliable solution that’s kind to the planet. Its unique design allows for easy assembly and sealing, ensuring your items are protected during transit or storage. SustainiBox is available in a variety of sizes and shapes to suit your needs. Its stackable design makes it easy to store and transport, while its sturdy construction provides maximum protection for your items. Made from natural, biodegradable materials, SustainiBox is safe for the environment and can be disposed of easily without harming wildlife or polluting the earth. Its unique materials also make it a great alternative to traditional packaging options that can harm the planet. SustainiBox is the perfect solution for businesses and individuals looking to reduce their carbon footprint and make a positive impact on the environment. Join the sustainable packaging movement with SustainiBox!",
+  imageUrls: [],
+  comments: [],
+});
+
+const cleanSweep = new Idea({
+  owner: demo._id,
+  title: 'Clean Sweep+',
+  body: "CleanSweep+ is the ultimate cleaning solution for your home. This powerful, multi-purpose cleaner is designed to tackle tough stains and grime on a variety of surfaces, including floors, walls, countertops, and appliances. Made with natural, non-toxic ingredients, CleanSweep+ is safe for use around children and pets. Its unique formula is tough on dirt and stains, yet gentle on your surfaces. Whether you need to clean up spills in the kitchen or remove scuff marks from your floors, CleanSweep+ gets the job done without leaving any residue or harsh chemical odors. With its easy-to-use spray bottle, CleanSweep+ makes cleaning a breeze. Simply spray it onto the surface you want to clean and wipe it away with a damp cloth or sponge. Its versatile formula can be used on a wide range of surfaces, including hardwood, tile, and carpet. CleanSweep+ comes in a variety of refreshing scents, including lavender, lemon, and eucalyptus. So not only does it leave your home sparkling clean, but it also leaves it smelling fresh and inviting. Say goodbye to tough stains and grime with CleanSweep+ - the ultimate cleaning solution for your home.",
+  imageUrls: [],
+  comments: [],
+});
+
+
 ideas.push(
   chatter,
   intelWishes,
@@ -181,7 +206,10 @@ ideas.push(
   demoIdea,
   scrubDaddy,
   bofA,
-  seederz
+  seederz,
+  glowGrip,
+  sustainBox,
+  cleanSweep
 );
 
 for (let i = 0; i < ideas.length; i++) {

@@ -11,6 +11,8 @@
     width: 300px;
     background-color: gray;
     border-radius: 20px;
+    transition: opacity 0.5s
+
 }
 
 .index-item-title {
@@ -21,5 +23,6 @@
 }
 
 .placeholder-box:hover {
-    opacity: 50%
+    opacity: 50%;
+    /* transition: opacity 0.5s */
 }
