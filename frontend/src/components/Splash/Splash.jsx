@@ -30,17 +30,15 @@ const SplashPage = () => {
                     </button>
 
                     <div className='splash-page-after-nav'>
-                        <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="3000">
+                        <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="1000">
                             <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '650px', height: 'auto' }} >
                             </img>
                         </div>
-                        <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
-                            Connecting investors of today with creators of tomorrow
-                        </div>
+
                     </div>
 
                     <button
-                        className='lbh-btn gs-btn'
+                        className='lbh-btn gs-btn' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1000"
                     >
                         Get started
                     </button>
@@ -85,8 +83,17 @@ const SplashPage = () => {
                     <div className='content' data-aos="zoom-in" data-aos-duration="1000">
                         <h1 className='section-header'>Go out and make a krilling!</h1>
                         <p className='section-text'>
-                            Conduct your business affairs with the help of live-feedback and data analytics. 
+                            Conduct your business affairs with the help of live-feedback and data analytics.
                         </p>
+                    </div>
+                </div>
+
+                <div className='hero-section'>
+                    <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
+                        "Connecting investors of today with creators of tomorrow"
+                        <div className='splash-slogan-attribute'>
+                            -Dosé
+                        </div>
                     </div>
                 </div>
 
