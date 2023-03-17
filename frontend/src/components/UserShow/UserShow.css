@@ -1,0 +1,42 @@
+
+.usershow-container {
+    padding-top: 50px;
+}
+
+.usershow-content {
+    flex-direction: column;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+    position: relative;
+}
+
+.usershow-ideas {
+    /* width: 40%; */
+    background-color: brown;
+}
+
+.usershow-info-header {
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-template-rows: auto auto;
+    border-bottom: 2px solid black;
+}
+
+.usershow-info-header>* {
+    padding: 20px;
+}
+
+.usershow-profile-img{
+    grid-row: 1/3;
+    height: auto;
+    width: 20px;
+}
+
+.usershow-email {
+}
+
+.usershow-ideas {
+    height: 500px;
+    margin-bottom: 100px;
+}
