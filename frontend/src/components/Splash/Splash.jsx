@@ -22,7 +22,12 @@ const SplashPage = () => {
             <div className='splash-page-main'>
 
                 <div className='splash-section-1'>
-                    
+
+                    <button
+                        className='lbh-btn about-btn'>
+                        About Us
+                    </button>
+
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="3000">
                             Orcastra
@@ -32,17 +37,11 @@ const SplashPage = () => {
                         </div>
                     </div>
 
-                    <div className='links-below-header'>
-                            <button 
-                                className='lbh-btn gs-btn'                   
-                            >
-                                Get started
-                            </button>
-                            <button 
-                                className='lbh-btn about-btn'>
-                                About Us
-                            </button>
-                    </div>
+                    <button
+                        className='lbh-btn gs-btn'
+                    >
+                        Get started
+                    </button>
 
                 </div>
 
@@ -63,7 +62,7 @@ const SplashPage = () => {
                     </div>
                 </div>
                 <div className='hero-section alternate-section'>
-                    <div className='content'>
+                    <div className='content' data-aos="fade-right" data-aos-duration="1000">
                         <h1 className='section-header'>
                             Where hanging out is easy
                         </h1>
@@ -73,19 +72,19 @@ const SplashPage = () => {
                             in to talk without having to call.
                         </p>
                     </div>
-                    <div className='img-container'>
+                    <div className='img-container' data-aos="fade-right" data-aos-duration="1000">
                         <img src={splashorca2} alt='txt' className='all-sec-img' />
                     </div>
                 </div>
                 <div className='hero-section'>
-                    <div className='img-container'>
+                    <div className='img-container' data-aos="zoom-in" data-aos-duration="1000">
                         <img
                             src={splashorca3}
                             alt='mod-tools'
                             className='all-sec-img'
                         />
                     </div>
-                    <div className='content'>
+                    <div className='content' data-aos="zoom-in" data-aos-duration="1000">
                         <h1 className='section-header'>From few to a fandom</h1>
                         <p className='section-text'>
                             Get any community running with moderation tools and
