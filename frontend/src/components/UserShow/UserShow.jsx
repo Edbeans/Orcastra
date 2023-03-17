@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserIdeaIndexItem from "./UserIdeaIndexItem";
+import Aos from "aos";
 import './UserShow.css'
 
 export default function UserIdeas() {
@@ -29,17 +30,21 @@ export default function UserIdeas() {
                         <main className='main-class'>
                             <div className='usp-right-container'>
                                 <div className='user-header-container'>
-                                    <h1 className='user-name'>{`${user.username}'s ideas`}</h1>       
+                                    <h1 className='user-name' data-aos="fade-down" data-aos-duration="1500">{`${user.username}'s ideas`}</h1>       
                                 </div>
                                 
                                     {filteredIdeas.map(idea =>
-                                        <UserIdeaIndexItem key={idea.id} idea={idea}/>
+                                        <UserIdeaIndexItem 
+                                            key={idea.id} 
+                                            idea={idea}
+                                            // data-aos="fade-right" data-aos-duration="1500"
+                                        />
                                     )}
 
                             </div>
                         </main>
                         {/* USER BIO AND INFORMATION  */}
-                        <div className='sp-left-container'>
+                        <div className='sp-left-container' data-aos="fade-left" data-aos-duration="1500">
                             <div className='user-bio-container'>
                                 <div className='user-bio-inside-container'>
                                     <div className='user-bio-content'>

@@ -4,7 +4,7 @@ import "./UserIdeaIndexItem.css";
 export default function UserIdeaIndexItem({ idea }) {
     return (
         <>
-            <Link to={`/idea/${idea._id}`} className='index-item-link'>
+            <Link to={`/idea/${idea._id}`} className='index-item-link' data-aos="fade-right" data-aos-duration="1500">
                 <div className="uiii-container">
                     <div className="uiii-item-body">
                         <img className='uiii-img' src={idea.imageUrls[0]}></img>     
