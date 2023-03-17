@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
 import './Comments.css';
+
 export default function CommentIndexItem({ idea, comment }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
