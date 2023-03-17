@@ -26,7 +26,7 @@ export default function IdeaShowPage() {
     const sessionUser = useSelector(state => state.session.user)
     const [currImg, setCurrImg] = useState(0)
 
-    function incrementImage () {
+    function incrementImage() {
         console.log(currImg)
         console.log(idea.imageUrls.length - 1)
         if (currImg === idea.imageUrls.length - 1) {
@@ -36,14 +36,14 @@ export default function IdeaShowPage() {
         }
     }
 
-    function decrementImage () {
+    function decrementImage() {
         console.log(currImg)
         console.log(idea.imageUrls.length - 1)
 
         if (currImg === 0) {
-            setCurrImg(idea.imageUrls.length -1)
+            setCurrImg(idea.imageUrls.length - 1)
         } else {
-            setCurrImg(currImg - 1 )
+            setCurrImg(currImg - 1)
         }
     }
 
@@ -61,34 +61,33 @@ export default function IdeaShowPage() {
     } else {
         return (
             <div className='isp-container'>
-                <div className='isp-media-container'>
-                    <div className='media' style={{backgroundImage: `url(${idea.imageUrls[currImg]})`}}>
-                        <div className='media-button-wrapper'>
-                        <div className='left-media' onClick={decrementImage}><ChevronLeftIcon/></div>
-                        </div>
-                        <div className='center-media'></div>
-                        <div className='media-button-wrapper'>
-                        <div className='right-media' onClick={incrementImage}><ChevronRightIcon/></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='isp-info-container'>
+                 <div className='isp-info-container'>
                     <div className='isp-title'>{idea.title}</div>
-                    <div> {idea.owner.username} </div>
+                    <div className='isp-username'> {idea.owner.username} </div>
                     <div className='isp-description'>{idea.body}</div>
                     <div className='isp-actions'>
                         {/* <button >Bid</button>
                         <button>Save</button>
                         <button>Contact</button> */}
-                        {sessionUser && 
-                          sessionUser._id === idea.owner._id ? 
+                        {sessionUser &&
+                            sessionUser._id === idea.owner._id ?
                             <div className="de-btn-container">
-                              <button className="idea-show-button" onClick={handleDelete}>Delete</button>
-                              <button className="idea-show-button"><EditModalButton idea={idea} /></button>
+                                <button className="idea-show-button" onClick={handleDelete}>Delete</button>
+                                <button className="idea-show-button"><EditModalButton idea={idea} /></button>
                             </div> : <></>}
                     </div>
 
+                </div>
+                <div className='isp-media-container'>
+                    <div className='media' style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
+                        <div className='media-button-wrapper'>
+                            <div className='left-media' onClick={decrementImage}><ChevronLeftIcon /></div>
+                        </div>
+                        <div className='center-media'></div>
+                        <div className='media-button-wrapper'>
+                            <div className='right-media' onClick={incrementImage}><ChevronRightIcon /></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className='isp-comments-container'>
