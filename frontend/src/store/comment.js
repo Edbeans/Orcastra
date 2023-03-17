@@ -1,11 +1,11 @@
 import jwtFetch from './jwt';
-
+import { fetchIdea } from './idea';
 export const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT';
 export const RECEIVE_USER_COMMENTS = 'comments/RECEIVE_USER_COMMENTS';
 export const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
 export const RECEIVE_IDEA_COMMENTS = 'comments/RECEIVE_IDEA_COMMENTS';
-
+export const UPDATE_IDEA_COMMENT = 'comments/UPDATE_IDEA_COMMENT';
 export const CLEAR_COMMENT_ERRORS = 'comments/CLEAR_COMMENT_ERRORS';
 export const RECEIVE_COMMENT_ERRORS =
   'comments/RECEIVE_COMMENT_ERRORS';
@@ -17,6 +17,11 @@ const receiveComments = (comments) => ({
 
 const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,
+  comment,
+});
+
+const updateIdeaComment = (comment) => ({
+  type: UPDATE_IDEA_COMMENT,
   comment,
 });
 
@@ -100,24 +105,6 @@ export const fetchIdeaComments = (ideaId) => async (dispatch) => {
   }
 };
 
-// export const createComment = (comment) => async dispatch => {
-//     try {
-//         const res = await jwtFetch(`/api/comments/ideas/${comment.idea}`, {
-//             method: 'POST',
-//             body: JSON.stringify(comment)
-//         })
-//         console.log('PASSING RES', newComment)
-//         let newComment = await res.json()
-//         dispatch(receiveComment(newComment))
-//         return newComment
-//     } catch (err) {
-//         const resBody = await err.json()
-//         if (resBody.statusCode === 400) {
-//             return dispatch(receiveCommentErrors(resBody.errors))
-//         }
-//     }
-// }
-
 export const createComment = (comment, idea) => async (dispatch) => {
   console.log(idea._id);
   try {
@@ -139,20 +126,12 @@ export const createComment = (comment, idea) => async (dispatch) => {
 };
 
 export const updateComment = (comment) => async (dispatch) => {
-  try {
-    const res = await jwtFetch(`api/comments/${comment._id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(comment),
-    });
-    let newComment = await res.json();
-    dispatch(receiveComment(newComment));
-    return newComment;
-  } catch (err) {
-    const resBody = await err.json();
-    if (resBody.statusCode === 400) {
-      return dispatch(receiveCommentErrors(resBody.errors));
-    }
-  }
+  const res = await jwtFetch(`/api/comments/${comment._id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(comment),
+  });
+  const newComment = await res.json();
+  dispatch(updateIdeaComment(newComment));
 };
 
 export const deleteComment = (commentId) => async (dispatch) => {
@@ -192,7 +171,14 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_USER_COMMENTS:
       return { ...newState, ...action.comments };
     case RECEIVE_IDEA_COMMENTS:
-      return { ...newState, ...action.comments };
+      const ideaComments = {};
+      for (let comment of action.comments) {
+        ideaComments[comment._id] = comment;
+      }
+      return ideaComments;
+    case UPDATE_IDEA_COMMENT:
+      newState[action.comment._id] = action.comment;
+      return newState;
     case REMOVE_COMMENT:
       delete newState[action.commentId];
       return newState;
