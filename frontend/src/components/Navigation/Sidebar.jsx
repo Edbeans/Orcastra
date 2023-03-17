@@ -15,6 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 // import SettingsIcon from '@mui/icons-material/Settings';
 // import BarChartIcon from '@mui/icons-material/BarChart';
 // import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
+import WavesIcon from '@mui/icons-material/Waves';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateIcon from '@mui/icons-material/Create';
 import SetMealIcon from '@mui/icons-material/SetMeal';
@@ -36,6 +37,12 @@ export default function Sidebar({open, setOpen}) {
         {
             id: 0,
             icon: <HomeIcon />,
+            text: "About",
+            link: "/"
+        },
+        {
+            id: 1,
+            icon: <WavesIcon />,
             text: "Ideas Feed",
             link: "/feed"
         },
@@ -51,26 +58,21 @@ export default function Sidebar({open, setOpen}) {
             icon: <SetMealIcon />,
             text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
-        },
-        {
-            id: 4,
-            icon: <InfoOutlinedIcon />,
-            text: "About",
-            link: "/"
         }
+        
     ] : [
         {
             id: 0,
             icon: <HomeIcon />,
+            text: "About",
+            link: "/"
+        },
+        {
+            id: 1,
+            icon: <WavesIcon />,
             text: "Ideas Feed",
             link: "/feed"
-        },
-            {
-                id: 4,
-                icon: <InfoOutlinedIcon />,
-                text: "About",
-                link: "/"
-            }
+        }   
     ]
 
     function toggleOpen() {

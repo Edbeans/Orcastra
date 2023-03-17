@@ -11,7 +11,7 @@ import FeedPage from './components/Feed/FeedPage';
 import Sidebar from './components/Navigation/Sidebar';
 import CreateIdeaPage from './components/CreateIdeaPage/CreateIdeaPage';
 import IdeaShowPage from './components/IdeaShowPage/IdeaShowPage';
-import UserIdeas from './components/UserIdeas/UserIdeas';
+import UserShow from './components/UserShow/UserShow';
 import ErrorPage from './components/NotFound/ErrorPage';
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
             <Route exact path='/feed' component={FeedPage} />
             <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage}/>
             <Route exact path='/idea/:ideaId' component={IdeaShowPage}/>
-            <Route exact path='/users/:userId/ideas' component={UserIdeas}/>
+            <ProtectedRoute exact path='/users/:userId/ideas' component={UserShow}/>
             <Route exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={Splash} />
             <AuthRoute exact path='/signup' component={Splash} />
