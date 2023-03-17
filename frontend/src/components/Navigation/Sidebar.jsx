@@ -92,7 +92,7 @@ export default function Sidebar({open, setOpen}) {
                 </button>
                 <div className="sideitem-container">
                     {navData.map(item => <NavLink key={item.id} className='sideitem' to={item.link}>
-                        <div>{item.icon}</div>
+                        <div className="item-icon">{item.icon}<span className='item-icon-tooltip'>{item.text}</span></div>
                         {/* {console.log(open)} */}
                         <span className={open ? 'linkText' : 'linkTextClosed'}>{item.text}</span>
                     </NavLink>)}
@@ -106,7 +106,7 @@ export default function Sidebar({open, setOpen}) {
                         <LoginModal/>
                     </ModalContext.Provider> : 
                     <div className='sideitem' onClick={handleLogout}> 
-                        <div> <LogoutIcon/> </div>
+                        <div className='item-icon'> <LogoutIcon/><span className='item-icon-tooltip'>Log out</span> </div>
                         <span className={open ? 'linkText' : 'linkTextClosed'}>Log out</span>
                     </div>
                     }
