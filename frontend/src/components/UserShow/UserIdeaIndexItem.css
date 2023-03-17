@@ -1,0 +1,49 @@
+.uiii-container {
+    margin-top: 2rem; 
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+.user-item-wrapper {
+    text-decoration: none;
+}
+
+.index-item-link {
+    text-decoration: none;
+}
+
+.uiii-item-body {
+    margin-bottom: 1rem; 
+}
+
+.idea-text-box {
+    display: inline-block; 
+    width: 25rem; 
+    margin-left: 1.5rem; 
+}
+.index-idea-title {
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+    margin-bottom: 2rem; 
+}
+
+.index-item-body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 15px; 
+    letter-spacing: 0.008em; 
+    line-height: 28px; 
+    word-break: break-word; 
+    color: rgb(167, 167, 168);
+    text-decoration: none; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.uiii-img { 
+    height: 200px;
+    width: 300px;
+    background-color: gray;
+    border-radius: 20px;
+}

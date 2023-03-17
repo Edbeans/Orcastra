@@ -47,6 +47,7 @@ const SplashPage = () => {
 
 
                 <div className='hero-section'>
+                
                     <div className='img-container' data-aos="fade-left" data-aos-duration="1000">
                         <img src={splashorca1} alt='inv' className='all-sec-img' />
                     </div>
@@ -78,6 +79,7 @@ const SplashPage = () => {
                             src={splashorca3}
                             alt='mod-tools'
                             className='all-sec-img'
+                            data-aos="fade-in" data-aos-duration="1500"
                         />
                     </div>
                     <div className='content' data-aos="zoom-in" data-aos-duration="1000">

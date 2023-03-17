@@ -12,7 +12,7 @@ export default function LoginModal() {
 
     return (
         <div>
-            <div className='sideitem' onClick={()=>setShowLoginModal(true)}><LoginIcon/>
+            <div className='sideitem' onClick={()=>setShowLoginModal(true)}><div className='item-icon'><LoginIcon/><span className='item-icon-tooltip'>Login</span></div>
             <span className={open ? "linkText" : "linkTextClosed"}>Login</span>
             </div>
             {showLoginModal && (

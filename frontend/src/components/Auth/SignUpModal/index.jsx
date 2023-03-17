@@ -11,7 +11,8 @@ export default function SignUpModal() {
     const { open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(ModalContext)
     return (
         <div>
-            <div className="sideitem" onClick={() => setShowSignUpModal(true)}><AddCircleIcon />
+            <div className="sideitem" onClick={() => setShowSignUpModal(true)}><div className='item-icon'>
+            <AddCircleIcon /><span className='item-icon-tooltip'>Sign up</span></div>
                 <span className={open ? "linkText" : "linkTextClosed"}>Sign up</span>
             </div>
 

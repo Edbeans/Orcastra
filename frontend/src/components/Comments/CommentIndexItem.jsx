@@ -36,23 +36,108 @@ export default function CommentIndexItem({ idea, comment }) {
 
   return (
     comment && (
+      // <div
+      //   className='comment-item'
+      //   id={commentEdit ? 'comment-edit-active' : undefined}
+      //   onMouseEnter={() => setCommentAction(true)}
+      //   onMouseLeave={() => setCommentAction(false)}
+      // >
+      //   <div className='comment-wrapper'>
+      //     <div>
+      //       <div className='comment-item-user-info'>
+      //         {comment.author.username}
+      //       </div>
+      //       <div className='comment-item-text'>{comment.text}</div>
+      //       <div className='comment-item-date'>
+      //         {timeConversion(comment.createdAt)}
+      //       </div>
+      //     </div>
+      //     <div>
+      //       {sessionUser &&
+      //         (comment.authorId === sessionUser.id ||
+      //           idea?.ownerId === sessionUser.id) && (
+      //           <div
+      //             className='comment-actions'
+      //             style={commentAction ? shown : hidden}
+      //           >
+      //             {comment.authorId === sessionUser.id && (
+      //               <div
+      //                 className='edit-action'
+      //                 onClick={() => setCommentEdit(true)}
+      //               >
+      //                 <EditIcon
+      //                   fontSize='small'
+      //                   sx={{ m: '0 2px' }}
+      //                 />
+      //               </div>
+      //             )}
+
+      //             <div
+      //               className='delete-action'
+      //               onClick={handleDeleteComment}
+      //             >
+      //               <DeleteIcon
+      //                 fontSize='small'
+      //                 sx={{ m: '0 2px' }}
+      //               />
+      //             </div>
+      //           </div>
+      //         )}
+      //     </div>
+      //     {commentEdit ? (
+      //       <form
+      //         className='edit-comment-form'
+      //         onSubmit={(e) => handleEditComment(e)}
+      //       >
+      //         <input
+      //           type='text'
+      //           name='content'
+      //           id='comment'
+      //           autoComplete='off'
+      //           autoFocus
+      //           value={commentContent}
+      //           onChange={(e) => setCommentContent(e.target.value)}
+      //           onKeyDown={handleCloseEdit}
+      //         />
+      //         <p className='comment-edit-info'>
+      //           escape to{' '}
+      //           <span
+      //             onClick={() => {
+      //               setCommentEdit(false);
+      //               setCommentContent(comment.text);
+      //             }}
+      //           >
+      //             cancel
+      //           </span>{' '}
+      //           &bull; enter to{' '}
+      //           <span onClick={handleEditComment}>save</span>
+      //         </p>
+      //       </form>
+      //     ) : null}
+      //   </div>
+      // </div>
       <div
         className='comment-item'
-        id={commentEdit ? 'message-edit-active' : undefined}
+        id={commentEdit ? 'comment-edit-active' : undefined}
         onMouseEnter={() => setCommentAction(true)}
         onMouseLeave={() => setCommentAction(false)}
       >
-        <div className='comment-wrapper'>
-          <div>
-            <div className='comment-item-user-info'>
+        <div className='comment-user-icon'>
+          <img
+            src={comment.author.profileImageUrl}
+            alt='userprofileimg'
+          />
+        </div>
+
+        <div className='comment-body'>
+          <div className='comment-username'>
+            <h4>
               {comment.author.username}
-            </div>
-            <div className='comment-item-text'>{comment.text}</div>
-            <div className='comment-item-date'>
-              {timeConversion(comment.createdAt)}
-            </div>
-          </div>
-          <div>
+              {/* Username */}
+              <span id='time'>
+                {timeConversion(comment.createdAt)}
+              </span>
+            </h4>
             {sessionUser &&
               (comment.authorId === sessionUser.id ||
                 idea?.ownerId === sessionUser.id) && (
@@ -84,22 +169,26 @@ export default function CommentIndexItem({ idea, comment }) {
                 </div>
               )}
           </div>
+          <div className='comment-text'>
+            <p>{comment.text}</p>
+          </div>
+
           {commentEdit ? (
             <form
-              className='edit-message-form'
-              onSubmit={(e) => handleEditComment(e)}
+              className='edit-comment-form'
+              onSubmit={handleEditComment}
             >
               <input
-                type='text'
+                type='textarea'
                 name='content'
-                id='message'
+                id='comment'
                 autoComplete='off'
                 autoFocus
                 value={commentContent}
                 onChange={(e) => setCommentContent(e.target.value)}
                 onKeyDown={handleCloseEdit}
               />
-              <p className='msg-edit-info'>
+              <p className='comment-edit-info'>
                 escape to{' '}
                 <span
                   onClick={() => {

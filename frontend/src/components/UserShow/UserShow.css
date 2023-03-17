@@ -1,62 +1,123 @@
-
-.usershow-container {
-    padding: 50px 50px 0px 50px;
+.usp {
+    background-color: rgb(255, 255, 255); 
+    display: block; 
 }
 
-.usershow-content {
-    flex-direction: column;
-    height: auto;
-    border-radius: 30px;
-    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
-    position: relative;
+.usp-main {
+    display: block; 
+    max-width: 1336px; 
+    margin: auto; 
 }
 
-.usershow-ideas {
-    /* width: 40%; */
-    background-color: brown;
+/* MAIN BODY RIGHT SIDE  */
+.usp-main-container {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly; 
 }
 
-.usershow-info-header {
-    display: grid;
-    grid-template-columns: min-content 1fr 1fr;
-    border-bottom: 10px solid #010101;
+.main-class {
+    display: block; 
+    max-width: 728px; 
+    min-width: 728px;
+    flex: 1 1 auto;  
 }
 
-.usershow-info-header>* {
-    padding: 20px;
+.usp-right-container {
+    display: flex; 
+    min-height: 100vh; 
+    flex-direction: column; 
+}
+
+.user-header-container {
+    display: block; 
+    padding-top: 5%; 
+    padding-bottom: 2%; 
+    box-shadow: inset 0 -1px 0 rgb(196, 196, 196);
+}
+
+.user-name {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 42px; 
+    font-weight: 500; 
+    color: rgb(42, 42, 42);
+    letter-spacing: 0; 
+    line-height: 52px; 
+    max-height: none; 
+}
+
+.uiii-container {
+    margin-top: 2rem; 
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+/* MAIN BODY LEFT SIDE  */
+.sp-left-container {
+    display: block; 
+    box-sizing: border-box; 
+    min-height: 100vh;
+    min-width: 368px; 
+    max-width: 368px;  
+    padding-right: 24px; 
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(196, 196, 196);
+    padding-left: clamp(24px, 24px + 100vw - 1080px, 40px);
+}
+
+.user-bio-container {
+    position: relative; 
+    height: 100%; 
+    display: inline-block;
+    width: 100% 
+}
+
+.user-bio-inside-container {
+    top: 57px; 
+    position: sticky; 
+    display: block; 
+}
+
+.user-bio-content {
+    display: flex; 
+    flex-direction: column; 
+    min-height: calc(100vh - 57px); 
+}
+
+.ubc-1 {
+    display: block; 
+    flex: 1 0 auto; 
+}
+
+.ubc-2 {
+    display: block; 
+    padding-bottom: 0px; 
+    border-bottom: none; 
+    margin-top: 40px; 
 }
 
 .usershow-profile-img{
-    height: 280px;
-    width: 280px;
+    height: 100px;
+    width: 100px;
     border-radius: 9999px;
     background-image: url(https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png);
     background-size: cover;
     background-position: center;
-    margin: 30px 30px 30px 60px;
+    margin-bottom: 1.5rem; 
 }
 
-
-.usershow-username {
-    padding: 50px 0px 50px 0px;
-    font-size: 38px;
-    font-weight: 500px;
-}
-
-.usershow-email {
-    font-size: 24px;
-    font-weight: 500px;
-    /* border-bottom: 1px solid black; */
+.profile-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px; 
+    font-weight: bolder; 
+    letter-spacing: 0; 
+    color: rgb(37, 37, 37);
+    line-height: 20px; 
 }
 
 .usershow-stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 20px;
+    margin-top: 1rem; 
 }
 
-.usershow-ideas {
-    height: 500px;
-    margin-bottom: 100px;
+.usershow-num-comments {
+    margin-top: 1rem; 
 }

@@ -74,7 +74,10 @@
 }
 
 .isp-username {
-    padding: 20px 0px 20px 0px
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .isp-description {
@@ -100,7 +103,7 @@
     flex-direction: row;
     align-items: center;
     height: 40px;
-    border-bottom: 1px solid #ccc;;
+    /* border-bottom: 1px solid #ccc; */
 }
 
 .comment-item-user-info {
@@ -185,4 +188,16 @@
 .idea-show-button:hover {
     background-color: rgb(29, 63, 96);
     color: white;
+}
+
+.comment-profile-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    /* margin-left: 50px; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
