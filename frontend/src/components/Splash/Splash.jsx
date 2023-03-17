@@ -31,7 +31,7 @@ const SplashPage = () => {
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="3000">
-                            <img src={logo} >
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '400px', height: 'auto' }} >
                             </img>
                         </div>
                         <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
