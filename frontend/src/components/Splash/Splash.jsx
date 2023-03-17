@@ -8,6 +8,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import splashorca1 from '../../assets/splash-orca1.png'
 import splashorca2 from '../../assets/splash-orca2.png'
 import splashorca3 from '../../assets/splash-orca3.png'
+import SignUpForm from '../Auth/SignUpModal/SignupForm';
 
 // import section3 from '../../assets/section3.svg';
 // import section4 from '../../assets/section4.svg';
@@ -21,37 +22,7 @@ const SplashPage = () => {
             <div className='splash-page-main'>
 
                 <div className='splash-section-1'>
-                    <div className='nav'>
-                        <div className='nav-left'>
-                            {/* <img src={logo} alt='logo' height='50px' /> */}
-                            <p>Orcastra</p>
-                        </div>
-                        <div className='nav-mid'>
-                            <a
-                                href='https://github.com/camachoo1/Discable'
-                                target='_blank'
-                                rel='noreferrer'
-                                className='splash-page-links'
-                            >
-                                Github
-                            </a>
-                            <a
-                                href='https://linkedin.com/in/omar-camacho-aa01b3133'
-                                target='_blank'
-                                rel='noreferrer'
-                                className='splash-page-links'
-                            >
-                                LinkedIn
-                            </a>
-                        </div>
-                        <div className='nav-right'>
-                            <button
-                                className='splash-button login-button'
-                            >
-                                Login
-                            </button>
-                        </div>
-                    </div>
+                    
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="3000">
                             Orcastra
@@ -60,6 +31,19 @@ const SplashPage = () => {
                             Connecting investors of today with creators of tomorrow
                         </div>
                     </div>
+
+                    <div className='links-below-header'>
+                            <button 
+                                className='lbh-btn gs-btn'                   
+                            >
+                                Get started
+                            </button>
+                            <button 
+                                className='lbh-btn about-btn'>
+                                About Us
+                            </button>
+                    </div>
+
                 </div>
 
 
