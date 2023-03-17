@@ -110,7 +110,7 @@ router.get('/users/:userId', async (req, res) => {
   try {
     const userComments = await Comment.find({ author: user._id })
       .sort({ createdAt: -1 })
-      .populate('author', '_id, username');
+      .populate('author', '_id, username, profileImageUrl');
     return res.json(userComments);
   } catch (error) {
     return res.json([]);
@@ -131,7 +131,7 @@ router.get('/ideas/:ideaId', async (req, res) => {
   try {
     const ideaComments = await Comment.find({ idea: idea._id })
       .sort({ createdAt: -1 })
-      .populate('author', '_id, username');
+      .populate('author', '_id, username, profileImageUrl');
     // console.log(ideaComments);
     return res.json(ideaComments);
   } catch (error) {

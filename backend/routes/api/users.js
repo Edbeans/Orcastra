@@ -13,7 +13,8 @@ const {
   singleMulterUpload,
 } = require('../../awsS3');
 
-const DEFAULT_PROFILE_IMAGE_URL = 'https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png';
+const DEFAULT_PROFILE_IMAGE_URL =
+  'https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png';
 
 router.get('/', function (req, res, next) {
   res.json({
@@ -117,11 +118,6 @@ router.get('/:id', async (req, res, next) => {
   let user;
   try {
     user = await User.findById(req.params.id).populate('comments');
-    // .populate({
-    //   path: 'ideas',
-    //   populate: [{ path: 'comments' }],
-    // })
-    // .sort({ createdAt: -1 });
     return res.json(user);
   } catch (error) {
     const err = new Error('No user with that id found');
