@@ -121,6 +121,14 @@ router.get('/ideas/:ideaId', async (req, res) => {
   let idea;
   try {
     idea = await Idea.findById(req.params.ideaId);
+    const ideaComments = await Comment.find({ idea: idea._id })
+      .sort({ createdAt: -1 })
+      .populate({
+        path: 'author',
+        select: '_id username profileImageUrl',
+      });
+    // console.log(ideaComments);
+    return res.json(ideaComments);
   } catch (error) {
     const err = new Error('No idea with that id found');
     err.statusCode = 404;
@@ -128,15 +136,15 @@ router.get('/ideas/:ideaId', async (req, res) => {
     return next(error);
   }
 
-  try {
-    const ideaComments = await Comment.find({ idea: idea._id })
-      .sort({ createdAt: -1 })
-      .populate('author', '_id, username, profileImageUrl');
-    // console.log(ideaComments);
-    return res.json(ideaComments);
-  } catch (error) {
-    return res.json([]);
-  }
+  // try {
+  //   const ideaComments = await Comment.find({ idea: idea._id })
+  //     .sort({ createdAt: -1 })
+  //     .populate('author', '_id, username, profileImageUrl');
+  //   // console.log(ideaComments);
+  //   return res.json(ideaComments);
+  // } catch (error) {
+  //   return res.json([]);
+  // }
 });
 
 module.exports = router;
