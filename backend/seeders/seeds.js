@@ -12,6 +12,8 @@ const NUM_SEED_COMMENTS = 20;
 
 // SEED USERS
 const users = [];
+const DEFAULT_PROFILE_IMAGE_URL =
+  'https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/default-profile-picture.png';
 
 users.push(
   new User({
@@ -20,6 +22,7 @@ users.push(
     hashedPassword: bcrypt.hashSync('password', 10),
     ideas: [],
     comments: [],
+    profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
   })
 );
 
@@ -30,6 +33,7 @@ users.push(
     hashedPassword: bcrypt.hashSync('password', 10),
     ideas: [],
     comments: [],
+    profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
   })
 );
 
@@ -40,6 +44,7 @@ users.push(
     hashedPassword: bcrypt.hashSync('password', 10),
     ideas: [],
     comments: [],
+    profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
   })
 );
 
@@ -50,6 +55,7 @@ users.push(
     hashedPassword: bcrypt.hashSync('password', 10),
     ideas: [],
     comments: [],
+    profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
   })
 );
 
@@ -60,6 +66,7 @@ users.push(
     hashedPassword: bcrypt.hashSync('password', 10),
     ideas: [],
     comments: [],
+    profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
   })
 );
 
@@ -71,6 +78,7 @@ for (let i = 0; i < NUM_SEED_USERS; i++) {
       hashedPassword: bcrypt.hashSync('password', 10),
       ideas: [],
       comments: [],
+      profileImageUrl: DEFAULT_PROFILE_IMAGE_URL,
     })
   );
 }
@@ -177,8 +185,10 @@ ideas.push(
 );
 
 for (let i = 0; i < ideas.length; i++) {
-  for (let j = 1; j < 4; j ++){
-    ideas[i].imageUrls.push(`https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/${i}_${j}.jpeg`)
+  for (let j = 1; j < 4; j++) {
+    ideas[i].imageUrls.push(
+      `https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/${i}_${j}.jpeg`
+    );
   }
 }
 

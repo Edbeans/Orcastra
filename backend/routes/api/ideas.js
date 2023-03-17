@@ -38,14 +38,14 @@ router.get('/:id', async (req, res, next) => {
       .populate({
         path: 'owner',
         select: 'username profileImageUrl',
-      })
-      .populate({
-        path: 'comments',
-        populate: {
-          path: 'author',
-          select: '_id _id username profileImageUrl',
-        },
       });
+    // .populate({
+    //   path: 'comments',
+    //   populate: {
+    //     path: 'author',
+    //     select: '_id _id username profileImageUrl',
+    //   },
+    // });
 
     return res.json(idea);
   } catch (err) {
