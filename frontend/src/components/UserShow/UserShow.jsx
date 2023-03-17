@@ -24,6 +24,7 @@ export default function UserIdeas() {
     (idea) => idea.owner._id === userId
   );
 
+
   return (
     <>
       <div className='usp'>

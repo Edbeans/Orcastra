@@ -53,7 +53,7 @@ const SplashPage = () => {
                     </div>
                     <div className='content' data-aos="fade-left" data-aos-duration="1000">
                         <h1 className='section-header'>
-                            Make a splash with your next game changer
+                            Splash around with your next game changer
                         </h1>
                         <p className='section-text'>
                             Orcastra is the best place to get inspired and receive feedback on your latest billion-dollar idea.
@@ -63,10 +63,10 @@ const SplashPage = () => {
                 <div className='hero-section alternate-section'>
                     <div className='content' data-aos="fade-right" data-aos-duration="1000">
                         <h1 className='section-header'>
-                            Find your pod
+                            Find your pod in a big blue sea
                         </h1>
                         <p className='section-text'>
-                            Build a community in a sea of like-minded investors and entrepreneurs. And remember: We're not sharks. We don't bite.
+                            Build a community among like-minded investors and entrepreneurs. And remember: We're not sharks. We don't bite.
                         </p>
                     </div>
                     <div className='img-container' data-aos="fade-right" data-aos-duration="1000">
@@ -83,7 +83,7 @@ const SplashPage = () => {
                         />
                     </div>
                     <div className='content' data-aos="zoom-in" data-aos-duration="1000">
-                        <h1 className='section-header'>Go out and make a krilling!</h1>
+                        <h1 className='section-header'>Ride the wave and make a krilling</h1>
                         <p className='section-text'>
                             Conduct your business affairs with the help of live-feedback and data analytics.
                         </p>
