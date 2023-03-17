@@ -63,7 +63,10 @@ export default function IdeaShowPage() {
             <div className='isp-container'>
                  <div className='isp-info-container'>
                     <div className='isp-title'>{idea.title}</div>
-                    <div className='isp-username'> {idea.owner.username} </div>
+                    <div className='isp-username'> 
+                        <img className='comment-profile-image'src={idea.owner.profileImageUrl}/>
+                        {idea.owner.username} 
+                    </div>
                     <div className='isp-description'>{idea.body}</div>
                     <div className='isp-actions'>
                         {/* <button >Bid</button>
