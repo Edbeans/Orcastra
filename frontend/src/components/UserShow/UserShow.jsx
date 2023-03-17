@@ -43,7 +43,7 @@ export default function UserIdeas() {
                     </div>
 
                     <div className="usershow-ideas">
-                        Ideas here
+                        Ideas go here, get cards from feed page
                         {console.log(filteredIdeas)}
                     </div>
 
