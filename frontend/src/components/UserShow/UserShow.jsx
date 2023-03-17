@@ -30,7 +30,7 @@ export default function UserIdeas() {
                         <main className='main-class'>
                             <div className='usp-right-container'>
                                 <div className='user-header-container'>
-                                    <h1 className='user-name' data-aos="fade-down" data-aos-duration="1500">{`${user.username}'s ideas`}</h1>       
+                                    <h1 className='user-name' data-aos="fade-down" data-aos-duration="1500">{`${user.username}'s Ideas`}</h1>       
                                 </div>
                                 
                                     {filteredIdeas.map(idea =>
