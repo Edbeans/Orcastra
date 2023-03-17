@@ -52,7 +52,13 @@ const SplashPage = () => {
 
                 <div className='hero-section'>
                     <div className='img-container'>
-                        <img src={splashorca1} alt='inv' className='all-sec-img' />
+                        <img 
+                            src={splashorca1} 
+                            alt='inv' 
+                            className='all-sec-img' 
+                            data-aos="fade-up" data-aos-duration="1500"
+                        />
+
                     </div>
                     <div className='content'>
                         <h1 className='section-header'>
@@ -77,7 +83,12 @@ const SplashPage = () => {
                         </p>
                     </div>
                     <div className='img-container'>
-                        <img src={splashorca2} alt='txt' className='all-sec-img' />
+                        <img 
+                            src={splashorca2} 
+                            alt='txt' 
+                            className='all-sec-img' 
+                            data-aos="fade-right" data-aos-duration="1500"
+                        />
                     </div>
                 </div>
                 <div className='hero-section'>
@@ -86,6 +97,7 @@ const SplashPage = () => {
                             src={splashorca3}
                             alt='mod-tools'
                             className='all-sec-img'
+                            data-aos="fade-in" data-aos-duration="1500"
                         />
                     </div>
                     <div className='content'>
