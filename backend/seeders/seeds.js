@@ -176,6 +176,12 @@ ideas.push(
   seederz
 );
 
+for (let i = 0; i < ideas.length; i++) {
+  for (let j = 1; j < 4; j ++){
+    ideas[i].imageUrls.push(`https://ey-aws-mern-orcastra.s3.us-west-1.amazonaws.com/public/${i}_${j}.jpeg`)
+  }
+}
+
 ideas.forEach((idea) => {
   users.forEach((user) => {
     if (idea.owner === user._id) {
