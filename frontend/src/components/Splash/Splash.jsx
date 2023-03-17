@@ -34,12 +34,15 @@ const SplashPage = () => {
 
                     <div className='links-below-header'>
                             <button 
-                                className='lbh-btn gs-btn'                   
+                                className='lbh-btn gs-btn' 
+                                data-aos="fade-down" data-aos-duration="3000"
                             >
                                 Get started
                             </button>
                             <button 
-                                className='lbh-btn about-btn'>
+                                className='lbh-btn about-btn'
+                                data-aos="fade-down" data-aos-duration="3000"    
+                            >
                                 About Us
                             </button>
                     </div>

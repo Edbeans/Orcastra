@@ -6,7 +6,7 @@
 }
 
 .links-below-header {
-    top: 0;
+    margin-top: -4rem; 
     width: 63%;
     display: flex;
     justify-content: center;
