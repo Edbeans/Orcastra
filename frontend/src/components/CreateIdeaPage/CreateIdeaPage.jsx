@@ -82,7 +82,7 @@ export default function CreateIdeaPage() {
                             className="cip-card-inputs" 
                             id="cip-input-description" 
                             onChange={(e) => setBody(e.target.value)}
-                            placeholder="Tell us what your product is all about"
+                            placeholder="Tell us what your product is all about, 280 characters minimum."
                         />
                         <span className="cip-card-labels" >Description</span>
                     </div>

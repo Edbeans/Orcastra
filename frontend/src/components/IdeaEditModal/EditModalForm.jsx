@@ -15,16 +15,27 @@ export default function EditModalForm({ idea }) {
     }
     
     return (
-        <div className="edit-idea-modal-wrapper">
-        {/* data-aos="fade-up" data-aos-duration="2000" */}
+        <div className="edit-card-container">
             <form className="edit-card" onSubmit={handleSubmit}>
-                <div>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
-                    <span>Edit title</span>
+                <div className="edit-card-title">
+                    <input 
+                        className="cip-card-inputs"
+                        id="cip-input-title"
+                        type="text" 
+                        value={title} 
+                        onChange={(e) => setTitle(e.target.value)}
+                        />
+                    <span className="cip-card-labels">Edit title</span>
                 </div>
-                <div>
-                    <input type="text" value={body} onChange={(e) => setBody(e.target.value)} style={{height:'100px', width: '300px'}}/>
-                    <span>Edit description</span>
+                <div className="cip-card-description">
+                    <textarea 
+                        className="cip-card-inputs"
+                        id="cip-input-description"
+                        type="text" 
+                        value={body} 
+                        onChange={(e) => setBody(e.target.value)} 
+                        />
+                    <span className="cip-card-labels">Edit description</span>
                 </div>
 
                 <button className="submit-idea-btn">Edit Idea</button>
