@@ -127,7 +127,6 @@ router.get('/ideas/:ideaId', async (req, res) => {
         path: 'author',
         select: '_id username profileImageUrl',
       });
-    // console.log(ideaComments);
     return res.json(ideaComments);
   } catch (error) {
     const err = new Error('No idea with that id found');
@@ -135,16 +134,6 @@ router.get('/ideas/:ideaId', async (req, res) => {
     err.errors = { message: 'No idea with that id found' };
     return next(error);
   }
-
-  // try {
-  //   const ideaComments = await Comment.find({ idea: idea._id })
-  //     .sort({ createdAt: -1 })
-  //     .populate('author', '_id, username, profileImageUrl');
-  //   // console.log(ideaComments);
-  //   return res.json(ideaComments);
-  // } catch (error) {
-  //   return res.json([]);
-  // }
 });
 
 module.exports = router;
