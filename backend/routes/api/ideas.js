@@ -70,7 +70,7 @@ router.get('/user/:userId', async (req, res, next) => {
   try {
     const ideas = await Idea.find({ owner: user._id })
       .sort({ createdAt: -1 })
-      .populate('owner', '_id, username profileImageUrl')
+      .populate('owner', '_id, username, profileImageUrl')
       .populate('comments');
     return res.json(ideas);
   } catch (error) {
