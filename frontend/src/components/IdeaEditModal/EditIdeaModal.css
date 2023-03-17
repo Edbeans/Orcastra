@@ -1,21 +1,25 @@
-.edit-idea-modal-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 600px;
-    width: 600px;
-    background-color: white;
-    border-radius: 30px; 
-    align-items: center; 
-}
-
 .edit-card-container {
-    background-color: white; 
+    display: flex;
+    justify-content: center;
 }
 
 .edit-card {
-    /* background-color: white; */
-    width: 100px;
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 800px;
+    height: 600px;
     border-radius: 30px;
-    /* box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%); */
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+}
+
+.edit-card > * {
+    align-self: center;
+    position: relative;
+    margin: 20px;
+}
+
+.edit-card-title {
+    position: relative;
+    margin-top: 100px; 
 }
