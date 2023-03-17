@@ -2,7 +2,7 @@
 
 [Orcastra](https://orcastra.onrender.com) is a custom web application that allows new inventors to post their ideas and have others comment on their ideas to see if they want to be a part of their venture! With Orcastra users are able to communicate with each other through a commenting system, post images about prototypes or their team, and provide background information on your projects so others know what you are striving towards.
 
-![splashpage](https://user-images.githubusercontent.com/116383442/224833430-54153164-b324-4feb-9d51-47ecbf02586e.gif)
+![test1](https://user-images.githubusercontent.com/116383442/225963602-ec6617cc-2a3a-4717-aae2-aa745843a7ad.gif)
 
 ## Technologies
 
@@ -11,10 +11,14 @@ In order to build Orcastra we used a React-Redux frontend, a Node-Express backen
 ## Key Features
 
 ### Creating Ideas
+![test2](https://user-images.githubusercontent.com/116383442/225964467-6453887f-cb93-472b-bea6-085eec27c046.gif)
+
 
 ### Logged in users can add comments to ideas.
+![test3](https://user-images.githubusercontent.com/116383442/225964881-9d32f591-282d-4768-af58-c0a620d3a5cd.gif)
 
 ### Owner of comment is able to edit and delete comments.
+![test4](https://user-images.githubusercontent.com/116383442/225965223-d8859a05-cc41-4b27-a126-4ee19f17cf1a.gif)
 
 ## Significant Code
 
