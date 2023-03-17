@@ -8,6 +8,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import splashorca1 from '../../assets/splash-orca1.png'
 import splashorca2 from '../../assets/splash-orca2.png'
 import splashorca3 from '../../assets/splash-orca3.png'
+import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
 
 // import section3 from '../../assets/section3.svg';
@@ -30,7 +31,8 @@ const SplashPage = () => {
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="3000">
-                            Orcastra
+                            <img src={logo} >
+                            </img>
                         </div>
                         <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
                             Connecting investors of today with creators of tomorrow

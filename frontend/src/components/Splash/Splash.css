@@ -11,7 +11,7 @@
     background-color: black;
     color: white;
     border-radius: 9999px;
-    border: 1px solid transparent; 
+    border: 1px solid transparent;
     font-family: "Helvetica Neue",
         Helvetica,
         Arial,
@@ -19,17 +19,17 @@
     font-size: 16px;
     transition: 0.3s ease all;
     width: 10rem;
-    height: 3.5rem; 
+    height: 3.5rem;
     z-index: 2;
 }
 
 .lbh-btn:hover {
     background-color: white;
-    color: black; 
+    color: black;
 }
 
 .gs-btn {
-    width: 35rem; 
+    width: 20rem;
     margin-bottom: 110px;
     font-size: 40px;
 }
@@ -58,19 +58,37 @@
 }
 
 .splash-page-main-heading {
-    margin-top: 220px;
-    font-size: 80px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 230px;
+    /* font-size: 80px; */
+    /* font-family: Arial, Helvetica, sans-serif; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    font-weight: 600;
+    
+
+    /* Width of the element */
+    height: 200px;
+    /* Height of the element */
+    object-fit: none;
+    /* Do not scale the image */
+    object-position: 500px;
+    /* Position of the section */
+
+    /* font-weight: 600;
     color: ccc;
-    opacity: 0;
+    opacity: 0; */
     animation: fadeIn 5s;
     animation-delay: 0s;
     animation-fill-mode: forwards;
+}
+
+.splash-page-logo {
+    background-image: url("../../assets/logo1.png");
+    background-size: cover;
+    background-position: center;
+    width: 330px;
+    height: auto;
 }
 
 .splash-page-slogan {
