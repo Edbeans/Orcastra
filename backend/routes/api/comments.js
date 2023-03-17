@@ -5,7 +5,7 @@ const User = mongoose.model('User');
 const Comment = mongoose.model('Comment');
 const Idea = mongoose.model('Idea');
 const { requireUser } = require('../../config/passport');
-const validateCommentInput = require('../../validations/ideas');
+const validateCommentInput = require('../../validations/comments');
 
 router.get('/', async (req, res) => {
   try {
@@ -73,7 +73,7 @@ router.delete('/:id', requireUser, async (req, res, next) => {
 });
 
 router.patch(
-  ':id',
+  '/:id',
   requireUser,
   validateCommentInput,
   async (req, res, next) => {
@@ -96,7 +96,7 @@ router.patch(
   }
 );
 
-router.get('users/:userId', async (req, res) => {
+router.get('/users/:userId', async (req, res) => {
   let user;
   try {
     user = await User.findById(req.params.userId);
