@@ -10,11 +10,7 @@ import splashorca2 from '../../assets/splash-orca2.png'
 import splashorca3 from '../../assets/splash-orca3.png'
 import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
-
-// import section3 from '../../assets/section3.svg';
-// import section4 from '../../assets/section4.svg';
-// import section5 from '../../assets/section5.svg';
-// import sparkles from '../../assets/sparkles.svg';
+import { color } from '@mui/system';
 
 const SplashPage = () => {
 
@@ -31,7 +27,7 @@ const SplashPage = () => {
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="1000">
-                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '650px', height: 'auto' }} >
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '300px', height: 'auto' }} >
                             </img>
                         </div>
 
@@ -40,7 +36,7 @@ const SplashPage = () => {
                     <button
                         className='lbh-btn gs-btn' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1000"
                     >
-                        Get started
+                        Sign up today
                     </button>
 
                 </div>
@@ -56,7 +52,7 @@ const SplashPage = () => {
                             Splash around with your next game changer
                         </h1>
                         <p className='section-text'>
-                            Orcastra is the best place to get inspired and receive feedback on your latest billion-dollar idea.
+                            Orca is the best place to get inspired and receive feedback on your latest billion-dollar idea.
                         </p>
                     </div>
                 </div>
@@ -90,7 +86,9 @@ const SplashPage = () => {
                     </div>
                 </div>
 
-                <div className='hero-section'>
+
+
+                <div className='hero-section' style={{backgroundColor: 'black', color:'white'}}>
                     <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
                         "Connecting investors of today with creators of tomorrow"
                         <div className='splash-slogan-attribute'>
