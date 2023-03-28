@@ -80,7 +80,8 @@ export default function IdeaShowPage() {
 
                     <div className='isp-media-container' data-aos="fade-left" data-aos-duration="2000">
                         <div className="hb-container">
-                            <h2 className="hb-data">Current Highest Bid: $ by Master Investor</h2>
+                            {/* Get the highest bid of the current idea and the investor who made that bid */}
+                            <h2 className="hb-data">CURRENT HIGHEST BID: $ by Investor A</h2>
                         </div>
 
                         <div className='media' style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
@@ -108,13 +109,15 @@ export default function IdeaShowPage() {
                         </div>
                     </div>
                 
+            </div>
                 
-
+                
+            <div className="isp-comments-div">
                 <div className='isp-comments-container'>
                     <CommentContainer idea={idea} />
                 </div>
-
             </div>
+
             </>
         );
     }
