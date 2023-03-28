@@ -11,9 +11,9 @@ import './IdeaShowPage.css';
 import EditModalButton from '../IdeaEditModal';
 import { margin, width } from '@mui/system';
 import CommentContainer from '../Comments/CommentContainer';
-
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import AOS from 'aos'; 
 
 
 
@@ -60,43 +60,48 @@ export default function IdeaShowPage() {
         return null;
     } else {
         return (
+            <>
             <div className='isp-container'>
-                 <div className='isp-info-container'>
-                    <div className='isp-title'>{idea.title}</div>
-                    <div className='isp-username'> 
-                        <img className='comment-profile-image'src={idea.owner.profileImageUrl}/>
-                        {idea.owner.username} 
-                    </div>
-                    <div className='isp-description'>{idea.body}</div>
-                    <div className='isp-actions'>
-                        {/* <button >Bid</button>
-                        <button>Save</button>
-                        <button>Contact</button> */}
-                        {sessionUser &&
-                            sessionUser._id === idea.owner._id ?
-                            <div className="de-btn-container">
-                                <button className="idea-show-button" onClick={handleDelete}>Delete</button>
-                                <button className="idea-show-button"><EditModalButton idea={idea} /></button>
-                            </div> : <></>}
+                
+                    <div className='isp-info-container'>
+                        <div className='isp-title' data-aos="fade-down" data-aos-duration="2000">{idea.title}</div>
+                        <div className='isp-username' data-aos="fade-down" data-aos-duration="2000"> 
+                            <img className='comment-profile-image'src={idea.owner.profileImageUrl}/>
+                            {idea.owner.username} 
+                        </div>
+                        <div data-aos="fade-right" data-aos-duration="2000" className='isp-description'>{idea.body}</div>
                     </div>
 
-                </div>
-                <div className='isp-media-container'>
-                    <div className='media' style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
-                        <div className='media-button-wrapper'>
-                            <div className='left-media' onClick={decrementImage}><ChevronLeftIcon /></div>
+                    <div className='isp-media-container'>
+                        <div className='media' data-aos="fade-left" data-aos-duration="2000" style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
+                            <div className='media-button-wrapper'>
+                                <div className='left-media' onClick={decrementImage}><ChevronLeftIcon /></div>
+                            </div>
+                            <div className='center-media'></div>
+                            <div className='media-button-wrapper'>
+                                <div className='right-media' onClick={incrementImage}><ChevronRightIcon /></div>
+                            </div>
                         </div>
-                        <div className='center-media'></div>
-                        <div className='media-button-wrapper'>
-                            <div className='right-media' onClick={incrementImage}><ChevronRightIcon /></div>
+                        <div className='isp-actions'>
+                            {/* <button>Save</button> */}
+                            {sessionUser &&
+                                sessionUser._id === idea.owner._id ?
+                                <div className="de-btn-container">
+                                    <button className="idea-show-button">Bid</button>
+                                    <button className="idea-show-button" onClick={handleDelete}>Delete</button>
+                                    <button className="idea-show-button"><EditModalButton idea={idea} /></button>
+                                </div> : <></>}
                         </div>
                     </div>
-                </div>
+                
+                
 
                 <div className='isp-comments-container'>
                     <CommentContainer idea={idea} />
                 </div>
+
             </div>
+            </>
         );
     }
 }
