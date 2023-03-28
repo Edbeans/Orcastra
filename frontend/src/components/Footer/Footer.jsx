@@ -1,5 +1,5 @@
 import { useState } from "react"
-import AboutModal from "./AboutModal/AboutModal"
+import AboutModal from "../AboutModal/AboutModal";
 import './Footer.css'
 import 'aos/dist/aos.css';
 import logo from '../../assets/logo1.png'

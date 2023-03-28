@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { ModalContext } from "../../Splash/Splash"
-import { Modal } from "../../../context/modal"
+import { ModalContext } from "../Splash/Splash"
+import { Modal } from "../../context/modal"
 import './AboutModal.css'
-import profilepic from "../../../assets/edbeanis.jpeg"
-import linkedin from "../../../assets/linkedincrop.png"
-import github from "../../../assets/github.png"
-import portfolio from "../../../assets/user-icon.png"
+import profilepic from "../../assets/edbeanis.jpeg"
+import linkedin from "../../assets/linkedincrop.png"
+import github from "../../assets/github.png"
+import portfolio from "../../assets/user-icon.png"
 import { padding } from "@mui/system"
 
 export default function AboutModal() {

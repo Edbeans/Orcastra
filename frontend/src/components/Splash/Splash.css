@@ -40,10 +40,10 @@
         Helvetica,
         Arial,
         sans-serif;
-    font-size: 28px;
+    font-size: 20px;
     transition: 0.3s ease all;
-    width: 14rem;
-    height: 5rem;
+    width: 10rem;
+    height: 3rem;
     z-index: 2;
 }
 
@@ -54,20 +54,20 @@
 
 .explore-btn {
     position: absolute;
-    top: -2rem;
-    left: 12rem;
+    top: -5rem;
+    left: 24rem;
 }
 
 .about-btn {
     position: absolute;
-    top: -2rem;
-    left: 32rem;
+    top: 0rem;
+    left: 24rem;
 }
 
 .signup-btn {
     position: absolute;
-    top: 8rem;
-    left: 19rem;
+    top: 5rem;
+    left: 17rem;
 }
 
 .splash-page-links {
