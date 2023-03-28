@@ -11,15 +11,21 @@ export default function Footer() {
         <>
         <div className="footer-container">
 
-                <div className='footer-slogan' data-aos="fade-down" data-aos-duration="2000">
+                <div className='footer-slogan'>
                     "Connecting investors of today with creators of tomorrow"
                     <div className='footer-slogan-attribute'>
                         -Dosé
                     </div>
                 </div>
 
-                <img className="footer-logo" src={logo} data-aos="fade-down" data-aos-duration="2000">
+                <img className="footer-logo" src={logo}>
                 </img>
+
+                <div className="meet-the-team-button">
+                    <button>
+                        Test
+                    </button>
+                </div>
 
         </div>
         </>

@@ -20,34 +20,50 @@ const SplashPage = () => {
 
                 <div className='splash-section-1'>
 
-                    <button
-                        className='lbh-btn about-btn'>
-                        About Us
-                    </button>
-
                     <div className='splash-page-after-nav'>
-                        <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="1000">
-                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '300px', height: 'auto' }} >
+                        <div className='splash-page-main-heading'>
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '550px', height: 'auto' }} >
                             </img>
                         </div>
 
                     </div>
 
-                    <button
-                        className='lbh-btn gs-btn' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1000"
-                    >
-                        Sign up today
-                    </button>
 
+                    <div className='splash-section-1-rightside'>
+                        <div className='splash-greeting' data-aos="fade-in" data-aos-duration="2000" data-aos-delay="1000">
+                            <div>Your inspiration starts today.</div>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2000" className='explore-btn'>
+                            <button
+                                className='lbh-btn'>
+                                Explore
+                            </button>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2250" className='about-btn'>
+                            <button
+                                className='lbh-btn'>
+                                About Us
+                            </button>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2500" className='signup-btn'>
+                            <button
+                                className='lbh-btn' style={{ width: '20rem' }}>
+                                Login / Signup
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
 
                 <div className='hero-section'>
-                
-                    <div className='img-container' data-aos="fade-left" data-aos-duration="1000">
+
+                    <div className='img-container'>
                         <img src={splashorca1} alt='inv' className='all-sec-img' />
                     </div>
-                    <div className='content' data-aos="fade-left" data-aos-duration="1000">
+                    <div className='content' >
                         <h1 className='section-header'>
                             Splash around with your next game changer
                         </h1>
