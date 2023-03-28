@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import { useState} from 'react';
+import React from 'react';
 import './Splash.css';
 import './Splash.css';
 import AOS from 'aos';
@@ -11,14 +13,24 @@ import splashorca3 from '../../assets/splash-orca3.png'
 import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
 import { color } from '@mui/system';
+import AboutModal from '../Footer/AboutModal/AboutModal';
+
+export const ModalContext = React.createContext();
 
 const SplashPage = () => {
+
+    const sessionUser = useSelector(state => state.session.user);
+    const [showAboutModal, setShowAboutModal] = useState(false);
 
     return (
         <>
             <div className='splash-page-main'>
 
                 <div className='splash-section-1'>
+
+                    <ModalContext.Provider value={{showAboutModal, setShowAboutModal}}>
+                        <AboutModal />
+                    </ModalContext.Provider> 
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading'>
@@ -30,29 +42,32 @@ const SplashPage = () => {
 
 
                     <div className='splash-section-1-rightside'>
-                        <div className='splash-greeting' data-aos="fade-in" data-aos-duration="2000" data-aos-delay="1000">
+                        <div className='splash-greeting' data-aos="fade-in" data-aos-duration="2000" data-aos-delay="500">
                             <div>Your inspiration starts today.</div>
                         </div>
 
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2000" className='explore-btn'>
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1250" className='explore-btn'>
                             <button
                                 className='lbh-btn'>
                                 Explore
                             </button>
                         </div>
 
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2250" className='about-btn'>
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1500" className='about-btn' onClick={() => setShowAboutModal(true)}>
                             <button
                                 className='lbh-btn'>
                                 About Us
                             </button>
                         </div>
 
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="2500" className='signup-btn'>
-                            <button
-                                className='lbh-btn' style={{ width: '20rem' }}>
-                                Login / Signup
-                            </button>
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn'>
+                            
+                            {!sessionUser && 
+                                <button
+                                    className='lbh-btn' style={{ width: '20rem' }}>
+                                    Login / Signup
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>

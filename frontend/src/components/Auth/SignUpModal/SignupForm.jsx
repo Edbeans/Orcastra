@@ -40,7 +40,7 @@ export default function SignUpForm(props) {
             <button className="modal-close-button" onClick={() => setShowSignUpModal(false)}>&#10005;</button>
             <div className="login-signup-modal">
                 <form className="login-signup-form" onSubmit={handleSubmit}>
-                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Find your orca today.</h2>
+                    <h2 style={{ fontSize: '36px', textAlign: 'center', padding: '15px' }}>Take a dip.</h2>
                     <div className="input-container">
 
                         <div className='form-input-group'>

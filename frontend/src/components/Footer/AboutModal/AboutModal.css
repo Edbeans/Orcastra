@@ -1,0 +1,17 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1 fr 1 fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    background-color: blue;
+}
+
+.about-grid-item {
+    background-color: #dddddd;
+    /* padding: 20px; */
+}

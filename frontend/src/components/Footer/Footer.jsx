@@ -22,9 +22,9 @@ export default function Footer() {
                 </img>
 
                 <div className="meet-the-team-button">
-                    <button>
+                    {/* <button>
                         Test
-                    </button>
+                    </button> */}
                 </div>
 
         </div>
