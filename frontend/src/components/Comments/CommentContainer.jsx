@@ -43,7 +43,7 @@ export default function CommentContainer({ idea }) {
       </div>
     );
   } else {
-    const author = sessionUser;
+    const author = sessionUser._id;
     function handleCommentSubmit(e, errors) {
       e.preventDefault();
       const newComment = {
@@ -59,9 +59,7 @@ export default function CommentContainer({ idea }) {
       <div>
         <form
           className='isp-create-comment-form'
-          onSubmit={(e) => {
-            handleCommentSubmit(e);
-          }}
+          onSubmit={handleCommentSubmit}
         >
           <div className='form-input-group'>
             <textarea

@@ -10,7 +10,7 @@ const validateCommentInput = require('../../validations/comments');
 router.get('/', async (req, res) => {
   try {
     const comments = await Comment.find()
-      .populate('author', '_id, username')
+      .populate('author', '_id username')
       .sort({ createdAt: -1 });
     return res.json(comments);
   } catch (error) {
@@ -26,7 +26,7 @@ router.post(
     try {
       const newComment = new Comment({
         text: req.body.text,
-        author: req.user._id,
+        author: req.user,
         idea: req.params.ideaId,
       });
 
@@ -40,10 +40,7 @@ router.post(
         { _id: comment.author },
         { $push: { comments: comment._id } }
       );
-      comment = await comment.populate(
-        'author',
-        '_id, username, profileImageUrl'
-      );
+      comment = await comment.populate('author');
       return res.json(comment);
     } catch (error) {
       next(err);
@@ -178,7 +175,7 @@ router.get('/ideas/:ideaId', async (req, res) => {
       .sort({ createdAt: -1 })
       .populate({
         path: 'author',
-        select: '_id username profileImageUrl',
+        select: '_id _id username profileImageUrl',
       });
     return res.json(ideaComments);
   } catch (error) {

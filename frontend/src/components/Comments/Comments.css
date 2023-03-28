@@ -105,11 +105,17 @@
     color: #96989d;
 }
 
-.comment-actions {
+/* .comment-actions {
     border-radius: 5px;
     display: flex;
     border: 1px solid #2c2f33;
     background-color: #fbf2f2;
+    text-decoration: none;
+} */
+
+.comment-actions {
+    display: flex;
+    border-radius: 50%;
 }
 
 .comment-actions:hover {
@@ -121,13 +127,14 @@
     padding: 2px;
     display: flex;
     align-items: center;
-    border-radius: 4px;
+    border-radius: inherit;
+    border: none;
 }
 
 
 .edit-action:hover,
 .delete-action:hover {
-    background-color: #efeaea;
+    background-color: #040404;
 }
 
 .edit-comment-form {
@@ -174,10 +181,12 @@
 
 .edit-action>svg {
     margin-left: 10px;
+    /* border-radius: 4px; */
 }
 
 .delete-action>svg {
     margin-left: 10px;
+    /* border-radius: 4px; */
 }
 
 .comment-text p {
