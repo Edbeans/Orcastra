@@ -1,6 +1,6 @@
 import './SignUpModal.css';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup, clearSessionErrors } from '../../../store/session';
 
 export default function SignUpForm(props) {
@@ -12,6 +12,7 @@ export default function SignUpForm(props) {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const dispatch = useDispatch()
+    const errors = useSelector(state => state.errors.session)
 
     useEffect(() => {
         return () => {
@@ -46,16 +47,20 @@ export default function SignUpForm(props) {
                         <div className='form-input-group'>
                             <input className="form-inputs" type="text" onChange={(e) => setUsername(e.target.value)} required />
                             <span className="form-input-labels">Username</span>
+                            <div className="sign-up-errors">{errors?.username}</div>
+
                         </div>
 
                         <div className='form-input-group'>
                             <input className="form-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
                             <span className="form-input-labels">Email</span>
+                            <div className="sign-up-errors">{errors?.email}</div>
                         </div>
 
                         <div className='form-input-group'>
                             <input className="form-inputs" type="password" onChange={(e) => setPassword(e.target.value)} required />
                             <span className="form-input-labels">Password</span>
+                            <div className="sign-up-errors"><h1>{errors?.password}</h1></div>
                         </div>
 
                         <button className='default-button-1'

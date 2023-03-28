@@ -13,3 +13,11 @@
 .signup-to-login-link:hover {
     color: rgb(87, 130, 174);
 }
+
+.sign-up-errors { 
+    display: flex; 
+    width: 100%;
+    justify-content: right; 
+    color: red;
+    position: absolute;
+}

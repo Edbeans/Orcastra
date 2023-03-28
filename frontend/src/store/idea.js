@@ -6,36 +6,36 @@ export const RECEIVE_IDEA = 'ideas/RECEIVE_IDEA'
 export const RECEIVE_USER_IDEAS = 'ideas/RECEIVE_USER_IDEAS'
 export const REMOVE_IDEA = 'ideas/REMOVE_IDEA'
 
-export const CLEAR_IDEA_ERRORS = 'ideas/CLEAR_IDEA_ERRORS'
+const CLEAR_IDEA_ERRORS = 'ideas/CLEAR_IDEA_ERRORS'
 export const RECEIVE_IDEA_ERRORS = 'ideas/RECEIVE_IDEA_ERRORS'
 
-const receiveIdeas = (ideas) => ({
+export const receiveIdeas = (ideas) => ({
     type: RECEIVE_IDEAS,
     ideas
 })
 
-const receiveIdea = (idea) => ({
+export const receiveIdea = (idea) => ({
     type: RECEIVE_IDEA,
     idea
 })
 
-const receiveUserIdeas = (ideas) => ({
+export const receiveUserIdeas = (ideas) => ({
     type: RECEIVE_USER_IDEAS,
     ideas
 })
 
-const removeIdea = (ideaId) => ({
+export const removeIdea = (ideaId) => ({
     type: REMOVE_IDEA,
     ideaId
 })
 
-const receiveIdeaErrors = (errors) => ({
+export const receiveIdeaErrors = (errors) => ({
     type: RECEIVE_IDEA_ERRORS,
     errors
 })
 
-const clearIdeaErrors = () => ({
-    type: CLEAR_IDEA_ERRORS
+export const clearIdeaErrors = () => ({
+    type: CLEAR_IDEA_ERRORS,
 })
 
 export const getIdeas = (state) => {
@@ -148,11 +148,13 @@ export const deleteIdea = (ideaId) => async dispatch => {
 const nullErrors = null;
 
 export const ideaErrorsReducer = (state = nullErrors, action) => {
-    switch (action.type) {
+    switch (action?.type) {
+
         case RECEIVE_IDEA_ERRORS:
             return action.errors;
+        case RECEIVE_IDEA:
         case CLEAR_IDEA_ERRORS:
-            return nullErrors
+            return null
         default: 
             return state;
     }
@@ -160,7 +162,7 @@ export const ideaErrorsReducer = (state = nullErrors, action) => {
 
 const ideasReducer = (state={}, action) => {
     let newState = {...state}
-    switch (action.type) {
+    switch (action?.type) {
         case RECEIVE_IDEAS:
             return action.ideas
         case RECEIVE_IDEA:

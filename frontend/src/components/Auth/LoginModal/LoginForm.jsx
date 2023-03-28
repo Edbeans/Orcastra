@@ -1,7 +1,7 @@
 import './LoginModal.css';
 import { useState, useEffect, useContext } from 'react';
 import { login, clearSessionErrors } from '../../../store/session';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ModalContext } from '../../Navigation/Sidebar';
 import { padding } from '@mui/system';
 
@@ -12,7 +12,7 @@ export default function LoginForm(props) {
     const setShowSignUpModal = props.setShowSignUpModal
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const errors = useSelector(state => state.errors.session)
     useEffect(() => {
         return () => {
             dispatch(clearSessionErrors());
@@ -40,11 +40,16 @@ export default function LoginForm(props) {
                         <div className='form-input-group'>
                             <input className="form-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
                             <span className="form-input-labels">Username / Email</span>
+                            <div className="errors"><h1>{errors?.email}</h1></div>
+
                         </div>
+
 
                         <div className='form-input-group'>
                             <input className="form-inputs" type="password" onChange={(e) => setPassword(e.target.value)} required />
                             <span className="form-input-labels">Password</span>
+                            <div className="errors"><h1>{errors?.email}</h1></div>
+
                         </div>
 
                         <button className='default-button-1' 
