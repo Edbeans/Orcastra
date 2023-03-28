@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './Comments.css';
+import Avatar from '@mui/material/Avatar';
+import { green, red } from '@mui/material/colors';
 
 export default function CommentIndexItem({ idea, comment }) {
   const dispatch = useDispatch();
@@ -36,86 +38,6 @@ export default function CommentIndexItem({ idea, comment }) {
 
   return (
     comment && (
-      // <div
-      //   className='comment-item'
-      //   id={commentEdit ? 'comment-edit-active' : undefined}
-      //   onMouseEnter={() => setCommentAction(true)}
-      //   onMouseLeave={() => setCommentAction(false)}
-      // >
-      //   <div className='comment-wrapper'>
-      //     <div>
-      //       <div className='comment-item-user-info'>
-      //         {comment.author.username}
-      //       </div>
-      //       <div className='comment-item-text'>{comment.text}</div>
-      //       <div className='comment-item-date'>
-      //         {timeConversion(comment.createdAt)}
-      //       </div>
-      //     </div>
-      //     <div>
-      //       {sessionUser &&
-      //         (comment.authorId === sessionUser.id ||
-      //           idea?.ownerId === sessionUser.id) && (
-      //           <div
-      //             className='comment-actions'
-      //             style={commentAction ? shown : hidden}
-      //           >
-      //             {comment.authorId === sessionUser.id && (
-      //               <div
-      //                 className='edit-action'
-      //                 onClick={() => setCommentEdit(true)}
-      //               >
-      //                 <EditIcon
-      //                   fontSize='small'
-      //                   sx={{ m: '0 2px' }}
-      //                 />
-      //               </div>
-      //             )}
-
-      //             <div
-      //               className='delete-action'
-      //               onClick={handleDeleteComment}
-      //             >
-      //               <DeleteIcon
-      //                 fontSize='small'
-      //                 sx={{ m: '0 2px' }}
-      //               />
-      //             </div>
-      //           </div>
-      //         )}
-      //     </div>
-      //     {commentEdit ? (
-      //       <form
-      //         className='edit-comment-form'
-      //         onSubmit={(e) => handleEditComment(e)}
-      //       >
-      //         <input
-      //           type='text'
-      //           name='content'
-      //           id='comment'
-      //           autoComplete='off'
-      //           autoFocus
-      //           value={commentContent}
-      //           onChange={(e) => setCommentContent(e.target.value)}
-      //           onKeyDown={handleCloseEdit}
-      //         />
-      //         <p className='comment-edit-info'>
-      //           escape to{' '}
-      //           <span
-      //             onClick={() => {
-      //               setCommentEdit(false);
-      //               setCommentContent(comment.text);
-      //             }}
-      //           >
-      //             cancel
-      //           </span>{' '}
-      //           &bull; enter to{' '}
-      //           <span onClick={handleEditComment}>save</span>
-      //         </p>
-      //       </form>
-      //     ) : null}
-      //   </div>
-      // </div>
       <div
         className='comment-item'
         id={commentEdit ? 'comment-edit-active' : undefined}
@@ -132,39 +54,53 @@ export default function CommentIndexItem({ idea, comment }) {
         <div className='comment-body'>
           <div className='comment-username'>
             <h4>
+              {console.log(comment)}
               {comment.author.username}
-              {/* Username */}
               <span id='time'>
                 {timeConversion(comment.createdAt)}
               </span>
             </h4>
             {sessionUser &&
-              (comment.authorId === sessionUser.id ||
-                idea?.ownerId === sessionUser.id) && (
+              comment.author._id === sessionUser._id && (
                 <div
                   className='comment-actions'
                   style={commentAction ? shown : hidden}
                 >
-                  {comment.authorId === sessionUser.id && (
+                  {comment.author._id === sessionUser._id && (
                     <div
                       className='edit-action'
                       onClick={() => setCommentEdit(true)}
                     >
-                      <EditIcon
-                        fontSize='small'
-                        sx={{ m: '0 2px' }}
-                      />
+                      <Avatar
+                        sx={{
+                          bgcolor: green[500],
+                          width: 28,
+                          height: 28,
+                        }}
+                      >
+                        <EditIcon
+                          fontSize='small'
+                          sx={{ m: '0 2px' }}
+                        />
+                      </Avatar>
                     </div>
                   )}
-
                   <div
                     className='delete-action'
                     onClick={handleDeleteComment}
                   >
-                    <DeleteIcon
-                      fontSize='small'
-                      sx={{ m: '0 2px' }}
-                    />
+                    <Avatar
+                      sx={{
+                        bgcolor: red[500],
+                        width: 28,
+                        height: 28,
+                      }}
+                    >
+                      <DeleteIcon
+                        fontSize='small'
+                        sx={{ m: '0 2px' }}
+                      />
+                    </Avatar>
                   </div>
                 </div>
               )}
