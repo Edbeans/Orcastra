@@ -86,18 +86,6 @@ const SplashPage = () => {
                     </div>
                 </div>
 
-
-
-                <div className='hero-section' style={{backgroundColor: 'black', color:'white'}}>
-                    <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
-                        "Connecting investors of today with creators of tomorrow"
-                        <div className='splash-slogan-attribute'>
-                            -Dosé
-                        </div>
-                    </div>
-                </div>
-
-
                 {/* <div className='section-5 alternate-section'>
                     <div className='content-top'>
                         <h1 className='section-header-top'>

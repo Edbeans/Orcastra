@@ -13,6 +13,7 @@ import CreateIdeaPage from './components/CreateIdeaPage/CreateIdeaPage';
 import IdeaShowPage from './components/IdeaShowPage/IdeaShowPage';
 import UserShow from './components/UserShow/UserShow';
 import ErrorPage from './components/NotFound/ErrorPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,7 @@ function App() {
             <AuthRoute exact path='/login' component={Splash} />
             <AuthRoute exact path='/signup' component={Splash} />
           </Switch>
+          <Footer />
         </div>
       </>
     )

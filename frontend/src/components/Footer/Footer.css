@@ -1,0 +1,38 @@
+.footer-container {
+    height: 625px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100px;
+    height: auto;
+    padding-top: 50px;
+}
+
+.footer-slogan {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    line-height: 1.5;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 0px;
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    position: relative;
+    /* animation: fadeIn 6s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards; */
+}
+
+.footer-slogan-attribute {
+    position: absolute;
+    right: 0;
+    color: white;
+}

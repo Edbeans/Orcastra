@@ -76,27 +76,6 @@
 }
 
 
-.splash-page-slogan {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    line-height: 1.5;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 0px;
-    font-weight: 600;
-    color: ccc;
-    opacity: 0;
-    position: relative;
-    /* animation: fadeIn 6s;
-    animation-delay: 0s;
-    animation-fill-mode: forwards; */
-}
-
-.splash-slogan-attribute {
-    position: absolute;
-    right: 0;
-}
-
 
 .open-button {
     margin-top: 24px;
