@@ -133,17 +133,16 @@ export default function CommentIndexItem({ idea, comment }) {
           <div className='comment-username'>
             <h4>
               {comment.author.username}
-              {/* Username */}
               <span id='time'>
                 {timeConversion(comment.createdAt)}
               </span>
             </h4>
-            {sessionUser && comment.authorId === sessionUser.id && (
+            {sessionUser && comment.author._id === sessionUser.id && (
               <div
                 className='comment-actions'
                 style={commentAction ? shown : hidden}
               >
-                {comment.authorId === sessionUser.id && (
+                {comment.author._id === sessionUser.id && (
                   <div
                     className='edit-action'
                     onClick={() => setCommentEdit(true)}
@@ -151,7 +150,7 @@ export default function CommentIndexItem({ idea, comment }) {
                     <EditIcon fontSize='small' sx={{ m: '0 2px' }} />
                   </div>
                 )}
-
+                {/* {console.log(comment.author._id)} */}
                 <div
                   className='delete-action'
                   onClick={handleDeleteComment}
