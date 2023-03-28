@@ -150,7 +150,6 @@ export default function CommentIndexItem({ idea, comment }) {
                     <EditIcon fontSize='small' sx={{ m: '0 2px' }} />
                   </div>
                 )}
-                {/* {console.log(comment.author._id)} */}
                 <div
                   className='delete-action'
                   onClick={handleDeleteComment}
