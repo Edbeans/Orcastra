@@ -2,7 +2,10 @@ import { useContext } from "react"
 import { ModalContext } from "../Splash/Splash"
 import { Modal } from "../../context/modal"
 import './AboutModal.css'
+
 import profilepic from "../../assets/edbeanis.jpeg"
+
+import danielHeadshot from "../../assets/daniel-headshot.png"
 import linkedin from "../../assets/linkedincrop.png"
 import github from "../../assets/github.png"
 import portfolio from "../../assets/user-icon.png"
@@ -21,7 +24,7 @@ export default function AboutModal() {
                         <div className="about-grid">
                             <div className="about-grid-item">
                                 <div className="agi-info">
-                                    <img src={profilepic}></img>
+                                    <img src={danielHeadshot}></img>
                                     <div className="agi-header">
                                         <h1>Daniel Liem</h1>
                                         <h2>Front End Lead</h2>
