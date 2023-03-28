@@ -5,20 +5,45 @@
     color: black
 }
 
+.splash-section-1 {
+    /* background-image: url(../../assets/splashpage-background.png);
+    background-position: center; */
+    background-color: #010101;
+
+    max-width: 100%;
+    /* height: 625px; */
+    color: white;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.splash-section-1-rightside {
+    position: relative;
+}
+
+.splash-greeting {
+    position: absolute;
+    font-size: 44px;
+    width: 40rem;
+    top: -10rem;
+    left: 12rem;
+}
+
 .lbh-btn {
     cursor: pointer;
     background-color: black;
     color: white;
     border-radius: 9999px;
-    border: 1px solid transparent;
+    border: 1px solid white;
     font-family: "Helvetica Neue",
         Helvetica,
         Arial,
         sans-serif;
-    font-size: 16px;
+    font-size: 28px;
     transition: 0.3s ease all;
-    width: 10rem;
-    height: 3.5rem;
+    width: 14rem;
+    height: 5rem;
     z-index: 2;
 }
 
@@ -27,18 +52,22 @@
     color: black;
 }
 
-.gs-btn {
-    width: 20rem;
-    margin-top: 100px;
-    margin-bottom: 110px;
-    font-size: 30px;
+.explore-btn {
+    position: absolute;
+    top: -2rem;
+    left: 12rem;
 }
 
 .about-btn {
     position: absolute;
-    top: 3rem;
-    right: 3rem;
-    border: 1px solid white;
+    top: -2rem;
+    left: 32rem;
+}
+
+.signup-btn {
+    position: absolute;
+    top: 8rem;
+    left: 19rem;
 }
 
 .splash-page-links {
@@ -49,7 +78,7 @@
 }
 
 .splash-page-after-nav {
-    padding: 80px 40px 20px;
+    padding: 0px 40px 120px 40px;
     width: 40%;
     display: flex;
     justify-content: center;
@@ -58,7 +87,8 @@
 }
 
 .splash-page-main-heading {
-    margin-top: 230px;
+    margin-top: 120px;
+    margin-left: 480px;
     /* font-size: 80px; */
     /* font-family: Arial, Helvetica, sans-serif; */
     display: flex;
@@ -70,32 +100,11 @@
     color: ccc;
     opacity: 0; */
 
-    animation: fadeIn 5s;
+    animation: fadeIn 1s;
     animation-delay: 0s;
     animation-fill-mode: forwards;
 }
 
-
-.splash-page-slogan {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    line-height: 1.5;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 0px;
-    font-weight: 600;
-    color: ccc;
-    opacity: 0;
-    position: relative;
-    /* animation: fadeIn 6s;
-    animation-delay: 0s;
-    animation-fill-mode: forwards; */
-}
-
-.splash-slogan-attribute {
-    position: absolute;
-    right: 0;
-}
 
 
 .open-button {
@@ -115,20 +124,6 @@
     margin-top: 40px;
 }
 
-.splash-section-1 {
-    /* background-image: url(../../assets/splashpage-background.png);
-    background-position: center; */
-    background-color: #010101;
-
-    max-width: 100%;
-    /* height: 625px; */
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
 
 .img-container {
     width: 55%;

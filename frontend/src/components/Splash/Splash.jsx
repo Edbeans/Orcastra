@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import { useState} from 'react';
+import React from 'react';
 import './Splash.css';
 import './Splash.css';
 import AOS from 'aos';
@@ -10,13 +12,15 @@ import splashorca2 from '../../assets/splash-orca2.png'
 import splashorca3 from '../../assets/splash-orca3.png'
 import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
+import { color } from '@mui/system';
+import AboutModal from '../Footer/AboutModal/AboutModal';
 
-// import section3 from '../../assets/section3.svg';
-// import section4 from '../../assets/section4.svg';
-// import section5 from '../../assets/section5.svg';
-// import sparkles from '../../assets/sparkles.svg';
+export const ModalContext = React.createContext();
 
 const SplashPage = () => {
+
+    const sessionUser = useSelector(state => state.session.user);
+    const [showAboutModal, setShowAboutModal] = useState(false);
 
     return (
         <>
@@ -24,39 +28,62 @@ const SplashPage = () => {
 
                 <div className='splash-section-1'>
 
-                    <button
-                        className='lbh-btn about-btn'>
-                        About Us
-                    </button>
+                    <ModalContext.Provider value={{showAboutModal, setShowAboutModal}}>
+                        <AboutModal />
+                    </ModalContext.Provider> 
 
                     <div className='splash-page-after-nav'>
-                        <div className='splash-page-main-heading' data-aos="fade-down" data-aos-duration="1000">
-                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '650px', height: 'auto' }} >
+                        <div className='splash-page-main-heading'>
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '550px', height: 'auto' }} >
                             </img>
                         </div>
 
                     </div>
 
-                    <button
-                        className='lbh-btn gs-btn' data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1000"
-                    >
-                        Get started
-                    </button>
 
+                    <div className='splash-section-1-rightside'>
+                        <div className='splash-greeting' data-aos="fade-in" data-aos-duration="2000" data-aos-delay="500">
+                            <div>Your inspiration starts today.</div>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1250" className='explore-btn'>
+                            <button
+                                className='lbh-btn'>
+                                Explore
+                            </button>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1500" className='about-btn' onClick={() => setShowAboutModal(true)}>
+                            <button
+                                className='lbh-btn'>
+                                About Us
+                            </button>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn'>
+                            
+                            {!sessionUser && 
+                                <button
+                                    className='lbh-btn' style={{ width: '20rem' }}>
+                                    Login / Signup
+                                </button>
+                            }
+                        </div>
+                    </div>
                 </div>
 
 
                 <div className='hero-section'>
-                
-                    <div className='img-container' data-aos="fade-left" data-aos-duration="1000">
+
+                    <div className='img-container'>
                         <img src={splashorca1} alt='inv' className='all-sec-img' />
                     </div>
-                    <div className='content' data-aos="fade-left" data-aos-duration="1000">
+                    <div className='content' >
                         <h1 className='section-header'>
                             Splash around with your next game changer
                         </h1>
                         <p className='section-text'>
-                            Orcastra is the best place to get inspired and receive feedback on your latest billion-dollar idea.
+                            Orca is the best place to get inspired and receive feedback on your latest billion-dollar idea.
                         </p>
                     </div>
                 </div>
@@ -89,16 +116,6 @@ const SplashPage = () => {
                         </p>
                     </div>
                 </div>
-
-                <div className='hero-section'>
-                    <div className='splash-page-slogan' data-aos="fade-down" data-aos-duration="3000">
-                        "Connecting investors of today with creators of tomorrow"
-                        <div className='splash-slogan-attribute'>
-                            -Dosé
-                        </div>
-                    </div>
-                </div>
-
 
                 {/* <div className='section-5 alternate-section'>
                     <div className='content-top'>

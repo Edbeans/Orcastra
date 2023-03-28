@@ -65,6 +65,7 @@ export default function UserIdeas() {
                         <div className='usershow-stats'>
                           <div className='usershow-num-ideas'>{`Ideas: ${filteredIdeas.length}`}</div>
                           <div className='usershow-num-comments'>{`Comments received: ${filteredIdeas.length}`}</div>
+                          <div className='usershow-num-comments'>{`Bids received: PLACEHOLDER`}</div>
                         </div>
                       </div>
                     </div>
