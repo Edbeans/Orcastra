@@ -65,15 +65,25 @@ export default function IdeaShowPage() {
                 
                     <div className='isp-info-container'>
                         <div className='isp-title' data-aos="fade-down" data-aos-duration="2000">{idea.title}</div>
+                        
                         <div className='isp-username' data-aos="fade-down" data-aos-duration="2000"> 
                             <img className='comment-profile-image'src={idea.owner.profileImageUrl}/>
                             Product by: {idea.owner.username}
                         </div>
-                        <div data-aos="fade-right" data-aos-duration="2000" className='isp-description'>{idea.body}</div>
+                        
+                        <div className="description-container" data-aos="fade-right" data-aos-duration="2000">
+                            <div className="description-box">
+                                <div className='isp-description'>{idea.body}</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className='isp-media-container'>
-                        <div className='media' data-aos="fade-left" data-aos-duration="2000" style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
+                    <div className='isp-media-container' data-aos="fade-left" data-aos-duration="2000">
+                        <div className="hb-container">
+                            <h2 className="hb-data">Current Highest Bid: $ by Master Investor</h2>
+                        </div>
+
+                        <div className='media' style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
                             <div className='media-button-wrapper'>
                                 <div className='left-media' onClick={decrementImage}><ChevronLeftIcon /></div>
                             </div>
@@ -84,12 +94,16 @@ export default function IdeaShowPage() {
                         </div>
                         <div className='isp-actions'>
                             {/* <button>Save</button> */}
+                            <button className="idea-show-button">Bid</button>
                             {sessionUser &&
                                 sessionUser._id === idea.owner._id ?
                                 <div className="de-btn-container">
-                                    <button className="idea-show-button">Bid</button>
-                                    <button className="idea-show-button" onClick={handleDelete}>Delete</button>
-                                    <button className="idea-show-button"><EditModalButton idea={idea} /></button>
+                                    <div className="de-btn">
+                                        <button className="idea-show-button" onClick={handleDelete}>Delete</button>
+                                    </div>
+                                    <div className="de-btn e-btn">
+                                        <button className="idea-show-button"><EditModalButton idea={idea} /></button>
+                                    </div>
                                 </div> : <></>}
                         </div>
                     </div>
