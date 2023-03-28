@@ -106,7 +106,6 @@ export const fetchIdeaComments = (ideaId) => async (dispatch) => {
 };
 
 export const createComment = (comment, idea) => async (dispatch) => {
-  console.log(idea._id);
   try {
     const res = await jwtFetch(`/api/comments/ideas/${idea._id}`, {
       method: 'POST',
@@ -115,9 +114,7 @@ export const createComment = (comment, idea) => async (dispatch) => {
     let newComment = await res.json();
     dispatch(receiveComment(newComment));
     fetchIdeaComments(idea._id);
-    console.log('dispatching...');
   } catch (err) {
-    console.log('error');
     const resBody = await err.json();
     if (resBody.statusCode === 400) {
       return dispatch(receiveCommentErrors(resBody.errors));

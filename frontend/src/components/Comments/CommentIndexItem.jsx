@@ -132,8 +132,8 @@ export default function CommentIndexItem({ idea, comment }) {
         <div className='comment-body'>
           <div className='comment-username'>
             <h4>
+              {console.log(comment.author)}
               {comment.author.username}
-              {/* Username */}
               <span id='time'>
                 {timeConversion(comment.createdAt)}
               </span>
@@ -155,7 +155,6 @@ export default function CommentIndexItem({ idea, comment }) {
                       />
                     </div>
                   )}
-                  {/* {console.log(comment.author._id)} */}
                   <div
                     className='delete-action'
                     onClick={handleDeleteComment}
