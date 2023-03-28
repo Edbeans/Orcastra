@@ -67,7 +67,7 @@ export default function IdeaShowPage() {
                         <div className='isp-title' data-aos="fade-down" data-aos-duration="2000">{idea.title}</div>
                         <div className='isp-username' data-aos="fade-down" data-aos-duration="2000"> 
                             <img className='comment-profile-image'src={idea.owner.profileImageUrl}/>
-                            {idea.owner.username} 
+                            Product by: {idea.owner.username}
                         </div>
                         <div data-aos="fade-right" data-aos-duration="2000" className='isp-description'>{idea.body}</div>
                     </div>
