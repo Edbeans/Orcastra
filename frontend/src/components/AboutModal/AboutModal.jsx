@@ -41,7 +41,11 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here?</div>
+                                <div className="agi-description">A design enthusiast with a background in the Aerospace Industry, Daniel takes pride in making innovative tech look stylish. 
+                                    <br />
+                                    <br />
+                                    In his free time, Daniel enjoys parties, playing guitar, and being bad at soccer.
+                                </div>
                             </div>
 
                             <div className="about-grid-item">
