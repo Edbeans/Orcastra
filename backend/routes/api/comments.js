@@ -78,13 +78,29 @@ router.patch(
   validateCommentInput,
   async (req, res, next) => {
     try {
-      const comment = await Comment.findByIdAndUpdate(
+      const comment = await Comment.findById(req.params.id).populate(
+        'author'
+      );
+      if (!comment) return res.json('No comment with that id found');
+
+      if (comment.author.id !== req.user.id) {
+        const err = new Error(
+          'You are not authorized to edit this comment'
+        );
+        err.statusCode = 403;
+        err.errors = {
+          message: 'You are not authorized to edit this comment',
+        };
+        return next(err);
+      }
+
+      const updatedComment = await Comment.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true }
       ).populate('author');
-      if (!comment) return res.json('No comment with that id found');
-      return res.json(comment);
+
+      return res.json(updatedComment);
     } catch (error) {
       const err = new Error('Comment could not be updated');
       err.statusCode = 404;

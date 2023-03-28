@@ -138,36 +138,28 @@ export default function CommentIndexItem({ idea, comment }) {
                 {timeConversion(comment.createdAt)}
               </span>
             </h4>
-            {sessionUser &&
-              (comment.authorId === sessionUser.id ||
-                idea?.ownerId === sessionUser.id) && (
-                <div
-                  className='comment-actions'
-                  style={commentAction ? shown : hidden}
-                >
-                  {comment.authorId === sessionUser.id && (
-                    <div
-                      className='edit-action'
-                      onClick={() => setCommentEdit(true)}
-                    >
-                      <EditIcon
-                        fontSize='small'
-                        sx={{ m: '0 2px' }}
-                      />
-                    </div>
-                  )}
-
+            {sessionUser && comment.authorId === sessionUser.id && (
+              <div
+                className='comment-actions'
+                style={commentAction ? shown : hidden}
+              >
+                {comment.authorId === sessionUser.id && (
                   <div
-                    className='delete-action'
-                    onClick={handleDeleteComment}
+                    className='edit-action'
+                    onClick={() => setCommentEdit(true)}
                   >
-                    <DeleteIcon
-                      fontSize='small'
-                      sx={{ m: '0 2px' }}
-                    />
+                    <EditIcon fontSize='small' sx={{ m: '0 2px' }} />
                   </div>
+                )}
+
+                <div
+                  className='delete-action'
+                  onClick={handleDeleteComment}
+                >
+                  <DeleteIcon fontSize='small' sx={{ m: '0 2px' }} />
                 </div>
-              )}
+              </div>
+            )}
           </div>
           <div className='comment-text'>
             <p>{comment.text}</p>
