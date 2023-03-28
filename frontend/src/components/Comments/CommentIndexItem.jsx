@@ -133,31 +133,40 @@ export default function CommentIndexItem({ idea, comment }) {
           <div className='comment-username'>
             <h4>
               {comment.author.username}
+              {/* Username */}
               <span id='time'>
                 {timeConversion(comment.createdAt)}
               </span>
             </h4>
-            {sessionUser && comment.author._id === sessionUser.id && (
-              <div
-                className='comment-actions'
-                style={commentAction ? shown : hidden}
-              >
-                {comment.author._id === sessionUser.id && (
-                  <div
-                    className='edit-action'
-                    onClick={() => setCommentEdit(true)}
-                  >
-                    <EditIcon fontSize='small' sx={{ m: '0 2px' }} />
-                  </div>
-                )}
+            {sessionUser &&
+              comment.author._id === sessionUser._id && (
                 <div
-                  className='delete-action'
-                  onClick={handleDeleteComment}
+                  className='comment-actions'
+                  style={commentAction ? shown : hidden}
                 >
-                  <DeleteIcon fontSize='small' sx={{ m: '0 2px' }} />
+                  {comment.author._id === sessionUser._id && (
+                    <div
+                      className='edit-action'
+                      onClick={() => setCommentEdit(true)}
+                    >
+                      <EditIcon
+                        fontSize='small'
+                        sx={{ m: '0 2px' }}
+                      />
+                    </div>
+                  )}
+                  {/* {console.log(comment.author._id)} */}
+                  <div
+                    className='delete-action'
+                    onClick={handleDeleteComment}
+                  >
+                    <DeleteIcon
+                      fontSize='small'
+                      sx={{ m: '0 2px' }}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
           <div className='comment-text'>
             <p>{comment.text}</p>

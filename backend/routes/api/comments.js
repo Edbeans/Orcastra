@@ -83,7 +83,7 @@ router.delete('/:id', requireUser, async (req, res, next) => {
       return next(err);
     }
 
-    if (comment.author.id !== req.user.id) {
+    if (comment.author.toString() !== req.user.id) {
       const err = new Error(
         'You are not authorized to delete this comment'
       );
