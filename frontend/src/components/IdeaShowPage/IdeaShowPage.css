@@ -11,9 +11,9 @@
     /* background-image: url("/assets/edbeanis.jpeg"); */
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 450px;
     width: 675px;
-    margin: 50px 0px 50px 50px;
+    margin: 120px 0px 50px 50px;
 }
 
 .media {
@@ -21,9 +21,19 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
     display: flex;
     align-items: center;
+    overflow: hidden; 
+    cursor: pointer; 
+    /* transform: scale(1);
+    transition: .3s ease-in-out; */
 }
+
+/* .media:hover { 
+    transform: scale(1.5); 
+} */
 
 
 .media .left-media {
@@ -67,8 +77,11 @@
 }
 
 .isp-title {
-    font-size: 75px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
     font-weight: 500;
+    letter-spacing: 0.06em;
+
     /* position: absolute;
     right: 0px; */
 }
@@ -82,17 +95,23 @@
 
 .isp-description {
     width: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal; 
+    font-size: 16px;
+    letter-spacing: 0.018em; 
+    line-height: 35px; 
+    overflow: hidden; 
+    word-break: break-word; 
 }
 
 .isp-actions {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: auto;
+    margin-top: 30px;
 }
 
 .isp-comments-container {
     grid-column: 1 / 3;
     justify-self: center;
+    margin-top: 35px; 
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -201,3 +220,4 @@
     justify-content: center;
     position: relative;
 }
+
