@@ -117,6 +117,30 @@
     color: #888d85;
 }
 
+.errors{ 
+    position: absolute;
+    color: red;
+}
+
+.body-count {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    font-size: 14px;
+    color: gray
+}
+
+.body-and-error {
+    display: flex; 
+    width: 100%;
+    justify-content: space-between;
+}
+
+.idea-form-errors {
+    position: absolute; 
+    color: red;
+}
+
 #cip-input-title {
     height: 60px;
     padding: 0px 0px 0px 15px;
