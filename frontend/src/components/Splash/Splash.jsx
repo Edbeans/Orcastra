@@ -13,7 +13,7 @@ import splashorca3 from '../../assets/splash-orca3.png'
 import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
 import { color } from '@mui/system';
-import AboutModal from '../Footer/AboutModal/AboutModal';
+import AboutModal from '../AboutModal/AboutModal';
 
 export const ModalContext = React.createContext();
 
@@ -64,7 +64,7 @@ const SplashPage = () => {
                             
                             {!sessionUser && 
                                 <button
-                                    className='lbh-btn' style={{ width: '20rem' }}>
+                                    className='lbh-btn' style={{ width: '24rem', height:'5rem', fontSize: '26px' }}>
                                     Login / Signup
                                 </button>
                             }

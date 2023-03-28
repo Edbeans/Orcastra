@@ -1,11 +1,14 @@
 import { useContext } from "react"
-import { ModalContext } from "../../Splash/Splash"
-import { Modal } from "../../../context/modal"
+import { ModalContext } from "../Splash/Splash"
+import { Modal } from "../../context/modal"
 import './AboutModal.css'
-import profilepic from "../../../assets/edbeanis.jpeg"
-import linkedin from "../../../assets/linkedincrop.png"
-import github from "../../../assets/github.png"
-import portfolio from "../../../assets/user-icon.png"
+
+import profilepic from "../../assets/edbeanis.jpeg"
+
+import danielHeadshot from "../../assets/daniel-headshot.png"
+import linkedin from "../../assets/linkedincrop.png"
+import github from "../../assets/github.png"
+import portfolio from "../../assets/user-icon.png"
 import { padding } from "@mui/system"
 
 export default function AboutModal() {
@@ -21,7 +24,7 @@ export default function AboutModal() {
                         <div className="about-grid">
                             <div className="about-grid-item">
                                 <div className="agi-info">
-                                    <img src={profilepic}></img>
+                                    <img src={danielHeadshot}></img>
                                     <div className="agi-header">
                                         <h1>Daniel Liem</h1>
                                         <h2>Front End Lead</h2>
@@ -38,7 +41,11 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here?</div>
+                                <div className="agi-description">A design enthusiast with a background in the Aerospace Industry, Daniel takes pride in making innovative tech look stylish. 
+                                    <br />
+                                    <br />
+                                    In his free time, Daniel enjoys parties, playing guitar, and being bad at soccer.
+                                </div>
                             </div>
 
                             <div className="about-grid-item">
