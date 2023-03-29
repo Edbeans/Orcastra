@@ -48,9 +48,14 @@ router.get('/ideas/:ideaId/', requireUser, async (req, res, next) => {
   }
 });
 
-router.get('/', requireUser, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    const bids = await Bid.find().populate('bidder').populate('idea');
+    const bids = await Bid.find()
+      .populate({
+        path: 'bidder',
+        select: '_id username profileImageUrl',
+      })
+      .populate({ path: 'idea', select: '_id title body' });
     return res.json(bids);
   } catch (error) {
     next(error);

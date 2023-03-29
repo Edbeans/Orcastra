@@ -25,13 +25,7 @@ router.get('/', async (req, res, next) => {
           select: '_id _id username profileImageUrl',
         },
       })
-      .populate({
-        path: 'bids',
-        populate: {
-          path: 'bids',
-          select: '_id _id bidAmount',
-        },
-      });
+      .populate('bids');
     return res.json(ideas);
   } catch (error) {
     res.json([]);

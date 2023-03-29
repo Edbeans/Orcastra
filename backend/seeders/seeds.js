@@ -267,6 +267,25 @@ comments.forEach((comment) => {
   });
 });
 
+const bids = [];
+for (const idea of ideas) {
+  const bid = new Bid({
+    bidAmount: Math.floor(Math.random() * 100),
+    bidder: users[Math.floor(Math.random() * NUM_SEED_USERS)]._id,
+    idea: idea._id,
+  });
+  bids.push(bid);
+  idea.bids.push(bid);
+}
+
+bids
+  .sort((a, b) => a - b)
+  .forEach((bid) => {
+    users.forEach((user) => {
+      if (user._id === bid.bidder) user.bids.push(bid);
+    });
+  });
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
@@ -290,7 +309,7 @@ const insertSeeds = () => {
     .then(() => User.insertMany(users))
     .then(() => Idea.insertMany(ideas))
     .then(() => Comment.insertMany(comments))
-    // .then(() => Bid.insertMany(bids))
+    .then(() => Bid.insertMany(bids))
     .then(() => {
       console.log('done!');
       mongoose.disconnect();

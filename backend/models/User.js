@@ -34,7 +34,7 @@ const userSchema = new Schema(
     bids: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Bids',
+        ref: 'Bid',
       },
     ],
   },
