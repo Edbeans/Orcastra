@@ -4,6 +4,7 @@ export const RECEIVE_BID = 'bids/RECEIVE_BID'
 export const RECEIVE_BIDS = 'bids/RECEIVE_BIDS'
 export const RECEIVE_USER_BIDS = 'bids/RECEIVE_USER_BIDS'
 export const RECEIVE_IDEA_BIDS = 'bids/RECEIVE_IDEA_BIDS'
+export const UPDATE_IDEA_BID = 'bids/UPDATE_IDEA_BID'
 export const REMOVE_BID = 'bids/REMOVE_BID'
 
 export const CLEAR_BID_ERRORS = 'bids/CLEAR_BID_ERRORS'
@@ -27,6 +28,11 @@ export const receiveUserBids = bids => ({
 export const receiveIdeaBids = bids => ({
     type: RECEIVE_IDEA_BIDS,
     bids
+})
+
+export const updateIdeaBid = bid => ({
+    type: UPDATE_IDEA_BID,
+    bid
 })
 
 export const removeBid = bidId => ({
@@ -90,6 +96,22 @@ export const createBid = (bid) => async dispatch => {
     } catch (err) {
         const resBody = await err.json();
         if (resBody.statusCod === 400) {
+            return dispatch(receiveBidErrors(resBody.errors));
+        }
+    }
+}
+
+export const updateBid = (bid) => async dispatch => {
+    try {
+        const res = await jwtFetch(`api/bids/${bid._id}`,{
+            method: 'PATCH',
+            body: json.stringify(bid)
+        })
+        const updatedBid = await res.json()
+        dispatch(updateIdeaBid(bid))
+    } catch (err) {
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
             return dispatch(receiveBidErrors(resBody.errors));
         }
     }
