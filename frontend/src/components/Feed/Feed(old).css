@@ -1,0 +1,23 @@
+.feed-background {
+    background-color: #0A1929;
+    width: 1050px;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0px -5px 8px 6px rgba(0, 0, 0, 0.463), 0px -5px 8px -6px rgba(0, 0, 0, 0.455);
+}
+
+.feed-page-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.feed-wrapper {
+    padding-top: 50px;
+    width: auto;
+    display: grid;
+    grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
+    grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+    justify-items: center;
+    grid-gap: 1.5em;
+    padding-bottom: 50px;
+}
+
