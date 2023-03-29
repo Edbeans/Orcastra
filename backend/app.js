@@ -9,6 +9,7 @@ const { isProduction } = require('./config/keys');
 require('./models/User');
 require('./models/Idea');
 require('./models/Comment');
+require('./models/Bid');
 require('./config/passport');
 const passport = require('passport');
 
@@ -35,12 +36,14 @@ app.use(
 const usersRouter = require('./routes/api/users');
 const ideasRouter = require('./routes/api/ideas');
 const commentsRouter = require('./routes/api/comments');
+const bidsRouter = require('./routes/api/bids');
 const csrfRouter = require('./routes/api/csrf');
 
 // ADD EXPRESS ROUTERS
 app.use('/api/users', usersRouter);
 app.use('/api/ideas', ideasRouter);
 app.use('/api/comments', commentsRouter);
+app.use('/api/bids', bidsRouter);
 app.use('/api/csrf', csrfRouter);
 
 if (isProduction) {

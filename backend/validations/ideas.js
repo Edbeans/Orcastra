@@ -10,9 +10,9 @@ const validateIdeasInput = [
     ),
   check('body')
     .exists({ checkFalsy: true })
-    .isLength({ min: 280 })
+    .isLength({ min: 10 })
     .withMessage(
-      'Body is required and must be at least 280 characters'
+      'Body is required and must be at least 10 characters'
     ),
   handleValidationErrors,
 ];
