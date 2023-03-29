@@ -6,6 +6,7 @@ import './AboutModal.css'
 import profilepic from "../../assets/edbeanis.jpeg"
 
 import danielHeadshot from "../../assets/daniel-headshot.png"
+import edwardHeadshot from "../../assets/edward-headshot.png"
 import linkedin from "../../assets/linkedincrop.png"
 import github from "../../assets/github.png"
 import portfolio from "../../assets/user-icon.png"
@@ -50,7 +51,7 @@ export default function AboutModal() {
 
                             <div className="about-grid-item">
                                 <div className="agi-info">
-                                    <img src={profilepic}></img>
+                                    <img src={edwardHeadshot}></img>
                                     <div className="agi-header">
                                         <h1>Edward Ying</h1>
                                         <h2>Team Lead</h2>
@@ -67,9 +68,10 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">Nutrition and fitness aficionado. Passionate in creating seamless and intuitive webpage designs. Strives to uplift his peers and help them unlock their hidden potentials.</div>
-                                <br />
-                                Outside of coding, Edward loves listening to podcasts, playing basketball, and having a great time with friends.
+                                <div className="agi-description">
+                                    Nutrition and fitness aficionado. Passionate in creating seamless and intuitive webpage designs. Strives to uplift his peers and help them unlock their hidden potentials.
+                                    Outside of coding, Edward loves listening to podcasts, playing basketball, and having a great time with friends.
+                                </div>
                             </div>
 
                             <div className="about-grid-item">
