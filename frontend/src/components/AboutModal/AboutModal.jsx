@@ -53,21 +53,23 @@ export default function AboutModal() {
                                     <img src={profilepic}></img>
                                     <div className="agi-header">
                                         <h1>Edward Ying</h1>
-                                        <h2>Front End Lead</h2>
+                                        <h2>Team Lead</h2>
                                         <div className="agi-contact">
-                                            <a href="https://github.com/danielliem49" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
+                                            <a href="https://github.com/Edbeans" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
                                                 <img src={github} alt="Github Link" />
                                             </a>
-                                            <a href="https://www.linkedin.com/in/danielliem49/" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }} >
+                                            <a href="https://www.linkedin.com/in/ying-edward/" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }} >
                                                 <img src={linkedin} alt="LinkedIn Link" />
                                             </a>
-                                            <a href="https://danielliem49.github.io/" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://edbeans.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
                                                 <img src={portfolio} alt="Portfolio Link" />
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here?</div>
+                                <div className="agi-description">Nutrition and fitness aficionado. Passionate in creating seamless and intuitive webpage designs. Strives to uplift his peers and help them unlock their hidden potentials.</div>
+                                <br />
+                                Outside of coding, Edward loves listening to podcasts, playing basketball, and having a great time with friends.
                             </div>
 
                             <div className="about-grid-item">
