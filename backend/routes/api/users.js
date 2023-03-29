@@ -117,7 +117,8 @@ router.get('/current', restoreUser, (req, res) => {
 router.get('/:id', async (req, res, next) => {
   let user;
   try {
-    user = await User.findById(req.params.id).populate('comments');
+    user = await User.findById(req.params.id);
+    // .populate('comments')
     // .populate('bids');
     return res.json(user);
   } catch (error) {
