@@ -31,6 +31,12 @@ const userSchema = new Schema(
         ref: 'Comment',
       },
     ],
+    bids: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Bids',
+      },
+    ],
   },
   {
     timestamps: true,
