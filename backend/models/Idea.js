@@ -26,6 +26,12 @@ const ideaSchema = new Schema(
       type: [String],
       required: false,
     },
+    bids: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Bid',
+      },
+    ],
   },
   {
     timestamps: true,

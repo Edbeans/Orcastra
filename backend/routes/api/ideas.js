@@ -24,7 +24,8 @@ router.get('/', async (req, res, next) => {
           path: 'author',
           select: '_id _id username profileImageUrl',
         },
-      });
+      })
+      .populate('bids');
     return res.json(ideas);
   } catch (error) {
     res.json([]);
@@ -39,13 +40,6 @@ router.get('/:id', async (req, res, next) => {
         path: 'owner',
         select: 'username profileImageUrl',
       });
-    // .populate({
-    //   path: 'comments',
-    //   populate: {
-    //     path: 'author',
-    //     select: '_id _id username profileImageUrl',
-    //   },
-    // });
 
     return res.json(idea);
   } catch (err) {
@@ -71,7 +65,8 @@ router.get('/user/:userId', async (req, res, next) => {
     const ideas = await Idea.find({ owner: user._id })
       .sort({ createdAt: -1 })
       .populate('owner', '_id, username, profileImageUrl')
-      .populate('comments');
+      .populate('comments')
+      .populate('bids');
     return res.json(ideas);
   } catch (error) {
     return res.json([]);
@@ -135,7 +130,8 @@ router.patch(
 
       idea = await Idea.findById(req.params.id)
         .populate('owner', '_id, username profileImageUrl')
-        .populate('comments');
+        .populate('comments')
+        .populate('bids');
 
       return res.json(idea);
     } catch (err) {
