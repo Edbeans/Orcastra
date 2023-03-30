@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { useState} from 'react';
 import React from 'react';
 import './Splash.css';
-import './Splash.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 

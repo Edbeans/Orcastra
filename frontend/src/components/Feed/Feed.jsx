@@ -1,16 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import React from 'react';
 import { fetchIdeas, getIdeas } from '../../store/idea';
 import IdeaIndexItem from './IdeaIndexItem';
 import { Link } from 'react-router-dom';
 import './Feed.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import IncompleteModal from '../IncompleteModal/IncompleteModal';
+
+export const ModalContext = React.createContext();
 
 export default function FeedPage() {
     const dispatch = useDispatch()
     const ideas = useSelector(getIdeas)
     const [randomizedIdeas, setRandomizedIdeas] = useState(null);
+    const [showIncompleteModal, setShowIncompleteModal] = useState(false);
 
     useEffect(() => {
         // Fetch ideas on mount
@@ -28,10 +33,16 @@ export default function FeedPage() {
     return (
         <>
             {randomizedIdeas && randomizedIdeas.length !== 0 && (
+
+
                 <div className='feed-container'>
+
+                <ModalContext.Provider value={{showIncompleteModal, setShowIncompleteModal}}>
+                    <IncompleteModal />
+                </ModalContext.Provider> 
                     
-                    <div className='feed-upper-container' data-aos="fade-up" data-aos-duration="1000">
-                        <div className='featured-idea-card' >
+                    <div className='feed-upper-container'>
+                        <div className='featured-idea-card' data-aos="fade-right" data-aos-duration="1000">
                             <div className='featured-idea-header'>Today's featured idea:</div>
                             <div className='featured-idea-properties'>
                                 <div className='featured-idea-info'>
@@ -50,12 +61,12 @@ export default function FeedPage() {
                                 </Link>
                             </div>
                         </div>
-                        <div className='feed-search-card'>
+                        <div className='feed-search-card' data-aos="fade-left" data-aos-duration="1000">
 
                         </div>
                     </div>
 
-                    <select className='feed-filter'>
+                    <select className='feed-filter' data-aos="fade-right" data-aos-duration="1000" onChange={() => setShowIncompleteModal(true)}>
                         <option value="" disabled selected>Filter by:</option>
                         <option value="option1">Most Bids</option>
                         <option value="option2">Trending</option>
