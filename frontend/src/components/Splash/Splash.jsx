@@ -33,7 +33,7 @@ const SplashPage = () => {
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading'>
-                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center', maxWidth: '550px', height: 'auto' }} >
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center'}} >
                             </img>
                         </div>
 
@@ -96,7 +96,7 @@ const SplashPage = () => {
                         </p>
                     </div>
                     <div className='img-container' data-aos="fade-right" data-aos-duration="1000">
-                        <img src={splashorca2} alt='txt' className='all-sec-img' />
+                        <img src={splashorca2} alt='txt' className='all-sec-img' style={{maxWidth:'1000px', height:'auto'}}/>
                     </div>
                 </div>
                 <div className='hero-section'>
