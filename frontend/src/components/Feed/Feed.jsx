@@ -36,7 +36,14 @@ export default function FeedPage() {
                             <div className='featured-idea-properties'>
                                 <div className='featured-idea-info'>
                                     <div className='featured-idea-title'>{randomizedIdeas[0].title}</div>
-                                    <div className='featured-idea-description'>{randomizedIdeas[0].body}</div>
+                                    <div className='featured-idea-author'>
+                                        <img className='featured-idea-author-pp' src={randomizedIdeas[0].owner.profileImageUrl}></img>
+                                        <div className='featured-idea-author-username'>{randomizedIdeas[0].owner.username}</div>
+                                    </div>
+                                    <div className='featured-idea-description'>{randomizedIdeas[0].body.split(" ").slice(0, 20).join(" ")} ...</div>
+                                    <Link to={`/idea/${randomizedIdeas[0]._id}`} >
+                                        <span>Read More</span>
+                                    </Link>
                                 </div>
 
                                 <Link to={`/idea/${randomizedIdeas[0]._id}`} className='index-item-link'>
