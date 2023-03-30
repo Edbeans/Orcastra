@@ -48,27 +48,6 @@ router.post(
   }
 );
 
-// router.delete('/:id', requireUser, async (req, res, next) => {
-//   try {
-//     let id = req.params.id;
-//     let comment = await Comment.findOneAndDelete({ _id: id });
-//     await Idea.updateOne(
-//       { _id: comment.idea },
-//       { $pull: { comments: comment._id } }
-//     );
-//     await User.updateOne(
-//       { _id: comment.author },
-//       { $pull: { comments: comment._id } }
-//     );
-//     return res.json({ message: 'Comment deleted!' });
-//   } catch (err) {
-//     const error = new Error('Comment could not be deleted');
-//     error.statusCode = 422;
-//     error.errors = { message: 'Comment could not be deleted' };
-//     return next(err);
-//   }
-// });
-
 router.delete('/:id', requireUser, async (req, res, next) => {
   try {
     let id = req.params.id;

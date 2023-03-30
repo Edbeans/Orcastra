@@ -105,7 +105,11 @@ export default function IdeaShowPage() {
               {/* Get the highest bid of the current idea and the investor who made that bid */}
               <h2 className='hb-data'>
                 CURRENT HIGHEST BID:{' '}
-                {Math.max(bids.map((bid) => bid.bidAmount))}
+                {
+                  bids
+                    .map((bid) => bid.bidAmount)
+                    .sort((a, b) => b - a)[0]
+                }
               </h2>
             </div>
 

@@ -29,7 +29,6 @@ export default function CommentContainer({ idea }) {
   if (!comments) return null;
 
   if (!sessionUser) {
-    // console.log(comments);
     return (
       <div className='isp-comments-display'>
         {comments
@@ -87,8 +86,6 @@ export default function CommentContainer({ idea }) {
                 new Date(a.date_created) - new Date(b.date_created)
             )
             .map((comment) => (
-              // {console.log("test")}
-              // {console.log(comment.text) }
               <div>
                 <CommentIndexItem comment={comment} />
               </div>

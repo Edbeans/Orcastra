@@ -21,7 +21,7 @@ router.post(
 
       let bid = await newBid.save();
       await Idea.updateOne(
-        { _id: bid.idea },
+        { _id: bid.ideaId },
         { $push: { bids: bid._id } }
       );
 
@@ -29,7 +29,10 @@ router.post(
         { _id: bid.bidder },
         { $push: { bids: bid._id } }
       );
-      bid = await bid.populate('bidder');
+      bid = await bid.populate({
+        path: 'bidder',
+        select: '_id username profileImageUrl',
+      });
       return res.json(bid);
     } catch (error) {
       next(error);

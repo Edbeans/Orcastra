@@ -60,7 +60,7 @@ export const getBid = (bidId) => (state) => {
 
 export const fetchBids = () => async (dispatch) => {
   try {
-    const res = await jwtFetch('api/bids');
+    const res = await jwtFetch('/api/bids');
     const bids = await res.json();
     dispatch(receiveBids(bids));
   } catch (err) {
@@ -73,7 +73,7 @@ export const fetchBids = () => async (dispatch) => {
 
 export const fetchBid = (bidId) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`api/bids/${bidId}`);
+    const res = await jwtFetch(`/api/bids/${bidId}`);
     const bid = await res.json();
     dispatch(receiveBid(bid));
   } catch (err) {
@@ -94,23 +94,45 @@ export const fetchIdeaBids = (ideaId) => async (dispatch) => {
 
 export const createBid = (bid) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`api/bids`, {
+    const res = await jwtFetch(`/api/bids/ideas/${bid.idea}`, {
       method: 'POST',
       body: JSON.stringify(bid),
     });
     let newBid = await res.json();
     dispatch(receiveBid(newBid));
+    fetchIdeaBids(bid.idea);
   } catch (err) {
-    const resBody = await err.json();
-    if (resBody.statusCod === 400) {
+    if (err instanceof Error) {
+      // Handle non-HTTP errors
+      console.error(err);
+    } else if (err.response && err.response.status === 400) {
+      const resBody = await err.response.json();
       return dispatch(receiveBidErrors(resBody.errors));
+    } else {
+      console.error(`Unhandled error: ${err}`);
     }
   }
 };
+// export const createBid = (bid, idea) => async (dispatch) => {
+//   try {
+//     const res = await jwtFetch(`/api/bids/ideas/${idea._id}`, {
+//       method: 'POST',
+//       body: JSON.stringify(bid),
+//     });
+//     let newBid = await res.json();
+//     dispatch(receiveBid(newBid));
+//     fetchIdeaBids(idea._id);
+//   } catch (err) {
+//     const resBody = await err.json();
+//     if (resBody.statusCod === 400) {
+//       return dispatch(receiveBidErrors(resBody.errors));
+//     }
+//   }
+// };
 
 export const updateBid = (bid) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`api/bids/${bid._id}`, {
+    const res = await jwtFetch(`/api/bids/${bid._id}`, {
       method: 'PATCH',
       body: JSON.stringify(bid),
     });
@@ -126,7 +148,7 @@ export const updateBid = (bid) => async (dispatch) => {
 
 export const deleteBid = (bidId) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`api/bids/${bidId}`, {
+    const res = await jwtFetch(`/api/bids/${bidId}`, {
       method: 'DELETE',
     });
     if (res.ok) {
