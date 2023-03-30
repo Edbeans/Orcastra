@@ -37,11 +37,14 @@ router.post(
   }
 );
 
-router.get('/ideas/:ideaId/', requireUser, async (req, res, next) => {
+router.get('/ideas/:ideaId', async (req, res, next) => {
   try {
     const bids = await Bid.find({
       idea: req.params.ideaId,
-    }).populate('bidder');
+    }).populate({
+      path: 'bidder',
+      select: '_id username profileImageUrl',
+    });
     return res.json(bids);
   } catch (error) {
     next(error);
@@ -74,5 +77,3 @@ router.get('/users/:userId/', requireUser, async (req, res, next) => {
 });
 
 module.exports = router;
-
-// 6424a6b3a975ddbc840373c1
