@@ -263,3 +263,30 @@
     padding-right: 20.2rem; 
 }
 
+.media-gallery-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.media-gallery {
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery-image-item {
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.gallery-image {
+    margin: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+    cursor: pointer;
+    object-fit: cover;
+}

@@ -96,6 +96,12 @@ export default function IdeaShowPage() {
                                 <div className='right-media' onClick={incrementImage}><ChevronRightIcon /></div>
                             </div>
                         </div>
+                        <div className='media-gallery-wrapper'>
+                        <div className="media-gallery">
+                            {idea.imageUrls.map((url, index)=> <div className="gallery-image-item">
+                                <img className='gallery-image' src={url} onClick={()=>setCurrImg(index)}></img> </div>)}
+                        </div>
+                        </div>
                         <div className='isp-actions'>
                             
                             {/* Logged in users can make bids  */}
