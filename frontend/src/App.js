@@ -7,7 +7,7 @@ import {
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import Splash from './components/Splash/Splash';
 import { getCurrentUser } from './store/session';
-import FeedPage from './components/Feed/FeedPage';
+import FeedPage from './components/Feed/Feed';
 import Sidebar from './components/Navigation/Sidebar';
 import CreateIdeaPage from './components/CreateIdeaPage/CreateIdeaPage';
 import IdeaShowPage from './components/IdeaShowPage/IdeaShowPage';
