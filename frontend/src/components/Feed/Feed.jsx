@@ -29,22 +29,27 @@ export default function FeedPage() {
         <>
             {randomizedIdeas && randomizedIdeas.length !== 0 && (
                 <div className='feed-container'>
-                    <div className='featured-idea-card'>
-                        <div className='featured-idea-header'>Today's featured idea:</div>
-                        <div className='featured-idea-properties'>
-                            <Link to={`/idea/${randomizedIdeas[0]._id}`} className='index-item-link'>
-                                <img className='featured-idea-img' src={randomizedIdeas[0].imageUrls[0]}></img>
-                            </Link>
 
+                    <div className='feed-upper-container'>
+                        <div className='featured-idea-card'>
+                            <div className='featured-idea-header'>Today's featured idea:</div>
+                            <div className='featured-idea-properties'>
+                                <div className='featured-idea-info'>
+                                    <div className='featured-idea-title'>{randomizedIdeas[0].title}</div>
+                                    <div className='featured-idea-description'>{randomizedIdeas[0].body}</div>
+                                </div>
 
-                            <div className='featured-idea-info'>
-                                <div className='featured-idea-title'>{randomizedIdeas[0].title}</div>
-
-
+                                <Link to={`/idea/${randomizedIdeas[0]._id}`} className='index-item-link'>
+                                    <img className='featured-idea-img' src={randomizedIdeas[0].imageUrls[0]}></img>
+                                </Link>
                             </div>
                         </div>
 
+                        <div className='feed-search-card'>
+
+                        </div>
                     </div>
+
 
                     <div className='feed-background'>
                         <div className='feed-page-wrapper'>
