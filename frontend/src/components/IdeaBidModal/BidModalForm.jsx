@@ -13,10 +13,10 @@ export default function BidModalForm({ idea }) {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-
+        <div className="edit-card-container">
+            <form className="edit-card" onSubmit={handleSubmit}>
                 <input 
+                    className="cip-card-inputs"
                     type="number"
                     value={bidAmount}
                     onChange={(e) => setBidAmount(e.target.value)}
@@ -24,6 +24,6 @@ export default function BidModalForm({ idea }) {
 
                 <button>Bid!</button>
             </form>
-        </>
+        </div>
     )
 }

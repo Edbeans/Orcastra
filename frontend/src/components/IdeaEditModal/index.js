@@ -5,8 +5,6 @@ import './EditModalForm'
 
 export default function EditModalButton ({idea}) {
     const [openEditModal, setOpenEditModal] = useState(false)
-
-
     
     return (
         <div>
