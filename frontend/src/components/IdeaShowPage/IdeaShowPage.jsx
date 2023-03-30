@@ -8,6 +8,7 @@ import {
 } from '../../store/comment';
 import { useHistory } from 'react-router-dom';
 import './IdeaShowPage.css';
+import BidModalButton from '../IdeaBidModal'; 
 import EditModalButton from '../IdeaEditModal';
 import { margin, width } from '@mui/system';
 import CommentContainer from '../Comments/CommentContainer';
@@ -21,6 +22,8 @@ export default function IdeaShowPage() {
     const dispatch = useDispatch();
     const history = useHistory()
     // const [comment, setComment] = useState('');
+    // const { bidId } = useParams(); 
+    // const bid = useSelector(getBid(bidId)); 
     const { ideaId } = useParams();
     const idea = useSelector(getIdea(ideaId));
     const sessionUser = useSelector(state => state.session.user)
@@ -81,7 +84,7 @@ export default function IdeaShowPage() {
                     <div className='isp-media-container' data-aos="fade-left" data-aos-duration="2000">
                         <div className="hb-container">
                             {/* Get the highest bid of the current idea and the investor who made that bid */}
-                            <h2 className="hb-data">CURRENT HIGHEST BID: $ by Investor A</h2>
+                            <h2 className="hb-data">CURRENT HIGHEST BID: {idea.bids[0]}</h2>
                         </div>
 
                         <div className='media' style={{ backgroundImage: `url(${idea.imageUrls[currImg]})` }}>
@@ -94,8 +97,11 @@ export default function IdeaShowPage() {
                             </div>
                         </div>
                         <div className='isp-actions'>
-                            {/* <button>Save</button> */}
-                            <button className="idea-show-button">Bid</button>
+                            
+                            {/* Logged in users can make bids  */}
+                            {sessionUser && 
+                            <button className="idea-show-button"><BidModalButton idea={idea} /></button>}
+                            
                             {sessionUser &&
                                 sessionUser._id === idea.owner._id ?
                                 <div className="de-btn-container">
