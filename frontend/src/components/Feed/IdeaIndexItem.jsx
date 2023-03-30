@@ -9,7 +9,6 @@ export default function IdeaIndexItem({ idea }) {
                 <h1 className="index-item-title">{idea.title}</h1>
 
             </Link>
-            {/* {idea.body} */}
         </div>
     )
 }

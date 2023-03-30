@@ -1,15 +1,49 @@
 
-/* .feed-container {
-    background-color: white;
-} */
+.feed-container {
+    background-color: rgb(232, 232, 232);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/* .feed-background {
-    background-color: black;
+
+.featured-idea-card {
+    background-color: white;
+    margin: 50px 0px 50px 0px;
+    padding: 30px 30px 30px 30px;
+    width: 1450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+}
+
+.featured-idea-properties {
+    display: flex;
+}
+
+.featured-idea-img {
+    height: 300px;
+    width: 450px;
+    border-radius: 20px;
+    transition: opacity 0.5s;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+}
+
+.featured-idea-info {
+    border-left: 1px solid black;
+    padding-left: 20px;
+}
+
+.feed-background {
+    /* background-color: black; */
     width: 1450px;
     height: 100%;
     margin: 0 auto;
     box-shadow: 0px -5px 8px 6px rgba(0, 0, 0, 0.463), 0px -5px 8px -6px rgba(0, 0, 0, 0.455);
-} */
+}
 
 .feed-page-wrapper {
     display: flex;
