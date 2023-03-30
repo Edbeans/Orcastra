@@ -67,7 +67,7 @@ export const fetchBids = () => async dispatch => {
     } catch (err) {
         const resBody = await err.json()
         if (resBody.statusCode === 400) {
-            return dispatch(receiveBidErrrors(resBody.errors));
+            return dispatch(receiveBidErrors(resBody.errors));
         }
     }
 };
@@ -89,7 +89,7 @@ export const createBid = (bid) => async dispatch => {
     try {
         const res = await jwtFetch(`api/bids`, {
             method: 'POST',
-            body: json.stringify(comment)
+            body: JSON.stringify(bid)
         })
         let newBid = await res.json();
         dispatch(receiveBid(newBid));
@@ -105,7 +105,7 @@ export const updateBid = (bid) => async dispatch => {
     try {
         const res = await jwtFetch(`api/bids/${bid._id}`,{
             method: 'PATCH',
-            body: json.stringify(bid)
+            body: JSON.stringify(bid)
         })
         const updatedBid = await res.json()
         dispatch(updateIdeaBid(bid))
@@ -128,14 +128,14 @@ export const deleteBid = (bidId) => async dispatch => {
     } catch (err) {
         const resBody = await err.json();
         if(resBody.statusCode === 400) {
-            return dispatch(receiveCommentErrors(resBody.errors));
+            return dispatch(receiveBidErrors(resBody.errors));
         }
     }
 };
 
 const nullErrors = null;
 
-export const  bidErrorsReducer = (state = nullErrors, action) => {
+export const bidErrorsReducer = (state = nullErrors, action) => {
     switch (action.type) {
         case RECEIVE_BID_ERRORS:
             return action.errors;
