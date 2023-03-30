@@ -5,6 +5,7 @@ import IdeaIndexItem from './IdeaIndexItem';
 import { Link } from 'react-router-dom';
 import './Feed.css'
 import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function FeedPage() {
     const dispatch = useDispatch()
@@ -24,14 +25,13 @@ export default function FeedPage() {
         }
     }, [ideas])
 
-
     return (
         <>
             {randomizedIdeas && randomizedIdeas.length !== 0 && (
                 <div className='feed-container'>
-
-                    <div className='feed-upper-container'>
-                        <div className='featured-idea-card'>
+                    
+                    <div className='feed-upper-container' data-aos="fade-up" data-aos-duration="1000">
+                        <div className='featured-idea-card' >
                             <div className='featured-idea-header'>Today's featured idea:</div>
                             <div className='featured-idea-properties'>
                                 <div className='featured-idea-info'>
@@ -45,24 +45,43 @@ export default function FeedPage() {
                                         <span>Read More</span>
                                     </Link>
                                 </div>
-
                                 <Link to={`/idea/${randomizedIdeas[0]._id}`} className='index-item-link'>
                                     <img className='featured-idea-img' src={randomizedIdeas[0].imageUrls[0]}></img>
                                 </Link>
                             </div>
                         </div>
-
                         <div className='feed-search-card'>
 
                         </div>
                     </div>
 
+                    <select className='feed-filter'>
+                        <option value="" disabled selected>Filter by:</option>
+                        <option value="option1">Most Bids</option>
+                        <option value="option2">Trending</option>
+                        <option value="option3">Newest</option>
+                        <option value="option4">Oldest</option>
+                    </select>
 
                     <div className='feed-background'>
                         <div className='feed-page-wrapper'>
                             <div className='feed-wrapper'>
 
-                                {randomizedIdeas.slice(1).map((idea) => <IdeaIndexItem idea={idea} key={idea.id} />)}
+                                {randomizedIdeas.slice(1).map((idea, index) => {
+                                    let ideaIndexOrder;
+                                    if (index % 4 === 0) {
+                                        ideaIndexOrder = 'index-item-order1';
+                                    } else if (index % 4 === 1) {
+                                        ideaIndexOrder = 'index-item-order2';
+                                    } else if (index % 4 === 2) {
+                                        ideaIndexOrder = 'index-item-order3';
+                                    } else {
+                                        ideaIndexOrder = 'index-item-order4';
+                                    }
+
+                                    return <IdeaIndexItem idea={idea} ideaIndexOrder={ideaIndexOrder} key={idea.id} />;
+                                })}
+
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,10 @@
+
 .index-item-wrapper {
     text-decoration: none;
+}
+
+.index-item-order1 {
+    animation-delay: 5000;
 }
 
 .index-item-link {
