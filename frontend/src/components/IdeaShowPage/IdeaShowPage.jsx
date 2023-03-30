@@ -8,6 +8,7 @@ import {
 } from '../../store/comment';
 import { useHistory } from 'react-router-dom';
 import './IdeaShowPage.css';
+import BidModalButton from '../IdeaBidModal'; 
 import EditModalButton from '../IdeaEditModal';
 import { margin, width } from '@mui/system';
 import CommentContainer from '../Comments/CommentContainer';
@@ -99,7 +100,7 @@ export default function IdeaShowPage() {
                             
                             {/* Logged in users can make bids  */}
                             {sessionUser && 
-                            <button className="idea-show-button">Bid</button>}
+                            <button className="idea-show-button"><BidModalButton idea={idea} /></button>}
                             
                             {sessionUser &&
                                 sessionUser._id === idea.owner._id ?
