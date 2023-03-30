@@ -15,14 +15,14 @@ import CommentContainer from '../Comments/CommentContainer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AOS from 'aos';
-import { fetchIdeaBids } from '../../store/bid';
+import { fetchIdeaBids, getBids } from '../../store/bid';
 
 export default function IdeaShowPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   // const [comment, setComment] = useState('');
   // const { bidId } = useParams();
-  // const bid = useSelector(getBid(bidId));
+  const bids = useSelector((state) => Object.values(state.bids));
   const { ideaId } = useParams();
   const idea = useSelector(getIdea(ideaId));
   const sessionUser = useSelector((state) => state.session.user);
@@ -104,7 +104,8 @@ export default function IdeaShowPage() {
             <div className='hb-container'>
               {/* Get the highest bid of the current idea and the investor who made that bid */}
               <h2 className='hb-data'>
-                CURRENT HIGHEST BID: {idea.bids[0]}
+                CURRENT HIGHEST BID:{' '}
+                {Math.max(bids.map((bid) => bid.bidAmount))}
               </h2>
             </div>
 
