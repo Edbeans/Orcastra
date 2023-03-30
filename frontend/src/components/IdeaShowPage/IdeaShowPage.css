@@ -278,6 +278,9 @@
     width: 80px;
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -289,4 +292,8 @@
     box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
     cursor: pointer;
     object-fit: cover;
+}
+
+.gallery-image:hover {
+    opacity: 50%;
 }

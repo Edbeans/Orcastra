@@ -40,15 +40,18 @@ export default function LoginForm(props) {
                         <div className='form-input-group'>
                             <input className="form-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
                             <span className="form-input-labels">Username / Email</span>
-                            <div className="errors"><h1>{errors?.email}</h1></div>
-
+                            <div className='login-errors-wrapper'>
+                                <div className="errors"><h1>{errors?.email}</h1></div>
+                            </div>
                         </div>
 
 
                         <div className='form-input-group'>
                             <input className="form-inputs" type="password" onChange={(e) => setPassword(e.target.value)} required />
                             <span className="form-input-labels">Password</span>
-                            <div className="errors"><h1>{errors?.email}</h1></div>
+                            <div className='login-errors-wrapper'>
+                                <div className="errors"><h1>{errors?.password}</h1></div>
+                            </div>
 
                         </div>
 
