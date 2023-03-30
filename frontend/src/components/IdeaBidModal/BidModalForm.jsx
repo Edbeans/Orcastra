@@ -1,3 +1,4 @@
+import { createBid } from "../../store/bid";
 import { useDispatch } from "react-redux";
 import { useState } from "react"; 
 import './BidModalForm.css';
@@ -8,8 +9,7 @@ export default function BidModalForm({ idea }) {
 
     const handleSubmit = () => {
         let newBid = { ...idea, bidAmount }; 
-        // Add back in later when reducer is made 
-        // dispatch(createBid(newBid));
+        dispatch(createBid(newBid));
     }
 
     return (

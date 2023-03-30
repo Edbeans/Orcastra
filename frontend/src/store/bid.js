@@ -169,4 +169,4 @@ const bidsReducer =  (state={}, action) => {
     }
 }
 
-export default bidsReducer
+export default bidsReducer;
