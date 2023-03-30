@@ -21,7 +21,7 @@ router.post(
 
       let bid = await newBid.save();
       await Idea.updateOne(
-        { _id: bid.idea },
+        { _id: bid.ideaId },
         { $push: { bids: bid._id } }
       );
 
@@ -29,7 +29,10 @@ router.post(
         { _id: bid.bidder },
         { $push: { bids: bid._id } }
       );
-      bid = await bid.populate('bidder');
+      bid = await bid.populate({
+        path: 'bidder',
+        select: '_id username profileImageUrl',
+      });
       return res.json(bid);
     } catch (error) {
       next(error);
@@ -37,11 +40,14 @@ router.post(
   }
 );
 
-router.get('/ideas/:ideaId/', requireUser, async (req, res, next) => {
+router.get('/ideas/:ideaId', async (req, res, next) => {
   try {
     const bids = await Bid.find({
       idea: req.params.ideaId,
-    }).populate('bidder');
+    }).populate({
+      path: 'bidder',
+      select: '_id username profileImageUrl',
+    });
     return res.json(bids);
   } catch (error) {
     next(error);
@@ -74,5 +80,3 @@ router.get('/users/:userId/', requireUser, async (req, res, next) => {
 });
 
 module.exports = router;
-
-// 6424a6b3a975ddbc840373c1

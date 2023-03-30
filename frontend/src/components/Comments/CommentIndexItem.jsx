@@ -54,7 +54,6 @@ export default function CommentIndexItem({ idea, comment }) {
         <div className='comment-body'>
           <div className='comment-username'>
             <h4>
-              {console.log(comment)}
               {comment.author.username}
               <span id='time'>
                 {timeConversion(comment.createdAt)}
