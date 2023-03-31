@@ -1,10 +1,10 @@
 .isp-container {
-    padding: 80px 50px 0px 50px;
+    padding: 80px 50px 30px 50px;
     display: grid;
-    grid-template-columns: 2fr minmax(auto, 1fr);
-    grid-template-rows: 2fr minmax(auto, auto);
+    grid-template-columns: 1fr minmax(auto, 1fr);
+    grid-template-rows: 2fr minmax(auto, 0.7fr);
     /* grid-column-gap: 50px; */
-    height: 100vh;
+    height: auto;
 }
 
 .hb-container {
@@ -146,6 +146,7 @@
     /* margin-top: 35px;  */
     /* margin-top: 15rem;  */
     padding: 20px;
+    flex: 6;
     display: flex;
     flex-direction: column;
 }
@@ -164,7 +165,7 @@
 
 .comment-item-text {
     font-size: 16px;
-    width: 400px;
+    width: 100%;
 }
 
 .comment-item-date {
@@ -306,4 +307,39 @@
     position: relative;
     display: flex;
     flex-direction: row;
+}
+.bids-container {
+    padding: 20px;
+    flex: 4;
+    border-radius: 10px;
+    border-style: solid;
+    /* box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%); */
+    /* margin: 20px; */
+    border-color: gray;
+}
+
+.bid-card {
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.bid-user-icon {
+    width: 30px;
+    height: 30px;
+    /* margin-left: 3px; */
+    /* margin-right: 10px; */
+    margin: 0px 10px 0px 10px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bid-created-at {
+    font-size: 12px;
 }
