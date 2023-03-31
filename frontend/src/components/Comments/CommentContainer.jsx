@@ -86,9 +86,9 @@ export default function CommentContainer({ idea }) {
               (a, b) =>
                 new Date(a.date_created) - new Date(b.date_created)
             )
-            .map((comment) => (
+            .map((comment, idx) => (
               <div>
-                <CommentIndexItem comment={comment} />
+                <CommentIndexItem comment={comment} key={idx} />
               </div>
             ))}
         </div>

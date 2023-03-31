@@ -28,8 +28,8 @@ export default function UserIdeas() {
 
   const receivedComments = filteredIdeas.map((idea) => idea.comments);
 
-  const numUserBids = user.bids.length;
-  const numUserComments = user.comments.length;
+  const numUserBids = user.bids;
+  const numUserComments = user.comments;
 
   return (
     <>
