@@ -60,7 +60,6 @@ const SplashPage = () => {
                         </div>
 
                         <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn'>
-                            
                             {!sessionUser && 
                                 <button
                                     className='lbh-btn' style={{ width: '24rem', height:'5rem', fontSize: '26px' }}>
@@ -75,7 +74,7 @@ const SplashPage = () => {
                 <div className='hero-section'>
 
                     <div className='img-container'>
-                        <img src={splashorca1} alt='inv' className='all-sec-img' />
+                        <img src={splashorca1} alt='inv' className='all-sec-img' style={{height:'800px', width:'auto'}}/>
                     </div>
                     <div className='content' >
                         <h1 className='section-header'>
@@ -92,7 +91,7 @@ const SplashPage = () => {
                             Find your pod in a big blue sea
                         </h1>
                         <p className='section-text'>
-                            Build a community among like-minded investors and entrepreneurs. And remember: We're not sharks. We don't bite.
+                            Build a community among like-minded investors and entrepreneurs. Remember: We're not sharks. We don't bite.
                         </p>
                     </div>
                     <div className='img-container' data-aos="fade-right" data-aos-duration="1000">
