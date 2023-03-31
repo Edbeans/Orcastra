@@ -7,21 +7,20 @@ import { Link } from 'react-router-dom';
 import './Feed.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import IncompleteModal from '../IncompleteModal/IncompleteModal';
+import { IncompleteModalContext } from '../../App';
+import { useContext } from 'react';
 
 import coins from '../../assets/coins.png';
 import conversation from '../../assets/conversation.png';
 import lightbulb from '../../assets/lightbulb.png';
 
 
-export const ModalContext = React.createContext();
-
 export default function FeedPage() {
     const dispatch = useDispatch()
     const ideas = useSelector(getIdeas)
     const [randomizedIdeas, setRandomizedIdeas] = useState(null);
-    const [showIncompleteModal, setShowIncompleteModal] = useState(false);
     const icons = [coins, conversation, lightbulb];
+    const { showIncompleteModal, setShowIncompleteModal } = useContext(IncompleteModalContext);
 
     useEffect(() => {
         // Fetch ideas on mount
@@ -46,10 +45,6 @@ export default function FeedPage() {
 
 
                 <div className='feed-container'>
-
-                    <ModalContext.Provider value={{ showIncompleteModal, setShowIncompleteModal }}>
-                        <IncompleteModal />
-                    </ModalContext.Provider>
 
                     <div className='feed-upper-container'>
                         <div className='featured-idea-card' data-aos="fade-right" data-aos-duration="1000">

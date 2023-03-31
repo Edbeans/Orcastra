@@ -16,26 +16,24 @@ import AboutModal from '../AboutModal/AboutModal';
 import SignUpModal from '../Auth/SignUpModal';
 import LoginModal from '../Auth/LoginModal';
 import { NavLink } from 'react-router-dom';
-import { LoginModalContext } from '../Navigation/Sidebar';
+import { AboutModalContext } from '../../App';
+import { LoginModalContext } from '../../App';
 import { useContext } from 'react';
 
-export const AboutModalContext = React.createContext();
 
 const SplashPage = () => {
 
     const sessionUser = useSelector(state => state.session.user);
-    const [showAboutModal, setShowAboutModal] = useState(false);
     // const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext)
+    const { showAboutModal, setShowAboutModal } = useContext(AboutModalContext);
+    const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext);
 
+    
     return (
         <>
             <div className='splash-page-main'>
 
                 <div className='splash-section-1'>
-
-                    <AboutModalContext.Provider value={{ showAboutModal, setShowAboutModal }}>
-                        <AboutModal />
-                    </AboutModalContext.Provider>
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading'>
@@ -65,7 +63,7 @@ const SplashPage = () => {
                             </button>
                         </div>
 
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn'>
+                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn' onClick={() => setShowLoginModal(true)}>
                             {!sessionUser &&
                                 <button
                                     className='lbh-btn' style={{ width: '24rem', height: '5rem', fontSize: '26px' }}>

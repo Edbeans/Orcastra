@@ -2,7 +2,7 @@ import { Modal } from '../../../context/modal'
 import './SignUpModal.css'
 import SignUpForm from './SignupForm'
 import { useContext } from 'react'
-import { LoginModalContext } from '../../Navigation/Sidebar'
+import { LoginModalContext } from '../../../App';
 import React from 'react';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
