@@ -104,17 +104,13 @@ export default function CommentIndexItem({ idea, comment }) {
                 </div>
               )}
           </div>
-          <div className='comment-text'>
-            <p>{comment.text}</p>
-          </div>
-
           {commentEdit ? (
             <form
               className='edit-comment-form'
               onSubmit={handleEditComment}
             >
               <input
-                type='textarea'
+                type='text'
                 name='content'
                 id='comment'
                 autoComplete='off'
@@ -137,7 +133,11 @@ export default function CommentIndexItem({ idea, comment }) {
                 <span onClick={handleEditComment}>save</span>
               </p>
             </form>
-          ) : null}
+          ) : (
+            <div className='comment-text'>
+              <p>{comment.text}</p>
+            </div>
+          )}
         </div>
       </div>
     )
