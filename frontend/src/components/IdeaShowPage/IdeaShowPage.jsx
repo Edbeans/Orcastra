@@ -2,6 +2,7 @@ import { deleteIdea, fetchIdea, getIdea } from '../../store/idea';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   createComment,
   fetchIdeaComments,
@@ -77,7 +78,7 @@ export default function IdeaShowPage() {
                 className='comment-profile-image'
                 src={idea.owner.profileImageUrl}
               />
-              Product by: {idea.owner.username}
+              Product by: <Link to={`/users/${idea.owner._id}/ideas`}> {idea.owner.username}</Link>
             </div>
 
             <div
