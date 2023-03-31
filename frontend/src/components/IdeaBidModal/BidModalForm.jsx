@@ -11,8 +11,6 @@ export default function BidModalForm({ setOpenBidModal, idea }) {
   const [bidAmount, setBidAmount] = useState(
     bidAmounts.sort((a, b) => b - a)[0]
   );
-  const shown = { opacity: 1 };
-  const hidden = { opacity: 0 };
 
   const dispatch = useDispatch();
 
