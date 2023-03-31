@@ -111,21 +111,24 @@ router.get('/current', restoreUser, (req, res) => {
     username: req.user.username,
     profileImageUrl: req.user.profileImageUrl,
     email: req.user.email,
+    ideas: req.user.ideas,
+    bids: req.user.bids,
+    comments: req.user.comments,
   });
 });
 
 router.get('/:id', async (req, res, next) => {
   let user;
   try {
-    user = await User.findById(req.params.id);
-    // .populate('comments')
-    // .populate('bids');
+    user = await User.findById(req.params.id)
+      .populate('comments')
+      .populate('bids');
     return res.json(user);
   } catch (error) {
-    return next({
-      statusCode: 422,
-      errors: { message: 'No user with that id found' },
-    });
+    const err = new Error('No user with that id found');
+    err.statusCode = 422;
+    err.errors = { message: 'No user with that id found' };
+    return next(err);
   }
 });
 
