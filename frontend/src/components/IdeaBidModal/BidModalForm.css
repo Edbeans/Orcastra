@@ -1,0 +1,20 @@
+.bid-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.bid-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
+}
+
+.bid-card > * {
+    align-self: center;
+    position: relative;
+    margin: 20px;
+}

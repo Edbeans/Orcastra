@@ -16,11 +16,6 @@ export default function BidModalForm({ setOpenBidModal, idea }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const maxBidAmount = Math.max(...bidAmounts); // get the maximum bid amount
-    if (bidAmount <= maxBidAmount) {
-      // if the new bid amount is not larger than the current max bid amount, do not create a new bid
-      return;
-    }
     let newBid = {
       bidder,
       idea: idea._id,
@@ -31,19 +26,15 @@ export default function BidModalForm({ setOpenBidModal, idea }) {
   };
 
   return (
-    <div className='edit-card-container'>
-      <form className='edit-card' onSubmit={handleSubmit}>
+    <div className='bid-card-container'>
+      <form className='bid-card' onSubmit={handleSubmit}>
         <input
           className='cip-card-inputs'
           type='number'
           value={bidAmount}
           onChange={(e) => setBidAmount(e.target.value)}
         />
-        {bidAmount <= Math.max(...bidAmounts) && (
-          <span style={{ color: 'red' }}>
-            Bid must be greater than ${Math.max(...bidAmounts)}!
-          </span>
-        )}
+
         <button>Bid!</button>
       </form>
     </div>
