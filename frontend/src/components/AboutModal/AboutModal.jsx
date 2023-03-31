@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ModalContext } from "../Splash/Splash"
+import { AboutModalContext } from "../Splash/Splash"
 import { Modal } from "../../context/modal"
 import './AboutModal.css'
 
@@ -14,13 +14,13 @@ import { padding } from "@mui/system"
 
 export default function AboutModal() {
 
-    const { showAboutModal, setShowAboutModal } = useContext(ModalContext)
+    const { showAboutModal, setShowAboutModal } = useContext(AboutModalContext)
 
     return (
         <>
             {showAboutModal && (
                 <Modal onClose={() => setShowAboutModal(false)}>
-                    <div className="modal-background" style={{ width: '1300px', height: '900px' }}>
+                    <div className="modal-background" style={{ width: '1200px', height: '700px' }}>
                         <button className="modal-close-button" onClick={() => setShowAboutModal(false)}>&#10005;</button>
                         <div className="about-grid">
                             <div className="about-grid-item">
@@ -42,10 +42,8 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">A design enthusiast with a background in the Aerospace Industry, Daniel takes pride in making innovative tech look stylish. 
-                                    <br />
-                                    <br />
-                                    In his free time, Daniel enjoys parties, playing guitar, and being bad at soccer.
+                                <div className="agi-description">A design enthusiast with a background in the Aerospace industry, Daniel uses the latest tech to create stylish websites and guarantee enjoyable user experiences.
+                                    In his free time, Daniel enjoys finding new music, hanging out with friends, and being bad at soccer.
                                 </div>
                             </div>
 
@@ -93,7 +91,7 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here?</div>
+                                <div className="agi-description">About yourself or project duties go here?</div>
                             </div>
 
                             <div className="about-grid-item">
@@ -115,7 +113,7 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here? About yourself or project duties go here?</div>
+                                <div className="agi-description">About yourself or project duties go here?</div>
                             </div>
                         </div>
                     </div>

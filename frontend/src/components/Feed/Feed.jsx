@@ -9,6 +9,11 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import IncompleteModal from '../IncompleteModal/IncompleteModal';
 
+import coins from '../../assets/coins.png';
+import conversation from '../../assets/conversation.png';
+import lightbulb from '../../assets/lightbulb.png';
+
+
 export const ModalContext = React.createContext();
 
 export default function FeedPage() {
@@ -16,6 +21,7 @@ export default function FeedPage() {
     const ideas = useSelector(getIdeas)
     const [randomizedIdeas, setRandomizedIdeas] = useState(null);
     const [showIncompleteModal, setShowIncompleteModal] = useState(false);
+    const icons = [coins, conversation, lightbulb];
 
     useEffect(() => {
         // Fetch ideas on mount
@@ -41,10 +47,10 @@ export default function FeedPage() {
 
                 <div className='feed-container'>
 
-                <ModalContext.Provider value={{showIncompleteModal, setShowIncompleteModal}}>
-                    <IncompleteModal />
-                </ModalContext.Provider> 
-                    
+                    <ModalContext.Provider value={{ showIncompleteModal, setShowIncompleteModal }}>
+                        <IncompleteModal />
+                    </ModalContext.Provider>
+
                     <div className='feed-upper-container'>
                         <div className='featured-idea-card' data-aos="fade-right" data-aos-duration="1000">
                             <div className='featured-idea-header'>Today's featured idea:</div>
@@ -55,7 +61,7 @@ export default function FeedPage() {
                                         <img className='featured-idea-author-pp' src={randomizedIdeas[0].owner.profileImageUrl}></img>
                                         <div className='featured-idea-author-username'>{randomizedIdeas[0].owner.username}</div>
                                     </div>
-                                    <div className='featured-idea-description'>{randomizedIdeas[0].body.split(" ").slice(0, 20).join(" ")} ...</div>
+                                    <div className='featured-idea-description'>{randomizedIdeas[0].body.split(" ").slice(0, 18).join(" ")} ...</div>
                                     <Link to={`/idea/${randomizedIdeas[0]._id}`} >
                                         <span>Read More</span>
                                     </Link>
@@ -65,21 +71,24 @@ export default function FeedPage() {
                                 </Link>
                             </div>
                         </div>
-                        <div className='feed-search-card' data-aos="fade-left" data-aos-duration="1000">
-
+                        <div className='trending-card' data-aos="fade-right" data-aos-duration="1000">
+                            <div className='trending-header'>Trending:</div>
+                            <img className='trending-icon' src={icons[Math.floor(Math.random() * icons.length)]}></img>
+                            {/* different blurb depending on the icon */}
+                            <div className='trending-blurb'>{`${randomizedIdeas[Math.floor(Math.random() * randomizedIdeas.length)].title} has just received a bid for $20m!`}</div>
                         </div>
                     </div>
 
-                    <select className='feed-filter' data-aos="fade-right" data-aos-duration="1000" onChange={() => setShowIncompleteModal(true)}>
-                        <option value="" disabled selected>Filter by:</option>
-                        <option value="option1">Most Bids</option>
-                        <option value="option2">Trending</option>
-                        <option value="option3">Newest</option>
-                        <option value="option4">Oldest</option>
-                    </select>
+                    <div className='feed-lower-container'>
+                        <select className='feed-filter' data-aos="fade-right" data-aos-duration="1000" onChange={() => setShowIncompleteModal(true)}>
+                            <option value="" disabled selected>Filter by:</option>
+                            <option value="option1">Most Bids</option>
+                            <option value="option2">Trending</option>
+                            <option value="option3">Newest</option>
+                            <option value="option4">Oldest</option>
+                        </select>
 
-                    <div className='feed-background'>
-                        <div className='feed-page-wrapper'>
+                        <div className='feed-background'>
                             <div className='feed-wrapper'>
 
                                 {randomizedIdeas.slice(1).map((idea, index) => {

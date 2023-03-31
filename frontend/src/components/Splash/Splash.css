@@ -20,15 +20,16 @@
 }
 
 .splash-section-1-rightside {
-    position: relative;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .splash-greeting {
-    position: absolute;
     font-size: 44px;
-    width: 40rem;
-    top: -10rem;
-    left: 12rem;
+
+    margin-bottom: 20px ;
 }
 
 .lbh-btn {
@@ -46,6 +47,7 @@
     width: 10rem;
     height: 3rem;
     z-index: 2;
+    margin: 10px 0px;
 }
 
 .lbh-btn:hover {
@@ -53,23 +55,7 @@
     color: black;
 }
 
-.explore-btn {
-    position: absolute;
-    top: -5rem;
-    left: 24rem;
-}
 
-.about-btn {
-    position: absolute;
-    top: 0rem;
-    left: 24rem;
-}
-
-.signup-btn {
-    position: absolute;
-    top: 5rem;
-    left: 17rem;
-}
 
 .splash-page-links {
     color: white;
@@ -89,7 +75,7 @@
 
 .splash-page-main-heading {
     margin-top: 120px;
-    margin-left: 480px;
+    margin-left: 280px;
     /* font-size: 80px; */
     /* font-family: Arial, Helvetica, sans-serif; */
     display: flex;
@@ -104,6 +90,11 @@
     animation: fadeIn 1s;
     animation-delay: 0s;
     animation-fill-mode: forwards;
+}
+
+.splash-page-main-heading > img {
+    max-width: 400px;
+    height: auto;
 }
 
 
