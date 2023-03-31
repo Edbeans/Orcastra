@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState} from 'react';
+import { useState } from 'react';
 import React from 'react';
 import './Splash.css';
 import AOS from 'aos';
@@ -13,13 +13,19 @@ import logo from '../../assets/logo1.png'
 import SignUpForm from '../Auth/SignUpModal/SignupForm';
 import { color } from '@mui/system';
 import AboutModal from '../AboutModal/AboutModal';
+import SignUpModal from '../Auth/SignUpModal';
+import LoginModal from '../Auth/LoginModal';
+import { NavLink } from 'react-router-dom';
+import { LoginModalContext } from '../Navigation/Sidebar';
+import { useContext } from 'react';
 
-export const ModalContext = React.createContext();
+export const AboutModalContext = React.createContext();
 
 const SplashPage = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     const [showAboutModal, setShowAboutModal] = useState(false);
+    // const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext)
 
     return (
         <>
@@ -27,13 +33,13 @@ const SplashPage = () => {
 
                 <div className='splash-section-1'>
 
-                    <ModalContext.Provider value={{showAboutModal, setShowAboutModal}}>
+                    <AboutModalContext.Provider value={{ showAboutModal, setShowAboutModal }}>
                         <AboutModal />
-                    </ModalContext.Provider> 
+                    </AboutModalContext.Provider>
 
                     <div className='splash-page-after-nav'>
                         <div className='splash-page-main-heading'>
-                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center'}} >
+                            <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center' }} >
                             </img>
                         </div>
 
@@ -45,12 +51,12 @@ const SplashPage = () => {
                             <div>Your inspiration starts today.</div>
                         </div>
 
-                        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1250" className='explore-btn'>
-                            <button
-                                className='lbh-btn'>
-                                Explore
-                            </button>
-                        </div>
+                        <NavLink data-aos="fade-up" data-aos-duration="800" data-aos-delay="1250" className='explore-btn' to={"/feed"}>
+                                <button
+                                    className='lbh-btn'>
+                                    Explore
+                                </button>
+                        </NavLink>
 
                         <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1500" className='about-btn' onClick={() => setShowAboutModal(true)}>
                             <button
@@ -60,9 +66,9 @@ const SplashPage = () => {
                         </div>
 
                         <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="1750" className='signup-btn'>
-                            {!sessionUser && 
+                            {!sessionUser &&
                                 <button
-                                    className='lbh-btn' style={{ width: '24rem', height:'5rem', fontSize: '26px' }}>
+                                    className='lbh-btn' style={{ width: '24rem', height: '5rem', fontSize: '26px' }}>
                                     Login / Signup
                                 </button>
                             }
@@ -74,7 +80,7 @@ const SplashPage = () => {
                 <div className='hero-section'>
 
                     <div className='img-container'>
-                        <img src={splashorca1} alt='inv' className='all-sec-img' style={{height:'800px', width:'auto'}}/>
+                        <img src={splashorca1} alt='inv' className='all-sec-img' style={{ height: '800px', width: 'auto' }} />
                     </div>
                     <div className='content' >
                         <h1 className='section-header'>
@@ -95,7 +101,7 @@ const SplashPage = () => {
                         </p>
                     </div>
                     <div className='img-container' data-aos="fade-right" data-aos-duration="1000">
-                        <img src={splashorca2} alt='txt' className='all-sec-img' style={{maxWidth:'1000px', height:'auto'}}/>
+                        <img src={splashorca2} alt='txt' className='all-sec-img' style={{ maxWidth: '1000px', height: 'auto' }} />
                     </div>
                 </div>
                 <div className='hero-section'>

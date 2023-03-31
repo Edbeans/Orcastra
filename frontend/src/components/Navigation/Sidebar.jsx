@@ -7,6 +7,7 @@ import LoginModal from "../Auth/LoginModal";
 import SignUpModal from "../Auth/SignUpModal";
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "../../store/session";
 
@@ -23,10 +24,10 @@ import SetMealIcon from '@mui/icons-material/SetMeal';
 
 
 
-export const ModalContext = React.createContext();
+export const LoginModalContext = React.createContext();
 
 
-export default function Sidebar({open, setOpen}) {
+export default function Sidebar({ open, setOpen }) {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
     // const [open, setOpen] = useState(false)
@@ -59,7 +60,7 @@ export default function Sidebar({open, setOpen}) {
             text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
         }
-        
+
     ] : [
         {
             id: 0,
@@ -72,7 +73,7 @@ export default function Sidebar({open, setOpen}) {
             icon: <WavesIcon />,
             text: "Ideas Feed",
             link: "/feed"
-        }   
+        }
     ]
 
     function toggleOpen() {
@@ -82,39 +83,44 @@ export default function Sidebar({open, setOpen}) {
     function handleLogout() {
         dispatch(logout())
     }
-    
+
 
     return (
+        <>
+            <LoginModalContext.Provider value={{ showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal}}>
+                <LoginModal />
+                <SignUpModal />
+            </LoginModalContext.Provider>
 
-        <div className="sidenav-container">
-            <div className={open ? 'sidenav' : 'sidenavClosed'}>
-                <div>
-                <button className={open ? "menu-buttonOpen" : "menu-button"} onClick={toggleOpen}>
-                    <MenuIcon />
-                </button>
-                <div className="sideitem-container">
-                    {navData.map(item => <NavLink key={item.id} className='sideitem' to={item.link}>
-                        <div className="item-icon">{item.icon}<span className='item-icon-tooltip'>{item.text}</span></div>
-                        {/* {console.log(open)} */}
-                        <span className={open ? 'linkText' : 'linkTextClosed'}>{item.text}</span>
-                    </NavLink>)}
-                </div>
-                </div>
-
-                <div className={open?'sideitem-authfunctions-containerOpen':""}>
-                { !sessionUser ? 
-                    <ModalContext.Provider value={{open, showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal, SignUpModal}}>
-                        <SignUpModal/>
-                        <LoginModal/>
-                    </ModalContext.Provider> : 
-                    <div className='sideitem' onClick={handleLogout}> 
-                        <div className='item-icon'> <LogoutIcon/><span className='item-icon-tooltip'>Log out</span> </div>
-                        <span className={open ? 'linkText' : 'linkTextClosed'}>Log out</span>
+            <div className="sidenav-container">
+                <div className={open ? 'sidenav' : 'sidenavClosed'}>
+                    <div>
+                        <button className={open ? "menu-buttonOpen" : "menu-button"} onClick={toggleOpen}>
+                            <MenuIcon />
+                        </button>
+                        <div className="sideitem-container">
+                            {navData.map(item => <NavLink key={item.id} className='sideitem' to={item.link}>
+                                <div className="item-icon">{item.icon}<span className='item-icon-tooltip'>{item.text}</span></div>
+                                {/* {console.log(open)} */}
+                                <span className={open ? 'linkText' : 'linkTextClosed'}>{item.text}</span>
+                            </NavLink>)}
+                        </div>
                     </div>
-                    }
+
+                    <div className={open ? 'sideitem-authfunctions-containerOpen' : ""}>
+                        {!sessionUser ?
+                            <div className='sideitem' onClick={() => setShowLoginModal(true)}>
+                                <div className='item-icon'><LoginIcon /><span className='item-icon-tooltip'>Login</span></div>
+                                <span className={open ? "linkText" : "linkTextClosed"}>Login</span>
+                            </div> :
+                            <div className='sideitem' onClick={handleLogout}>
+                                <div className='item-icon'> <LogoutIcon /><span className='item-icon-tooltip'>Log out</span> </div>
+                                <span className={open ? 'linkText' : 'linkTextClosed'}>Log out</span>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </>
     )
 }

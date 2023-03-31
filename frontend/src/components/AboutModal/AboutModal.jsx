@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ModalContext } from "../Splash/Splash"
+import { AboutModalContext } from "../Splash/Splash"
 import { Modal } from "../../context/modal"
 import './AboutModal.css'
 
@@ -14,7 +14,7 @@ import { padding } from "@mui/system"
 
 export default function AboutModal() {
 
-    const { showAboutModal, setShowAboutModal } = useContext(ModalContext)
+    const { showAboutModal, setShowAboutModal } = useContext(AboutModalContext)
 
     return (
         <>
