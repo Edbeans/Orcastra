@@ -22,21 +22,17 @@
 }
 
 .featured-idea-card {
-    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
         /* grid-column: 1 / span 1; */
-}
-
-.feed-search-card {
-    width: 100%;
 }
 
 .featured-idea-header {
     font-size: 40px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 30px 0px 10px 0px;
-    margin-left: 70px;
+    margin-left: 60px;
     width: 450px;
     border-bottom: 1px solid #bababa;
 }
@@ -49,47 +45,81 @@
 }
 
 .featured-idea-img {
-    height: 300px;
-    width: 450px;
+    width: 300px;
+    aspect-ratio: 3/2;
     border-radius: 20px;
     transition: opacity 0.5s;
     box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
-    margin: 10px 40px 20px 20px;
+    margin: 10px 30px 20px 20px;
 }
 
 .featured-idea-info {
-    padding: 20px 0px 0px 40px;
+    padding: 10px 0px 0px 30px;
 }
 
 .featured-idea-title {
-    font-size: 46px;
+    font-size: 34px;
 }
 
 .featured-idea-author {
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 5px;
     display: flex;
     align-items: center;
 }
 
 .featured-idea-author-username {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .featured-idea-author-pp {
     border-radius: 9999px;
-    height: 30px;
+    height: 24px;
 }
 
 .featured-idea-description {
     color: #707070;
-    padding: 10px 20px 10px 0px;
+    padding: 10px 10px 10px 0px;
     line-height: 1.4;
+}
+
+.trending-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trending-header {
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 30px 10px 10px 10px;
+    border-bottom: 1px solid #bababa;
+}
+
+.trending-icon {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.trending-blurb {
+    color: #707070;
+    padding: 10px 50px 10px 50px;
+    line-height: 1.4;
+}
+
+.feed-lower-container {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .feed-filter {
     align-self: flex-start;
-    margin: 0px 0px 20px 150px;
+    margin: 0px 0px 20px 0px;
     border-radius: 90px;
     font-size: 20px;
     padding: 10px 20px;
@@ -101,7 +131,6 @@
 .feed-background {
     background-color: white;
     border-radius: 30px;
-    max-width: 80%;
     height: 100%;
     margin: 0px 0px 50px 0px;
     box-shadow: 0 0px 20px -1px rgb(0 0 0 / 40%);
@@ -111,12 +140,11 @@
 
 
 .feed-wrapper {
-    padding: 50px;
+    padding: 60px;
     display: grid;
     grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
     grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
     justify-items: center;
     grid-gap: 3em;
-
 }
 
