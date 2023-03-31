@@ -105,6 +105,12 @@ export default function IdeaShowPage() {
                     .map((bid) => bid.bidAmount)
                     .sort((a, b) => b - a)[0]
                 }
+                {/* Logged in users can make bids  */}
+                {sessionUser && (
+                  <button className='idea-show-button bid-modal'>
+                    <BidModalButton idea={idea} />
+                  </button>
+                )}
               </h2>
             </div>
 
@@ -140,12 +146,6 @@ export default function IdeaShowPage() {
               </div>
             </div>
             <div className='isp-actions'>
-              {/* Logged in users can make bids  */}
-              {sessionUser && (
-                <button className='idea-show-button'>
-                  <BidModalButton idea={idea} />
-                </button>
-              )}
 
               {sessionUser && sessionUser._id === idea.owner._id ? (
                 <div className='de-btn-container'>
@@ -170,11 +170,17 @@ export default function IdeaShowPage() {
           </div>
         </div>
 
-        <div className='isp-comments-div'>
-          <div className='isp-comments-container'>
-            <CommentContainer idea={idea} />
+        <div className='bids-and-comments'>
+          <div className='isp-comments-div'>
+            <div className='isp-comments-container'>
+              <CommentContainer idea={idea} />
+            </div>
+          </div>
+          <div className="bids-container">
+            BIDS GO HERE
           </div>
         </div>
+
       </>
     );
   }

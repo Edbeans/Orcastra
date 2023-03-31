@@ -1,9 +1,10 @@
 .isp-container {
     padding: 80px 50px 0px 50px;
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 1fr);
+    grid-template-columns: 2fr minmax(auto, 1fr);
     grid-template-rows: 2fr minmax(auto, auto);
     /* grid-column-gap: 50px; */
+    height: 100vh;
 }
 
 .hb-container {
@@ -236,6 +237,10 @@
     height: 45px;
 }
 
+.bid-modal {
+    margin-left: 20px;
+}
+
 .idea-show-button:hover {
     background-color: rgb(29, 63, 96);
     color: white;
@@ -295,4 +300,10 @@
 
 .gallery-image:hover {
     opacity: 50%;
+}
+
+.bids-and-comments {
+    position: relative;
+    display: flex;
+    flex-direction: row;
 }
