@@ -177,7 +177,11 @@ export default function IdeaShowPage() {
             </div>
           </div>
           <div className="bids-container">
-            BIDS GO HERE
+            {bids.map((bid) => <li>
+              {bid.bidder.username}: 
+              ${bid.bidAmount}
+              {/* {bid.createdAt} */}
+            </li>)}
           </div>
         </div>
 
