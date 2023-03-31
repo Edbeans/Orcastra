@@ -25,38 +25,31 @@ import SetMealIcon from '@mui/icons-material/SetMeal';
 export const LoginModalContext = React.createContext();
 
 export default function Sidebar({ open, setOpen }) {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
-  // const [open, setOpen] = useState(false)
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
-
-export default function Sidebar({ open, setOpen }) {
-    const dispatch = useDispatch()
-    const sessionUser = useSelector((state) => state.session.user)
+    const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session.user);
     // const [open, setOpen] = useState(false)
-    const [showLoginModal, setShowLoginModal] = useState(false)
-    const [showSignUpModal, setShowSignUpModal] = useState(false)
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignUpModal, setShowSignUpModal] = useState(false);
 
     const navData = sessionUser ? [
         {
-          id: 0,
-          icon: <HomeIcon />,
-          text: 'About',
-          link: '/',
+            id: 0,
+            icon: <HomeIcon />,
+            text: 'About',
+            link: '/',
         },
         {
-          id: 1,
-          icon: <WavesIcon />,
-          text: 'Ideas Feed',
-          link: '/feed',
+            id: 1,
+            icon: <WavesIcon />,
+            text: 'Ideas Feed',
+            link: '/feed',
         },
         {
-          id: 2,
+            id: 2,
 
-          icon: <CreateIcon />,
-          text: 'Create',
-          link: '/ideas/new',
+            icon: <CreateIcon />,
+            text: 'Create',
+            link: '/ideas/new',
         },
         {
             id: 3,
@@ -67,10 +60,10 @@ export default function Sidebar({ open, setOpen }) {
 
     ] : [
         {
-          id: 0,
-          icon: <HomeIcon />,
-          text: 'About',
-          link: '/',
+            id: 0,
+            icon: <HomeIcon />,
+            text: 'About',
+            link: '/',
         },
         {
             id: 1,
@@ -91,7 +84,7 @@ export default function Sidebar({ open, setOpen }) {
 
     return (
         <>
-            <LoginModalContext.Provider value={{ showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal}}>
+            <LoginModalContext.Provider value={{ showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal }}>
                 <LoginModal />
                 <SignUpModal />
             </LoginModalContext.Provider>
