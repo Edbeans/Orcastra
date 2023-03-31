@@ -113,22 +113,6 @@ export const createBid = (bid) => async (dispatch) => {
     }
   }
 };
-// export const createBid = (bid, idea) => async (dispatch) => {
-//   try {
-//     const res = await jwtFetch(`/api/bids/ideas/${idea._id}`, {
-//       method: 'POST',
-//       body: JSON.stringify(bid),
-//     });
-//     let newBid = await res.json();
-//     dispatch(receiveBid(newBid));
-//     fetchIdeaBids(idea._id);
-//   } catch (err) {
-//     const resBody = await err.json();
-//     if (resBody.statusCod === 400) {
-//       return dispatch(receiveBidErrors(resBody.errors));
-//     }
-//   }
-// };
 
 export const updateBid = (bid) => async (dispatch) => {
   try {

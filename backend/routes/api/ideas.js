@@ -51,20 +51,17 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.get('/user/:userId', async (req, res, next) => {
-  let user;
   try {
-    user = User.findById(req.params.userId);
-  } catch (error) {
-    const err = new Error('User not found');
-    err.statusCode = 404;
-    err.errors = { message: 'No user with that id found' };
-    return next(err);
-  }
-
-  try {
+    let user = await User.findById(req.params.userId);
+    if (!user) {
+      const err = new Error('User not found');
+      err.statusCode = 404;
+      err.errors = { message: 'No user with that id found' };
+      return next(err);
+    }
     const ideas = await Idea.find({ owner: user._id })
       .sort({ createdAt: -1 })
-      .populate('owner', '_id, username, profileImageUrl')
+      .populate('owner', '_id username profileImageUrl')
       .populate('comments')
       .populate('bids');
     return res.json(ideas);
@@ -72,7 +69,6 @@ router.get('/user/:userId', async (req, res, next) => {
     return res.json([]);
   }
 });
-
 router.post(
   '/',
   multipleMulterUpload('images'),
