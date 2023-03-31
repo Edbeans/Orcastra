@@ -24,6 +24,9 @@ export default function UserIdeas() {
     (idea) => idea.owner._id === userId
   );
 
+  const receivedBids = filteredIdeas.map((idea) => idea.bids);
+
+  const receivedComments = filteredIdeas.map((idea) => idea.comments);
 
   return (
     <>
@@ -64,8 +67,8 @@ export default function UserIdeas() {
                         </div>
                         <div className='usershow-stats'>
                           <div className='usershow-num-ideas'>{`Ideas: ${filteredIdeas.length}`}</div>
-                          <div className='usershow-num-comments'>{`Comments received: ${filteredIdeas.length}`}</div>
-                          <div className='usershow-num-comments'>{`Bids received: PLACEHOLDER`}</div>
+                          <div className='usershow-num-comments'>{`Comments received: ${receivedComments.length}`}</div>
+                          <div className='usershow-num-comments'>{`Bids received: ${receivedBids.length}`}</div>
                         </div>
                       </div>
                     </div>
