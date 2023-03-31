@@ -1,0 +1,17 @@
+.incomplete-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.incomplete-sorry-msg {
+    font-size: 40px;
+}
+
+.incomplete-blurb-msg {
+    font-size: 30px;
+}

@@ -78,9 +78,11 @@ export default function FeedPage() {
                         <select className='feed-filter' data-aos="fade-right" data-aos-duration="1000" onChange={() => setShowIncompleteModal(true)}>
                             <option value="" disabled selected>Filter by:</option>
                             <option value="option1">Most Bids</option>
-                            <option value="option2">Trending</option>
-                            <option value="option3">Newest</option>
-                            <option value="option4">Oldest</option>
+                            <option value="option2">Highest Bid</option>
+                            <option value="option3">Most Viewed</option>
+                            <option value="option4">Most Commented</option>
+                            <option value="option5">Newest</option>
+                            <option value="option6">Oldest</option>
                         </select>
 
                         <div className='feed-background'>
