@@ -2,7 +2,7 @@ import './LoginModal.css';
 import { Modal } from '../../../context/modal';
 import { useContext, useState } from 'react';
 import LoginForm from './LoginForm';
-import { LoginModalContext } from '../../Navigation/Sidebar';
+import { LoginModalContext } from '../../../App';
 
 
 export default function LoginModal() {

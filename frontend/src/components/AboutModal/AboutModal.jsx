@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { AboutModalContext } from "../Splash/Splash"
+import { AboutModalContext } from "../../App"
 import { Modal } from "../../context/modal"
 import './AboutModal.css'
 
