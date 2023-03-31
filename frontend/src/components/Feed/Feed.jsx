@@ -28,6 +28,10 @@ export default function FeedPage() {
         dispatch(fetchIdeas());
     }, [dispatch]);
 
+    function sortByNewest() {
+        
+    }
+
 
     useEffect(() => {
         if (ideas) {

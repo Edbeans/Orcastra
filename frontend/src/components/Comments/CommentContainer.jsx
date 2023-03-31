@@ -29,7 +29,6 @@ export default function CommentContainer({ idea }) {
   if (!comments) return null;
 
   if (!sessionUser) {
-    // console.log(comments);
     return (
       <div className='isp-comments-display'>
         {comments
@@ -66,6 +65,7 @@ export default function CommentContainer({ idea }) {
               className='form-inputs'
               id='create-comment-textbox'
               onChange={(e) => setCommentText(e.target.value)}
+              value={commentText}
               required
             />
             <span className='form-input-labels'>
@@ -86,11 +86,9 @@ export default function CommentContainer({ idea }) {
               (a, b) =>
                 new Date(a.date_created) - new Date(b.date_created)
             )
-            .map((comment) => (
-              // {console.log("test")}
-              // {console.log(comment.text) }
+            .map((comment, idx) => (
               <div>
-                <CommentIndexItem comment={comment} />
+                <CommentIndexItem comment={comment} key={idx} />
               </div>
             ))}
         </div>

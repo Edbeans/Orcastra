@@ -1,15 +1,15 @@
-import { useState } from "react"
-import './Navigation.css'
-import { NavLink } from 'react-router-dom'
-import { navData } from "../../lib/navdata"
+import { useState } from 'react';
+import './Navigation.css';
+import { NavLink } from 'react-router-dom';
+import { navData } from '../../lib/navdata';
 import MenuIcon from '@mui/icons-material/Menu';
-import LoginModal from "../Auth/LoginModal";
-import SignUpModal from "../Auth/SignUpModal";
+import LoginModal from '../Auth/LoginModal';
+import SignUpModal from '../Auth/SignUpModal';
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { logout } from "../../store/session";
+import { logout } from '../../store/session';
 
 import HomeIcon from '@mui/icons-material/Home';
 // import TravelExploreIcon from '@mui/icons-material/TravelExplore';
@@ -22,10 +22,14 @@ import CreateIcon from '@mui/icons-material/Create';
 import SetMealIcon from '@mui/icons-material/SetMeal';
 // import MessageIcon from '@mui/icons-material/Message';
 
-
-
 export const LoginModalContext = React.createContext();
 
+export default function Sidebar({ open, setOpen }) {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  // const [open, setOpen] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
 export default function Sidebar({ open, setOpen }) {
     const dispatch = useDispatch()
@@ -36,23 +40,23 @@ export default function Sidebar({ open, setOpen }) {
 
     const navData = sessionUser ? [
         {
-            id: 0,
-            icon: <HomeIcon />,
-            text: "About",
-            link: "/"
+          id: 0,
+          icon: <HomeIcon />,
+          text: 'About',
+          link: '/',
         },
         {
-            id: 1,
-            icon: <WavesIcon />,
-            text: "Ideas Feed",
-            link: "/feed"
+          id: 1,
+          icon: <WavesIcon />,
+          text: 'Ideas Feed',
+          link: '/feed',
         },
         {
-            id: 2,
+          id: 2,
 
-            icon: <CreateIcon />,
-            text: "Create",
-            link: "/ideas/new"
+          icon: <CreateIcon />,
+          text: 'Create',
+          link: '/ideas/new',
         },
         {
             id: 3,
@@ -63,10 +67,10 @@ export default function Sidebar({ open, setOpen }) {
 
     ] : [
         {
-            id: 0,
-            icon: <HomeIcon />,
-            text: "About",
-            link: "/"
+          id: 0,
+          icon: <HomeIcon />,
+          text: 'About',
+          link: '/',
         },
         {
             id: 1,
