@@ -65,6 +65,7 @@ export default function CommentContainer({ idea }) {
               className='form-inputs'
               id='create-comment-textbox'
               onChange={(e) => setCommentText(e.target.value)}
+              value={commentText}
               required
             />
             <span className='form-input-labels'>
