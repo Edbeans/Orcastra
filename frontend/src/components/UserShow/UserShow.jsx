@@ -28,6 +28,9 @@ export default function UserIdeas() {
 
   const receivedComments = filteredIdeas.map((idea) => idea.comments);
 
+  const numUserBids = user.bids.length;
+  const numUserComments = user.comments.length;
+
   return (
     <>
       <div className='usp'>
