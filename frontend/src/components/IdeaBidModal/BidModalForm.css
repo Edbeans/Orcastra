@@ -7,8 +7,8 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 800px;
-    height: 400px;
+    width: 300px;
+    height: 200px;
     border-radius: 30px;
     box-shadow: 0 8px 16px -1px rgb(0 0 0 / 40%);
 }
@@ -17,4 +17,45 @@
     align-self: center;
     position: relative;
     margin: 20px;
+}
+
+.bid-btn {
+    background-color: white;
+    color: rgb(30 60 90);
+    border-radius: 9999px;
+    /* border: 1px solid, black; */
+    border: 1px solid #d4d4d4;
+    font-family: "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    width: 200px;
+    height: 50px; 
+}
+
+.bid-btn:hover {
+    background-color: rgb(1, 95, 34);
+    color: white; 
+}
+
+.bid-card-input {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px transparent;
+    padding: 15px 0px 10px 15px;
+    transition: border 0.3s ease;
+    color: rgb(1, 86, 40);
+}
+
+.bid-card-input::-webkit-outer-spin-button,
+.bid-card-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

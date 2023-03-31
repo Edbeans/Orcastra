@@ -29,13 +29,14 @@ export default function BidModalForm({ setOpenBidModal, idea }) {
     <div className='bid-card-container'>
       <form className='bid-card' onSubmit={handleSubmit}>
         <input
-          className='cip-card-inputs'
+          className='bid-card-input'
           type='number'
+          placeholder="$"
           value={bidAmount}
           onChange={(e) => setBidAmount(e.target.value)}
         />
 
-        <button>Bid!</button>
+        <button className="bid-btn">Place your bid</button>
       </form>
     </div>
   );
