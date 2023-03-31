@@ -37,10 +37,10 @@ export default function FeedPage() {
 
                 <div className='feed-container'>
 
-                <ModalContext.Provider value={{showIncompleteModal, setShowIncompleteModal}}>
-                    <IncompleteModal />
-                </ModalContext.Provider> 
-                    
+                    <ModalContext.Provider value={{ showIncompleteModal, setShowIncompleteModal }}>
+                        <IncompleteModal />
+                    </ModalContext.Provider>
+
                     <div className='feed-upper-container'>
                         <div className='featured-idea-card' data-aos="fade-right" data-aos-duration="1000">
                             <div className='featured-idea-header'>Today's featured idea:</div>
@@ -75,25 +75,23 @@ export default function FeedPage() {
                     </select>
 
                     <div className='feed-background'>
-                        <div className='feed-page-wrapper'>
-                            <div className='feed-wrapper'>
+                        <div className='feed-wrapper'>
 
-                                {randomizedIdeas.slice(1).map((idea, index) => {
-                                    let ideaIndexOrder;
-                                    if (index % 4 === 0) {
-                                        ideaIndexOrder = 'index-item-order1';
-                                    } else if (index % 4 === 1) {
-                                        ideaIndexOrder = 'index-item-order2';
-                                    } else if (index % 4 === 2) {
-                                        ideaIndexOrder = 'index-item-order3';
-                                    } else {
-                                        ideaIndexOrder = 'index-item-order4';
-                                    }
+                            {randomizedIdeas.slice(1).map((idea, index) => {
+                                let ideaIndexOrder;
+                                if (index % 4 === 0) {
+                                    ideaIndexOrder = 'index-item-order1';
+                                } else if (index % 4 === 1) {
+                                    ideaIndexOrder = 'index-item-order2';
+                                } else if (index % 4 === 2) {
+                                    ideaIndexOrder = 'index-item-order3';
+                                } else {
+                                    ideaIndexOrder = 'index-item-order4';
+                                }
 
-                                    return <IdeaIndexItem idea={idea} ideaIndexOrder={ideaIndexOrder} key={idea.id} />;
-                                })}
+                                return <IdeaIndexItem idea={idea} ideaIndexOrder={ideaIndexOrder} key={idea.id} />;
+                            })}
 
-                            </div>
                         </div>
                     </div>
                 </div>
