@@ -29,8 +29,6 @@ export default function IdeaShowPage() {
   const [currImg, setCurrImg] = useState(0);
 
   function incrementImage() {
-    console.log(currImg);
-    console.log(idea.imageUrls.length - 1);
     if (currImg === idea.imageUrls.length - 1) {
       setCurrImg(0);
     } else {
@@ -39,9 +37,6 @@ export default function IdeaShowPage() {
   }
 
   function decrementImage() {
-    console.log(currImg);
-    console.log(idea.imageUrls.length - 1);
-
     if (currImg === 0) {
       setCurrImg(idea.imageUrls.length - 1);
     } else {
