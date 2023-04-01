@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import './Splash.css';
 import AOS from 'aos';
@@ -27,8 +27,12 @@ const SplashPage = () => {
     // const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext)
     const { showAboutModal, setShowAboutModal } = useContext(AboutModalContext);
     const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext);
-
     
+    useEffect(() => {
+        setShowLoginModal(false)
+        setShowSignUpModal(false)
+    }, [sessionUser])
+
     return (
         <>
             <div className='splash-page-main'>

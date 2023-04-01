@@ -1,6 +1,6 @@
 import './LoginModal.css';
 import { useState, useEffect, useContext } from 'react';
-import { login, clearSessionErrors } from '../../../store/session';
+import { login, clearSessionErrors, getCurrentUser } from '../../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { ModalContext } from '../../Navigation/Sidebar';
 import { padding } from '@mui/system';
@@ -13,7 +13,10 @@ export default function LoginForm(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const errors = useSelector(state => state.errors.session)
+    // const currentUser = useSelector(state => state.session.user)
+
     useEffect(() => {
+
         return () => {
             dispatch(clearSessionErrors());
         };
@@ -26,7 +29,12 @@ export default function LoginForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        
         dispatch(login({ email, password }))
+        // if (currentUser) {
+        //     setShowLoginModal(false)
+        //     setShowSignUpModal(false)
+        // }
     }
 
     return (
@@ -39,7 +47,7 @@ export default function LoginForm(props) {
 
                         <div className='form-input-group'>
                             <input className="form-inputs" type="text" onChange={(e) => setEmail(e.target.value)} required />
-                            <span className="form-input-labels">Username / Email</span>
+                            <span className="form-input-labels">Email</span>
                             <div className='login-errors-wrapper'>
                                 <div className="errors"><h1>{errors?.email}</h1></div>
                             </div>
