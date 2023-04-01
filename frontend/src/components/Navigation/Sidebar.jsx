@@ -10,8 +10,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from '../../store/session';
 import { LoginModalContext } from '../../App';
 import { useContext } from 'react';
+import { useEffect } from 'react';
 
 import HomeIcon from '@mui/icons-material/Home';
+// import LogoIcon from '../../assets/logo-icon.png'
 // import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 // import SettingsIcon from '@mui/icons-material/Settings';
 // import BarChartIcon from '@mui/icons-material/BarChart';
@@ -28,8 +30,6 @@ export default function Sidebar({ open, setOpen }) {
     const sessionUser = useSelector((state) => state.session.user);
     // const [open, setOpen] = useState(false)
     const { showLoginModal, setShowLoginModal, showSignUpModal, setShowSignUpModal } = useContext(LoginModalContext)
-
-
 
     const navData = sessionUser ? [
         {
@@ -81,6 +81,10 @@ export default function Sidebar({ open, setOpen }) {
         dispatch(logout())
     }
 
+    useEffect(() => {
+        setShowLoginModal(false)
+        setShowSignUpModal(false)
+    }, [sessionUser])
 
     return (
         <>

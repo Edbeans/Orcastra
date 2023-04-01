@@ -54,8 +54,6 @@ function App() {
                   <Route exact path='/idea/:ideaId' component={IdeaShowPage} />
                   <ProtectedRoute exact path='/users/:userId/ideas' component={UserShow} />
                   <Route exact path='/' component={Splash} />
-                  <AuthRoute exact path='/login' component={Splash} />
-                  <AuthRoute exact path='/signup' component={Splash} />
                 </Switch>
 
                 <AboutModal />
