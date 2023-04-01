@@ -14,7 +14,6 @@ import { getUser, fetchUser } from '../../store/user';
 export default function UserIdeas() {
   const dispatch = useDispatch();
   const { userId } = useParams();
-  console.log('userId:', userId)
   const ideas = useSelector(getIdeas);
   // const user = useSelector((state) => state.session.user);
   const user = useSelector(state=> state.users)
@@ -34,10 +33,8 @@ export default function UserIdeas() {
 
   
 if (!user) {
-  console.log('searching for user')
   return null
 } else {
-  console.log("USER FOUND:", user)
   const numUserBids = user.bids;
   const numUserComments = user.comments;
 
