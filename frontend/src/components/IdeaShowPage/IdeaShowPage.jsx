@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AOS from 'aos';
 import { fetchIdeaBids, getBids } from '../../store/bid';
+import { timeConversion } from '../../modules/helperFunctions';
 
 export default function IdeaShowPage() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ export default function IdeaShowPage() {
       setCurrImg(currImg + 1);
     }
   }
+  console.log(bids
+    .map((bid) => bid.bidAmount)
+    .sort((a, b) => b - a).map((bid => bid)))
 
   function decrementImage() {
     if (currImg === 0) {
@@ -99,12 +103,18 @@ export default function IdeaShowPage() {
             <div className='hb-container'>
               {/* Get the highest bid of the current idea and the investor who made that bid */}
               <h2 className='hb-data'>
-                CURRENT HIGHEST BID:{' '}
+                CURRENT HIGHEST BID:{' '}$
                 {
                   bids
                     .map((bid) => bid.bidAmount)
                     .sort((a, b) => b - a)[0]
                 }
+                {/* Logged in users can make bids  */}
+                {sessionUser && (
+                  <button className='idea-show-button bid-modal'>
+                    <BidModalButton idea={idea} />
+                  </button>
+                )}
               </h2>
             </div>
 
@@ -140,12 +150,6 @@ export default function IdeaShowPage() {
               </div>
             </div>
             <div className='isp-actions'>
-              {/* Logged in users can make bids  */}
-              {sessionUser && (
-                <button className='idea-show-button'>
-                  <BidModalButton idea={idea} />
-                </button>
-              )}
 
               {sessionUser && sessionUser._id === idea.owner._id ? (
                 <div className='de-btn-container'>
@@ -170,11 +174,28 @@ export default function IdeaShowPage() {
           </div>
         </div>
 
-        <div className='isp-comments-div'>
+        <div className='bids-and-comments'>
+
           <div className='isp-comments-container'>
             <CommentContainer idea={idea} />
           </div>
+
+          <div className="bids-container">
+            {bids.sort((a, b) => b - a).map((bid) => <div className='bid-card'>
+              <img className='bid-user-icon' src={bid.bidder.profileImageUrl} />
+              <div>
+                <div>
+                  {bid.bidder.username}:
+                  ${bid.bidAmount}
+                </div>
+                <div className='bid-created-at'>
+                  {timeConversion(bid.createdAt)}
+                </div>
+              </div>
+            </div>)}
+          </div>
         </div>
+
       </>
     );
   }
