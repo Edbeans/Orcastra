@@ -9,16 +9,20 @@ import { useParams } from 'react-router-dom';
 import UserIdeaIndexItem from './UserIdeaIndexItem';
 import Aos from 'aos';
 import './UserShow.css';
+import { getUser, fetchUser } from '../../store/user';
 
 export default function UserIdeas() {
   const dispatch = useDispatch();
   const { userId } = useParams();
+  console.log('userId:', userId)
   const ideas = useSelector(getIdeas);
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
+  const user = useSelector(state=> state.users)
 
   useEffect(() => {
     dispatch(fetchIdeas());
-  }, [dispatch]);
+    dispatch(fetchUser(userId))
+  }, [dispatch, userId]);
 
   const filteredIdeas = ideas.filter(
     (idea) => idea.owner._id === userId
@@ -28,10 +32,17 @@ export default function UserIdeas() {
 
   const receivedComments = filteredIdeas.map((idea) => idea.comments);
 
+  
+if (!user) {
+  console.log('searching for user')
+  return null
+} else {
+  console.log("USER FOUND:", user)
   const numUserBids = user.bids;
   const numUserComments = user.comments;
 
   return (
+    
     <>
       <div className='usp'>
         <div className='usp-main'>
@@ -84,4 +95,5 @@ export default function UserIdeas() {
       </div>
     </>
   );
+}
 }
