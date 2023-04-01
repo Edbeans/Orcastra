@@ -21,6 +21,8 @@ import WavesIcon from '@mui/icons-material/Waves';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateIcon from '@mui/icons-material/Create';
 import SetMealIcon from '@mui/icons-material/SetMeal';
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 
 
 export default function Sidebar({ open, setOpen }) {
@@ -38,7 +40,7 @@ export default function Sidebar({ open, setOpen }) {
         },
         {
             id: 1,
-            icon: <WavesIcon />,
+            icon: <LightbulbOutlinedIcon />,
             text: 'Ideas Feed',
             link: '/feed',
         },
@@ -51,7 +53,7 @@ export default function Sidebar({ open, setOpen }) {
         },
         {
             id: 3,
-            icon: <SetMealIcon />,
+            icon: <AccountBoxOutlinedIcon />,
             text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
         }
@@ -65,7 +67,7 @@ export default function Sidebar({ open, setOpen }) {
         },
         {
             id: 1,
-            icon: <WavesIcon />,
+            icon: <LightbulbOutlinedIcon />,
             text: "Ideas Feed",
             link: "/feed"
         }
@@ -118,7 +120,7 @@ export default function Sidebar({ open, setOpen }) {
                                 </div>
                             </div>
                             :
-                            <div className='sideitem' onClick={handleLogout} style={{ marginBottom: '60px' }}>
+                            <div className='sideitem' onClick={handleLogout} style={{ marginBottom: '87px' }}>
                                 <div className='item-icon'> <LogoutIcon /><span className='item-icon-tooltip'>Log out</span> </div>
                                 <span className={open ? 'linkText' : 'linkTextClosed'}>Log out</span>
                             </div>
