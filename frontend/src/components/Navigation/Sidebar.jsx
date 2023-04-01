@@ -2,27 +2,27 @@ import { useState } from 'react';
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 import { navData } from '../../lib/navdata';
-import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from '../../store/session';
 import { LoginModalContext } from '../../App';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 
+import LogoIcon from '../../assets/logo-icon.png'
+
+import LoginIcon from '@mui/icons-material/Login';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import HomeIcon from '@mui/icons-material/Home';
-// import LogoIcon from '../../assets/logo-icon.png'
-// import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-// import SettingsIcon from '@mui/icons-material/Settings';
-// import BarChartIcon from '@mui/icons-material/BarChart';
-// import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
 import WavesIcon from '@mui/icons-material/Waves';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateIcon from '@mui/icons-material/Create';
 import SetMealIcon from '@mui/icons-material/SetMeal';
-// import MessageIcon from '@mui/icons-material/Message';
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 
 
 export default function Sidebar({ open, setOpen }) {
@@ -34,13 +34,13 @@ export default function Sidebar({ open, setOpen }) {
     const navData = sessionUser ? [
         {
             id: 0,
-            icon: <HomeIcon />,
+            icon: <img src={LogoIcon} style={{ width: '25px', height: 'auto' }} />,
             text: 'About',
             link: '/',
         },
         {
             id: 1,
-            icon: <WavesIcon />,
+            icon: <LightbulbOutlinedIcon />,
             text: 'Ideas Feed',
             link: '/feed',
         },
@@ -53,7 +53,7 @@ export default function Sidebar({ open, setOpen }) {
         },
         {
             id: 3,
-            icon: <SetMealIcon />,
+            icon: <AccountBoxOutlinedIcon />,
             text: "Profile",
             link: `/users/${sessionUser._id}/ideas`
         }
@@ -61,13 +61,13 @@ export default function Sidebar({ open, setOpen }) {
     ] : [
         {
             id: 0,
-            icon: <HomeIcon />,
+            icon: <img src={LogoIcon} style={{ width: '25px', height: 'auto' }} />,
             text: 'About',
             link: '/',
         },
         {
             id: 1,
-            icon: <WavesIcon />,
+            icon: <LightbulbOutlinedIcon />,
             text: "Ideas Feed",
             link: "/feed"
         }
@@ -93,7 +93,7 @@ export default function Sidebar({ open, setOpen }) {
                 <div className={open ? 'sidenav' : 'sidenavClosed'}>
                     <div>
                         <button className={open ? "menu-buttonOpen" : "menu-button"} onClick={toggleOpen}>
-                            <MenuIcon />
+                            {open ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />}
                         </button>
                         <div className="sideitem-container">
                             {navData.map(item => <NavLink key={item.id} className='sideitem' to={item.link}>
@@ -106,11 +106,21 @@ export default function Sidebar({ open, setOpen }) {
 
                     <div className={open ? 'sideitem-authfunctions-containerOpen' : ""}>
                         {!sessionUser ?
-                            <div className='sideitem' onClick={() => setShowLoginModal(true)}>
-                                <div className='item-icon'><LoginIcon /><span className='item-icon-tooltip'>Login</span></div>
-                                <span className={open ? "linkText" : "linkTextClosed"}>Login</span>
-                            </div> :
-                            <div className='sideitem' onClick={handleLogout}>
+                            <div style = {{ marginBottom: '30px' }}>
+                                <div className='sideitem' onClick={() => setShowLoginModal(true)}>
+                                    <div className='item-icon'>
+                                        <LoginIcon /><span className='item-icon-tooltip'>Login</span></div>
+                                    <span className={open ? "linkText" : "linkTextClosed"}>Login</span>
+                                </div>
+
+                                <div className="sideitem" onClick={() => setShowSignUpModal(true)}>
+                                    <div className='item-icon' >
+                                        <AddCircleIcon /><span className='item-icon-tooltip'>Sign up</span></div>
+                                    <span className={open ? "linkText" : "linkTextClosed"}>Sign up</span>
+                                </div>
+                            </div>
+                            :
+                            <div className='sideitem' onClick={handleLogout} style={{ marginBottom: '87px' }}>
                                 <div className='item-icon'> <LogoutIcon /><span className='item-icon-tooltip'>Log out</span> </div>
                                 <span className={open ? 'linkText' : 'linkTextClosed'}>Log out</span>
                             </div>

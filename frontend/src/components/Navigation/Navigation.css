@@ -46,6 +46,9 @@
     cursor: pointer;
     color: #B2BAC2;
     text-decoration: none;
+
+    border-bottom: 1px solid black;
+    background-color: #040f1d;
 }
 
 .sideitemClosed {
@@ -86,8 +89,9 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding-left: 20px;
-    padding-top: 28px;
+    padding: 28px 20px 20px 20px ;
+    margin-bottom: 10px;
+    animation: move 1s ease-in-out infinite alternate;
 }
 
 .menu-buttonOpen{
@@ -99,7 +103,23 @@
     border: none;
     cursor: pointer;
     padding-left: 20px;
-    /* padding-top: 28px; */
+    margin-bottom: 30px;
+    animation: move 1s ease-in-out infinite alternate;
+}
+
+/* .menu-button:hover,
+.menu-buttonOpen:hover {
+    animation: move 1s ease-in-out infinite alternate;
+} */
+
+@keyframes move {
+    from {
+        transform: translateX(-4px);
+    }
+
+    to {
+        transform: translateX(4px);
+    }
 }
 
 .item-icon .item-icon-tooltip{
