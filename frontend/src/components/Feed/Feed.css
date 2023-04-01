@@ -18,7 +18,7 @@
     background-color: white;
     border-radius: 30px;
     /* height: 450px; */
-    box-shadow: 0 0px 20px -1px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 0px 20px -1px rgba(0, 0, 0, 0.1); */
 }
 
 .featured-idea-card {
@@ -125,7 +125,7 @@
     padding: 10px 20px;
     width: 200px;
     border: none;
-    box-shadow: 0 0px 20px -1px rgb(0 0 0 / 40%);
+    /* box-shadow: 0 0px 20px -1px rgb(0 0 0 / 40%); */
 }
 
 .feed-background {
@@ -133,7 +133,7 @@
     border-radius: 30px;
     height: 100%;
     margin: 0px 0px 80px 0px;
-    box-shadow: 0 0px 20px -1px rgb(0 0 0 / 40%);
+    /* box-shadow: 0 0px 20px -1px rgb(0 0 0 / 10%); */
     display: flex;
     justify-content: center;
 }
