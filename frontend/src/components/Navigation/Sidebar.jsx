@@ -13,7 +13,7 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 
 import HomeIcon from '@mui/icons-material/Home';
-// import LogoIcon from '../../assets/logo-icon.png'
+import LogoIcon from '../../assets/logo-icon.png'
 // import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 // import SettingsIcon from '@mui/icons-material/Settings';
 // import BarChartIcon from '@mui/icons-material/BarChart';
@@ -34,7 +34,7 @@ export default function Sidebar({ open, setOpen }) {
     const navData = sessionUser ? [
         {
             id: 0,
-            icon: <HomeIcon />,
+            icon: <img src={LogoIcon} style={{ width:'25px', height:'auto'}}/>,
             text: 'About',
             link: '/',
         },
@@ -61,7 +61,7 @@ export default function Sidebar({ open, setOpen }) {
     ] : [
         {
             id: 0,
-            icon: <HomeIcon />,
+            icon: <img src={LogoIcon} style={{ width: '25px', height: 'auto' }} />,
             text: 'About',
             link: '/',
         },
