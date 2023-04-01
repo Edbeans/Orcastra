@@ -4,6 +4,7 @@ import sessionReducer from './session';
 import errorsReducer from './errors';
 import ideasReducer from './idea';
 import commentsReducer from './comment';
+import usersReducer from './user';
 import bidsReducer from './bid';
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   errors: errorsReducer,
   ideas: ideasReducer,
   comments: commentsReducer,
-  bids: bidsReducer 
+  bids: bidsReducer,
+  users: usersReducer
 });
 
 let enhancer;

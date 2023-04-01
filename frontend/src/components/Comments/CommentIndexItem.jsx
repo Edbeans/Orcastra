@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './Comments.css';
 import Avatar from '@mui/material/Avatar';
 import { green, red } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 export default function CommentIndexItem({ idea, comment }) {
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ export default function CommentIndexItem({ idea, comment }) {
         <div className='comment-body'>
           <div className='comment-username'>
             <h4>
+              <Link to={`/users/${comment.author._id}/ideas`}>
               {comment.author.username}
+              </Link>
               <span id='time'>
                 {timeConversion(comment.createdAt)}
               </span>
