@@ -9,25 +9,30 @@ export default function Footer() {
 
     return (
         <>
-        <div className="footer-container">
-
+            <div className="footer-container">
                 <div className='footer-slogan'>
                     "Connecting investors of today with creators of tomorrow"
                     <div className='footer-slogan-attribute'>
                         -Dosé
                     </div>
                 </div>
-
-                <img className="footer-logo" src={logo}>
+                <img className="footer-logo" src={logo} >
                 </img>
 
-                <div className="meet-the-team-button">
-                    {/* <button>
+                <div className="footer-links-container">
+
+                    <button className="meet-the-team-button">
                         Test
-                    </button> */}
+                    </button>
                 </div>
 
-        </div>
+                <div className="footer-lower">
+                    <div></div>
+                    <select className="footer-language-dropdown">
+                        <option value="" disabled selected>English (US)</option>
+                    </select>
+                </div>
+            </div>
         </>
     )
 }

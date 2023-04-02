@@ -1,5 +1,7 @@
+
+
 .footer-container {
-    height: 500px;
+    height: auto;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -8,21 +10,12 @@
     box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.5);
 }
 
-.footer-logo {
-    object-fit: cover;
-    object-position: center;
-    max-width: 100px;
-    height: auto;
-    padding-top: 50px;
-}
-
 .footer-slogan {
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom: 50px;
     line-height: 1.5;
-    font-size:34px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 0px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     color: white;
     position: relative;
@@ -35,4 +28,28 @@
     position: absolute;
     right: 0;
     color: white;
+}
+
+.footer-logo {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100px;
+    height: auto;
+    padding: 20px;
+}
+
+.footer-links-container {
+    color: white;
+    width: 880px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.footer-lower {
+    width: 1000px;
+    padding-bottom: 50px;
+    border-top: 1px solid rgb(180, 180, 180);
+    display: flex;
+    justify-content: space-between;
 }
