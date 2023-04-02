@@ -48,10 +48,10 @@ export default function Footer() {
                 <div className="footer-lower-container">
                     <div className="footer-lower">
                         <div className="brand-rights">
-                            2023 Orca, LLC All Rights Reserved
+                            2023 Orcastra, LLC All Rights Reserved
                         </div>
                         <div className="brand-trademark">
-                            ORCA® is a registered trademark of Orca, LLC in the United States as well as certain other jurisdictions.
+                            ORCASTRA® is a registered trademark of Orca, LLC in the United States as well as certain other jurisdictions.
                         </div>
                         <div className="brand-policies">
                             <span className="brand-policies-item" onClick={() => setShowIncompleteModal(true)}>Privacy Policy</span>
