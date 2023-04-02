@@ -42,8 +42,8 @@ export default function AboutModal() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">A design enthusiast with a background in the Aerospace industry, Daniel uses the latest tech to create stylish websites and guarantee enjoyable user experiences.
-                                    In his free time, Daniel enjoys finding new music, hanging out with friends, and being bad at soccer.
+                                <div className="agi-description">A design enthusiast with a background in the Aerospace industry, Daniel strives to use the latest tech to create stylish websites and guarantee enjoyable user experiences.
+                                    In his free time, Daniel enjoys listening to new music, hanging out with friends, and being bad at soccer.
                                 </div>
                             </div>
 

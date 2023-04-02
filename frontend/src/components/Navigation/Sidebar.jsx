@@ -106,7 +106,7 @@ export default function Sidebar({ open, setOpen }) {
 
                     <div className={open ? 'sideitem-authfunctions-containerOpen' : ""}>
                         {!sessionUser ?
-                            <div style = {{ marginBottom: '30px' }}>
+                            <div style = {{ marginBottom: '87px' }}>
                                 <div className='sideitem' onClick={() => setShowLoginModal(true)}>
                                     <div className='item-icon'>
                                         <LoginIcon /><span className='item-icon-tooltip'>Login</span></div>

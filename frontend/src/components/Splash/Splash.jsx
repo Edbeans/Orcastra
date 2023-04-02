@@ -40,7 +40,7 @@ const SplashPage = () => {
                 <div className='splash-section-1'>
 
                     <div className='splash-page-after-nav'>
-                        <div className='splash-page-main-heading'>
+                        <div className='splash-page-main-logo'>
                             <img src={logo} style={{ objectFit: 'cover', objectPosition: 'center' }} >
                             </img>
                         </div>

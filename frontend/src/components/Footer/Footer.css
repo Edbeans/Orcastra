@@ -1,5 +1,5 @@
 .footer-container {
-    height: 500px;
+    height: auto;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -8,21 +8,12 @@
     box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.5);
 }
 
-.footer-logo {
-    object-fit: cover;
-    object-position: center;
-    max-width: 100px;
-    height: auto;
-    padding-top: 50px;
-}
-
 .footer-slogan {
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom: 50px;
     line-height: 1.5;
-    font-size:34px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 0px;
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     color: white;
     position: relative;
@@ -35,4 +26,86 @@
     position: absolute;
     right: 0;
     color: white;
+}
+
+.footer-logo {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100px;
+    height: auto;
+    padding: 20px;
+}
+
+.footer-links-container {
+    color: white;
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.footer-contact-link {
+    font-weight: 200;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-contact-link:hover {
+    cursor: pointer;
+}
+
+.footer-mobileapp-container {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-mobileapp-links {
+    height: 30px;
+    width: auto;
+}
+
+.footer-mobileapp-links:hover {
+    cursor: pointer;
+}
+
+.footer-lower-container {
+    width: 1100px;
+    padding: 20px 0px 50px 0px;
+    border-top: 1px solid rgb(180, 180, 180);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-lower {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.brand-rights{
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.brand-policies {
+    margin-top: 20px;
+}
+
+.brand-policies-item:hover {
+    cursor: pointer;
+}
+
+.footer-language-dropdown {
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 6px 10px;
+    width: 120px;
+    height: 30px;
+    border: none;
 }
