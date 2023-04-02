@@ -43,14 +43,14 @@ export default function Footer() {
                             ORCA® is a registered trademark of Orca, LLC in the United States as well as certain other jurisdictions.
                         </div>
                         <div className="brand-policies">
-                            <span className="brand-policies-item">Privacy Policy</span>
+                            <span className="brand-policies-item" onClick={() => setShowIncompleteModal(true)}>Privacy Policy</span>
                             <span style={{padding:'0px 14px 0px 14px', fontSize: '10px' }}>•</span>
-                            <span className="brand-policies-item">Terms</span>
+                            <span className="brand-policies-item" onClick={() => setShowIncompleteModal(true)}>Terms</span>
                             <span style={{ padding: '0px 14px 0px 14px', fontSize: '10px' }}>•</span>
-                            <span className="brand-policies-item">Cookie Policy</span>
+                            <span className="brand-policies-item" onClick={() => setShowIncompleteModal(true)}>Cookie Policy</span>
                         </div>
                     </div>
-                    <select className="footer-language-dropdown">
+                    <select className="footer-language-dropdown" onClick={() => setShowIncompleteModal(true)}>
                         <option value="" disabled selected>English (US)</option>
                     </select>
                 </div>

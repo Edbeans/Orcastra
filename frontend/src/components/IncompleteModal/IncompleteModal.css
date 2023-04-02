@@ -9,17 +9,17 @@
 }
 
 .incomplete-sorry-msg {
-    font-size: 70px;
+    font-size: 50px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: 20px;
+
 }
 
 .incomplete-blurb-msg {
     margin-top: 10px;
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 1.3;
-    padding: 30px;
+    /* padding: 30px; */
 }

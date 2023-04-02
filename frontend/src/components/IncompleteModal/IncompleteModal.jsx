@@ -13,11 +13,11 @@ export default function IncompleteModal() {
         <>
             {showIncompleteModal && (
                 <Modal onClose={() => setShowIncompleteModal(false)}>
-                    <div className="modal-background" style={{ width: '550px', height: '700px' }}>
+                    <div className="modal-background" style={{ width: '450px', height: '600px' }}>
                         <button className="modal-close-button" onClick={() => setShowIncompleteModal(false)}>&#10005;</button>
                         <div className="incomplete-container">
                             <div className="incomplete-sorry-msg">Blubber!</div>
-                            <img src={cryingorca} style={{ width: '400px', height: 'auto' }}></img>
+                            <img src={cryingorca} style={{ width: '300px', height: 'auto' }}></img>
                             <div className="incomplete-blurb-msg">
                                 <div>
                                     Sorry about this!
