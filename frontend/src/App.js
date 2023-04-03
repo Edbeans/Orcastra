@@ -52,7 +52,7 @@ function App() {
                   <Route exact path='/feed' component={FeedPage} />
                   <ProtectedRoute exact path='/ideas/new' component={CreateIdeaPage} />
                   <Route exact path='/idea/:ideaId' component={IdeaShowPage} />
-                  <ProtectedRoute exact path='/users/:userId/ideas' component={UserShow} />
+                  <Route exact path='/users/:userId/ideas' component={UserShow} />
                   <Route exact path='/' component={Splash} />
                 </Switch>
 
