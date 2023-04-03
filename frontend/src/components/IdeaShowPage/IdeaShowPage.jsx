@@ -182,7 +182,7 @@ export default function IdeaShowPage() {
           </div>
 
           <div className="bids-container">
-            {bids.sort((a, b) => b - a).map((bid) => <div className='bid-card'>
+            {bids.sort((a, b) => a - b).map((bid) => <div className='isp-bid-card'>
               <img className='bid-user-icon' src={bid.bidder.profileImageUrl} />
               <div>
                 <div>
