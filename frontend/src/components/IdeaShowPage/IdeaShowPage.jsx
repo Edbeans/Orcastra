@@ -186,7 +186,7 @@ export default function IdeaShowPage() {
               <img className='bid-user-icon' src={bid.bidder.profileImageUrl} />
               <div>
                 <div>
-                  {bid.bidder.username}:
+                  <Link to={`/users/${bid.bidder._id}/ideas`}>{bid.bidder.username}</Link>:
                   ${bid.bidAmount}
                 </div>
                 <div className='bid-created-at'>
