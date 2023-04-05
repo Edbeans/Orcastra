@@ -65,10 +65,13 @@
 .footer-mobileapp-links {
     height: 30px;
     width: auto;
+    margin-right: 16px;
+    transition: all 0.2s ease-in-out;
 }
 
 .footer-mobileapp-links:hover {
     cursor: pointer;
+    transform: translateY(-7px);
 }
 
 .footer-lower-container {
