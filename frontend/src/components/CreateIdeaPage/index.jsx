@@ -16,9 +16,7 @@ export default function CreateIdeaPage() {
         // formData.append("body", body)
         // dispatch(createIdea(formData))
         const newIdea = {title, body}
-        console.log('attempting submit')
         if (errors && Object.values(errors).length === 0) {
-            console.log('attempting dispatch')
             return dispatch(createIdea(newIdea))
             }
         }

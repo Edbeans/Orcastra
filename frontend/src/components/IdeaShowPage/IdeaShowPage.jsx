@@ -37,9 +37,6 @@ export default function IdeaShowPage() {
       setCurrImg(currImg + 1);
     }
   }
-  console.log(bids
-    .map((bid) => bid.bidAmount)
-    .sort((a, b) => b - a).map((bid => bid)))
 
   function decrementImage() {
     if (currImg === 0) {
