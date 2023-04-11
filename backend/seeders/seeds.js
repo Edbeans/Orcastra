@@ -297,10 +297,6 @@ mongoose
   });
 
 const insertSeeds = () => {
-  console.log('Resetting db and seeding users...');
-  console.log('Resetting db and seeding ideas...');
-  console.log('Resetting db and seeding comments...');
-  console.log('Resetting db and seeding bids...');
   User.collection
     .drop()
     .then(() => Idea.collection.drop())
@@ -311,7 +307,6 @@ const insertSeeds = () => {
     .then(() => Comment.insertMany(comments))
     .then(() => Bid.insertMany(bids))
     .then(() => {
-      console.log('done!');
       mongoose.disconnect();
     })
     .catch((err) => {

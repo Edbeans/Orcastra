@@ -98,7 +98,6 @@ export default function Sidebar({ open, setOpen }) {
                         <div className="sideitem-container">
                             {navData.map(item => <NavLink key={item.id} className='sideitem' to={item.link}>
                                 <div className="item-icon">{item.icon}<span className='item-icon-tooltip'>{item.text}</span></div>
-                                {/* {console.log(open)} */}
                                 <span className={open ? 'linkText' : 'linkTextClosed'}>{item.text}</span>
                             </NavLink>)}
                         </div>
