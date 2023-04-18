@@ -85,6 +85,8 @@ router.post(
         title: req.body.title,
         body: req.body.body,
         imageUrls,
+        bids: req.body.bids,
+        comments: req.body.comments,
       });
 
       let idea = await newIdea.save();
