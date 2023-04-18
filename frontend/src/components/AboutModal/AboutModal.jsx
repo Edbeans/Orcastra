@@ -155,7 +155,7 @@ export default function AboutModal() {
                   Music enthusiast that is passionate about creating
                   dynamic and innovative web applications. Outside of
                   programming, Omar loves exercising, playing soccer,
-                  and networking.
+                  and networking with others.
                 </div>
               </div>
 
