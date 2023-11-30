@@ -28,7 +28,7 @@ export default function AboutModal() {
                                     <img src={danielHeadshot}></img>
                                     <div className="agi-header">
                                         <h1>Daniel Liem</h1>
-                                        <h2>Front End Lead</h2>
+                                        <h2>Flex Developer</h2>
                                         <div className="agi-contact">
                                             <a href="https://github.com/danielliem49" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
                                                 <img src={github} alt="Github Link" />
@@ -77,7 +77,7 @@ export default function AboutModal() {
                                     <img src={profilepic}></img>
                                     <div className="agi-header">
                                         <h1>Omar Camacho</h1>
-                                        <h2>Front End Lead</h2>
+                                        <h2>Back End Lead</h2>
                                         <div className="agi-contact">
                                             <a href="https://github.com/danielliem49" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
                                                 <img src={github} alt="Github Link" />
@@ -101,19 +101,20 @@ export default function AboutModal() {
                                         <h1>Stephen Wong</h1>
                                         <h2>Front End Lead</h2>
                                         <div className="agi-contact">
-                                            <a href="https://github.com/danielliem49" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
+                                            <a href="https://github.com/stephenmdw" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }}>
                                                 <img src={github} alt="Github Link" />
                                             </a>
-                                            <a href="https://www.linkedin.com/in/danielliem49/" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }} >
+                                            <a href="https://www.linkedin.com/in/stephen-wong-6655a716b/" target="_blank" rel="noopener noreferrer" style={{ filter: 'invert(1)' }} >
                                                 <img src={linkedin} alt="LinkedIn Link" />
                                             </a>
-                                            <a href="https://danielliem49.github.io/" target="_blank" rel="noopener noreferrer">
+                                            <a href="https://stephenmdw.github.io/portfolio-site/" target="_blank" rel="noopener noreferrer">
                                                 <img src={portfolio} alt="Portfolio Link" />
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="agi-description">About yourself or project duties go here?</div>
+                                <div className="agi-description">Stephen is a dedicated software engineer who is driven by the potential of technology to solve real-world challenges and create innovative solutions. He's an avid- albeit amateur - cook who loves exploring and experiencing new cultures and cuisines who also enjoy hiking, reading, and spending time with his friends and family.
+</div>
                             </div>
                         </div>
                     </div>
